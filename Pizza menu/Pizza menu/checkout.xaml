@@ -1,0 +1,30 @@
+﻿<Window x:Class="Pizza_menu.Checkout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pizza_menu"
+        mc:Ignorable="d"
+        Title="checkout" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dtg_BuyingList_Buy" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="265,0,34,149" AutoGenerateColumns="false">
+            <DataGrid.Columns>
+            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+            <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+            <DataGridTemplateColumn Header="Description">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+          </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Last chance to go back if you want and edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_GoBack" Content="GO Back to order page" HorizontalAlignment="Left" Margin="135,265,0,0" VerticalAlignment="Top" Click="btn_GoBack_Click"/>
+        <Button x:Name="btn_CheckoutBuy" Content="BUY" HorizontalAlignment="Left" Margin="270,331,0,0" VerticalAlignment="Top" Click="btn_CheckoutBuy_Click"/>
+        <TextBox x:Name="tb_PriceCheckout" HorizontalAlignment="Left" Margin="306,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="265,300,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
