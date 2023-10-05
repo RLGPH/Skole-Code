@@ -185,7 +185,7 @@ namespace Pizza_menu
             {
                 // Retrieve the selected pizza's toppings
                 selectedPizzaToppings = selectedPizza.Toppings;
-
+                
                 // Transfer data from the main window to the custom pizza window
                 Custom_Pizza customPizzaWindow = new Custom_Pizza(availableToppings, selectedPizza, selectedPizzaToppings, Cart);
                 customPizzaWindow.ShowDialog();
@@ -223,14 +223,14 @@ namespace Pizza_menu
     }
     public class ToppingsItem
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-
+        public int Quantity {  get; set; }
         public ToppingsItem(string Name, double Price)
         {
             this.Name = Name;
             this.Price = Price;
+            this.Quantity = Quantity;
         }
     }
 

@@ -15,11 +15,19 @@ using System.Windows.Shapes;
 
 namespace Pizza_menu
 {
-    /// <summary>
-    /// Interaction logic for Custom_Pizza.xaml
-    /// </summary>
-    public partial class Custom_Pizza : Window
+    // <summary>
+    // Interaction logic for Custom_Pizza.xaml
+    // </summary>
+    /*public class CombindeToppings
     {
+        public ObservableCollection<SelectedTopping> SelectedToppings { get; set; }
+        public CombindeToppings() 
+        {
+            var Combindetoppings = SelectedToppings + selectedPizzaToppings;
+        }
+    }*/    
+    public partial class Custom_Pizza : Window
+     {
 
         //used to get the pizza list and the selcted pizza
         public PizzaItem SelectedPizza { get; set; }
@@ -44,11 +52,21 @@ namespace Pizza_menu
             CartItems = cartItems;
             this.SelectedPizzaToppings = selectedPizzaToppings ?? availableToppings;
 
+            foreach (var selectedTopping in selectedPizzaToppings)
+            {
+                SelectedToppings.Add(new SelectedTopping
+                {
+                    Topping = selectedTopping,
+                    Quantity = 1,
+                    TotalPrice = selectedTopping.Price
+                });
+            }
+
             //tells where everything has to be displayed
             dtg_Toppings.ItemsSource = availableToppings;
             tb_Selected_pizza.Text = selectedPizza.Name;
-            dtg_PizzaWToppings.ItemsSource = SelectedPizzaToppings;
             dtg_PizzaWToppings.ItemsSource = SelectedToppings;
+            
 
             //C2 will format the Pizzas price to if your computer is danish say DKK with a 2 decimal point
             //Meaning C2 means System currency and the 2 decimals
@@ -60,7 +78,7 @@ namespace Pizza_menu
             if (dtg_Toppings.SelectedItem is ToppingsItem selectedTopping)
             {
                 // Check if the topping is already in the selected toppings collection
-                var existingTopping = SelectedToppings.FirstOrDefault(t => t.Topping == selectedTopping);
+                var existingTopping = SelectedToppings.FirstOrDefault(t => t.Topping.Name == selectedTopping.Name);
 
                 if (existingTopping != null)
                 {
@@ -79,7 +97,7 @@ namespace Pizza_menu
                         TotalPrice = selectedTopping.Price
                     };
                     // If the topping does not exist, add it to the collection with a quantity of 1
-                    SelectedToppings.Add(new SelectedTopping { Topping = selectedTopping, Quantity = 1 });
+                    SelectedToppings.Add(newTopping);
                 }
 
                 // Calculate the updated price by summing the prices of all selected toppings
@@ -87,17 +105,17 @@ namespace Pizza_menu
 
                 // Update the TextBox with the updated price
                 tb_price_custom.Text = updatedPrice.ToString("C2");
-            }
-            else
-            {
+                dtg_PizzaWToppings.ItemsSource = null;
+                dtg_PizzaWToppings.ItemsSource = SelectedToppings;
             }
         }
+
         private void btn_Remove_Topping_Click(object sender, RoutedEventArgs e)
         {
             if (dtg_PizzaWToppings.SelectedItem is SelectedTopping selectedTopping)
             {
                 // Check if the topping exists in the collection
-                var existingTopping = SelectedToppings.FirstOrDefault(t => t.Topping == selectedTopping.Topping);
+                var existingTopping = SelectedToppings.FirstOrDefault(t => t.Topping.Name == selectedTopping.Topping.Name);
 
                 if (existingTopping != null)
                 {
@@ -115,8 +133,9 @@ namespace Pizza_menu
 
                 // Update the TextBox with the updated price
                 tb_price_custom.Text = updatedPrice.ToString("C2");
+                dtg_PizzaWToppings.ItemsSource = null;
+                dtg_PizzaWToppings.ItemsSource = SelectedToppings;
             }
-
         }
         //go back without saveing
         private void btn_GoBack_Click(object sender, RoutedEventArgs e)

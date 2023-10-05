@@ -44,3 +44,27 @@ C:\Users\Casper s. jensen\Desktop\Skole\Skoleoplæring Kode\Pizza menu\Pizza men
 C:\Users\Casper s. jensen\Desktop\Skole\Skoleoplæring Kode\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.csproj.CoreCompileInputs.cache
 C:\Users\Casper s. jensen\Desktop\Skole\Skoleoplæring Kode\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.genruntimeconfig.cache
 C:\Users\Casper s. jensen\Desktop\Skole\Skoleoplæring Kode\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\ref\Pizza menu.dll
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\bin\Debug\net7.0-windows\Pizza menu.exe
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\bin\Debug\net7.0-windows\Pizza menu.deps.json
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\bin\Debug\net7.0-windows\Pizza menu.runtimeconfig.json
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\bin\Debug\net7.0-windows\Pizza menu.dll
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\bin\Debug\net7.0-windows\Pizza menu.pdb
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\checkout.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Custom Pizza.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\MainWindow.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\App.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu_MarkupCompile.cache
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu_MarkupCompile.lref
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\checkout.baml
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Custom Pizza.baml
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\MainWindow.baml
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.g.resources
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.AssemblyInfoInputs.cache
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.AssemblyInfo.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.csproj.CoreCompileInputs.cache
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.dll
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\refint\Pizza menu.dll
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.pdb
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\Pizza menu.genruntimeconfig.cache
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Pizza menu\Pizza menu\obj\Debug\net7.0-windows\ref\Pizza menu.dll
