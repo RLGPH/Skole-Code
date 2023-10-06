@@ -38,13 +38,13 @@ namespace Pizza_menu
         {
             InitializeComponent();
             //toppings items
-            availableToppings.Add(new ToppingsItem("mozzarella cheese", 1.49));
-            availableToppings.Add(new ToppingsItem("tomato source", 1.49));
+            availableToppings.Add(new ToppingsItem("mozzarella cheese", 6.49));
+            availableToppings.Add(new ToppingsItem("tomato source", 6.49));
             availableToppings.Add(new ToppingsItem("Mushrooms 5-6", 7.49));
             availableToppings.Add(new ToppingsItem("Pepperoni 10-15", 8.99));
-            availableToppings.Add(new ToppingsItem("1 Green Peppers", 6.49));
+            availableToppings.Add(new ToppingsItem("1 Green Peppers", 7.49));
             availableToppings.Add(new ToppingsItem("Black Olives 5-10", 7.29));
-            availableToppings.Add(new ToppingsItem("1/2 Onion", 5.99));
+            availableToppings.Add(new ToppingsItem("1/2 Onion", 8.99));
             availableToppings.Add(new ToppingsItem("Sausage 10-20 sliceses", 9.49));
             availableToppings.Add(new ToppingsItem("Bacon 20-30 pieces", 10.99));
             availableToppings.Add(new ToppingsItem("Pineapple 10-15 pieces", 6.79));
