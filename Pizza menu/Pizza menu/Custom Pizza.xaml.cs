@@ -52,6 +52,7 @@ namespace Pizza_menu
             CartItems = cartItems;
             this.SelectedPizzaToppings = selectedPizzaToppings ?? availableToppings;
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             foreach (var selectedTopping in selectedPizzaToppings)
             {
                 SelectedToppings.Add(new SelectedTopping
@@ -61,6 +62,7 @@ namespace Pizza_menu
                     TotalPrice = selectedTopping.Price
                 });
             }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
             //tells where everything has to be displayed
             dtg_Toppings.ItemsSource = availableToppings;
