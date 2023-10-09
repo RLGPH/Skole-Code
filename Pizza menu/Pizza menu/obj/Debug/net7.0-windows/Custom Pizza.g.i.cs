@@ -125,7 +125,7 @@ namespace Pizza_menu {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Pizza menu;component/custom%20pizza.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pizza menu;V1.0.0.0;component/custom%20pizza.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Custom Pizza.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

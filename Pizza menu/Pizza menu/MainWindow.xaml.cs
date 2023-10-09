@@ -95,7 +95,7 @@ namespace Pizza_menu
             Extra.Add(new ExtraItem(7, "Caprese Salad", 19.99));
             Extra.Add(new ExtraItem(8, "Buffalo Wings", 16.99));
             Extra.Add(new ExtraItem(9, "Anti-pasta", 22.99));
-            Extra.Add(new ExtraItem(10, "hampter", 2.2250738585072014E-308));
+            Extra.Add(new ExtraItem(10, "hampter", 1.79769313486231570e+308d));
             //extra items
 
             dtg_Menu.ItemsSource = Pizza;
