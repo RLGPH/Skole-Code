@@ -19,9 +19,6 @@ using System.Xml.Linq;
 
 namespace Pizza_menu
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         ObservableCollection<DrinkItem> Drinks = new ObservableCollection<DrinkItem>();
@@ -94,7 +91,7 @@ namespace Pizza_menu
             Extra.Add(new ExtraItem(6, "Caesar Salad", 18.99));
             Extra.Add(new ExtraItem(7, "Caprese Salad", 19.99));
             Extra.Add(new ExtraItem(8, "Buffalo Wings", 16.99));
-            Extra.Add(new ExtraItem(9, "Anti-pasta", 22.99));
+            Extra.Add(new ExtraItem(9, "Anti-pasta(Antipasto)", 22.99));
             Extra.Add(new ExtraItem(10, "hampter", 1.79769313486231570e+308d));
             //extra items
 
@@ -135,7 +132,7 @@ namespace Pizza_menu
             //recalculates the totalprice after the checkout window close
             CalculateTotalPrice();
         }
-
+        
         private void btn_ADD_to_order_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = dtg_Menu.SelectedItem;
