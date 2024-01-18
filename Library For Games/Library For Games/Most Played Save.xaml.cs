@@ -23,5 +23,16 @@ namespace Library_For_Games
         {
             InitializeComponent();
         }
+
+        private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void BTN_ADD_Click(object sender, RoutedEventArgs e)
+        {
+            Add_to_library add_to_library = new();
+            add_to_library.Show();
+        }
     }
 }

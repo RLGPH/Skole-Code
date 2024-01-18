@@ -25,5 +25,16 @@ namespace Library_For_Games
             InitializeComponent();
         }
 
+        private void BTN_LIBRARY_Click(object sender, RoutedEventArgs e)
+        {
+            Most_Played_Save most_Played_Save = new();
+            most_Played_Save.Show();
+        }
+
+        private void BTN_ADD_TO_Click(object sender, RoutedEventArgs e)
+        {
+            Add_to_library add_to_library = new();
+            add_to_library.Show();
+        }
     }
 }

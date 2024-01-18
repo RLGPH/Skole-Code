@@ -23,5 +23,10 @@ namespace Library_For_Games
         {
             InitializeComponent();
         }
+
+        private void BTN_Close_without_Save_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
