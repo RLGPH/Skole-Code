@@ -85,7 +85,7 @@ namespace Library_For_Games {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library For Games;component/add%20to%20library.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library For Games;V1.0.0.0;component/add%20to%20library.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Add to library.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
