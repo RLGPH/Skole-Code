@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Library_For_Games
 {
+    
     public class Database
     {
     }
 
     public class DAL 
     {
-        ObservableCollection<Games>? games;
 
     }
 }

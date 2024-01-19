@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,13 @@ namespace Library_For_Games
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<Games> game;
         public MainWindow()
         {
             InitializeComponent();
+
         }
+        
 
         private void BTN_LIBRARY_Click(object sender, RoutedEventArgs e)
         {
