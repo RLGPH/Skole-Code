@@ -28,5 +28,15 @@ namespace Library_For_Games
         {
             Close();
         }
+
+        private void BTN_Close_and_save_Click(object sender, RoutedEventArgs e)
+        {
+            string Gamename = TB_Game_Name.Text;
+            string Gamedescrip = TB_DESCRIPTION.Text;
+            int Gamehours = int.Parse(TB_Hours_Played.Text);
+            int GameID = 1;
+            int FkeyID = 1;
+            Game_S games = new(GameID,Gamename,Gamedescrip,Gamehours,FkeyID);
+        }
     }
 }

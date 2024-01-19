@@ -15,10 +15,10 @@
         <CheckBox Content="EpicGames" HorizontalAlignment="Left" Margin="126,57,0,0" VerticalAlignment="Top"/>
         <CheckBox Content="Other" HorizontalAlignment="Left" Margin="209,77,0,0" VerticalAlignment="Top"/>
         <Label Content="which library its in" HorizontalAlignment="Left" Margin="0,58,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="146,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="95"/>
+        <TextBox x:Name="TB_DESCRIPTION" HorizontalAlignment="Left" Margin="146,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="95"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="61,117,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="13,150,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click"/>
-        <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="13,183,0,0" VerticalAlignment="Top" Height="28" Width="118"/>
+        <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="13,183,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_and_save_Click"/>
 
     </Grid>
 </Window>

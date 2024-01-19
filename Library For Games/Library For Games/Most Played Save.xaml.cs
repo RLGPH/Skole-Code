@@ -23,8 +23,7 @@ namespace Library_For_Games
         Game_S game_s;
         public Most_Played_Save()
         {
-            InitializeComponent();
-            List<Game_S> game_s =Database.; 
+            InitializeComponent(); 
         }
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
