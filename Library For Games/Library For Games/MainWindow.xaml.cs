@@ -21,19 +21,16 @@ namespace Library_For_Games
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        public ObservableCollection<Game_S> games = new();
-
+        Game_S game_s;
         public MainWindow()
         {
             InitializeComponent();
-            games = new ObservableCollection<Game_S>();
-            games.Add(new Game_S(1,"warframe","blablabla",1000,1));
         }
 
 
         private void BTN_LIBRARY_Click(object sender, RoutedEventArgs e)
         {
+            Game_S game_S = new(1, "Warframe", "Blablabla", 1000, 1);
             Most_Played_Save most_Played_Save = new();
             most_Played_Save.Show();
         }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Library_For_Games
 {
+    public List<Game_S> videogames = new();
     public class Database
     {
-
     }
 }
