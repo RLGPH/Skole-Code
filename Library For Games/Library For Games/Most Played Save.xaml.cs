@@ -21,11 +21,14 @@ namespace Library_For_Games
     public partial class Most_Played_Save : Window
     {
         public Database _database;
-        public ObservableCollection<Game_S> games;
+        public List<Game_S> games;
         public Most_Played_Save()
         {
             InitializeComponent();
+            _database.GetGames();
+            games = _database.GetGames();
 
+            DTG_Games.ItemsSource = games;
         }
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)

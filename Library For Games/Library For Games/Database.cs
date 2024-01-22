@@ -12,12 +12,12 @@ namespace Library_For_Games
     
     public class Database
     {
-        public ObservableCollection<Game_S> Games = new();
-        public ObservableCollection<Game_S> GameAddlist(Game_S game)
+        public List<Game_S>? Gamesdatabase;
+        public List<Game_S> GameAddlist(Game_S game)
         {
-            if(Games == null) 
+            if(Gamesdatabase == null) 
             {
-                Games = new ObservableCollection<Game_S>();
+                Gamesdatabase = new List<Game_S>();
             }
 
             int GameID = game.ID;
@@ -26,9 +26,22 @@ namespace Library_For_Games
             int GHours = game.Hours;
             int FkeyID = game.ForignkeyID;
             Game_S game_S = new(GameID, GName, GDescrip, GHours, FkeyID);
-            Games.Add(game_S);
-            return Games;
+            Gamesdatabase.Add(game_S);
+            return Gamesdatabase;
         }
+
+        public List<Game_S> GetGames()
+        {
+            if (Gamesdatabase == null) 
+            {
+            }
+            else
+            {
+                
+            }
+            return Gamesdatabase;
+        }
+
         public void LibraryADD(Library library)
         { 
             int ID = library.ID;
