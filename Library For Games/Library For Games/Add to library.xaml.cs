@@ -39,6 +39,7 @@ namespace Library_For_Games
             int FkeyID = 1;
             Game_S games = new(GameID,Gamename,Gamedescrip,Gamehours,FkeyID);
             database.GameAddList(games);
+            Close();
         }
     }
 }

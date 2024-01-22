@@ -4,16 +4,18 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Xml.Linq;
 
 namespace Library_For_Games
 {
     
-    public class Database
-    {
-        public List<Game_S> game_s = new();
-        public List<Game_S> GameAddList(Game_S game) 
+    public partial class Database
+    { 
+        public ObservableCollection<Game_S> game_s = new();
+        public ObservableCollection<Game_S> GameAddList(Game_S game) 
         {
-            game_s = new List<Game_S>();
+            game_s = new ObservableCollection<Game_S>();
 
             int GameID = game.ID;
             string GName = game.Name;
@@ -23,6 +25,9 @@ namespace Library_For_Games
             Game_S game_S = new(GameID, GName, GDescrip, GHours, FkeyID);
             game_s.Add(game_S);
             return game_s;
+        }
+        public void GetAllGames()
+        { 
         }
     }
 }

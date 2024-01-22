@@ -21,6 +21,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class MainWindow : Window
     {
+        Database database;
         public MainWindow()
         {
             InitializeComponent();
