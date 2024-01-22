@@ -25,14 +25,7 @@ namespace Library_For_Games
         public Most_Played_Save()
         {
             InitializeComponent();
-            if (_database == null)
-            {
-            }
-            else
-            {
-                games = _database.game_s;
-                DTG_Games.ItemsSource = games;
-            }
+
         }
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)

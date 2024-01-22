@@ -10,12 +10,15 @@ using System.Xml.Linq;
 namespace Library_For_Games
 {
     
-    public partial class Database
-    { 
-        public ObservableCollection<Game_S> game_s = new();
-        public ObservableCollection<Game_S> GameAddList(Game_S game) 
+    public class Database
+    {
+        public ObservableCollection<Game_S> Games = new();
+        public ObservableCollection<Game_S> GameAddlist(Game_S game)
         {
-            game_s = new ObservableCollection<Game_S>();
+            if(Games == null) 
+            {
+                Games = new ObservableCollection<Game_S>();
+            }
 
             int GameID = game.ID;
             string GName = game.Name;
@@ -23,11 +26,15 @@ namespace Library_For_Games
             int GHours = game.Hours;
             int FkeyID = game.ForignkeyID;
             Game_S game_S = new(GameID, GName, GDescrip, GHours, FkeyID);
-            game_s.Add(game_S);
-            return game_s;
+            Games.Add(game_S);
+            return Games;
         }
-        public void GetAllGames()
+        public void LibraryADD(Library library)
         { 
+            int ID = library.ID;
+            bool Epic = library.Epic;
+            bool Steam = library.Steam;
+            bool Other = library.Other;
         }
     }
 }

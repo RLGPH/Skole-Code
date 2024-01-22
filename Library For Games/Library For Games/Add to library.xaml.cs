@@ -38,7 +38,13 @@ namespace Library_For_Games
             int GameID = 1;
             int FkeyID = 1;
             Game_S games = new(GameID,Gamename,Gamedescrip,Gamehours,FkeyID);
-            database.GameAddList(games);
+            database.GameAddlist(games);
+            bool steam = (bool)CHB_Steam.IsChecked;
+            bool epic = (bool)CHB_Epic.IsChecked;
+            bool other = (bool)CHB_Other.IsChecked;
+            Library library = new(FkeyID,epic,steam,other);
+
+
             Close();
         }
     }

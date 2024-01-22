@@ -9,10 +9,10 @@ namespace Library_For_Games
     public class Library
     {
         public int ID { get; set; }
-        public int Epic {  get; set; }
-        public int Steam { get; set; }
-        public int Other {  get; set; }
-        public Library(int id,int epic, int steam,int other) 
+        public bool Epic {  get; set; }
+        public bool Steam { get; set; }
+        public bool Other {  get; set; }
+        public Library(int id,bool epic, bool steam,bool other) 
         { 
             ID = id;
             Epic = epic;

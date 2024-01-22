@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="265" Width="277">
     <Grid>
-        <Label Content="Library of games" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="44" Width="185" FontSize="22"/>
+        <Label Content="Library for games" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="44" Width="185" FontSize="22"/>
         <Button x:Name="BTN_LIBRARY" Content="Library" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="50" Width="134" FontSize="20" Click="BTN_LIBRARY_Click"/>
         <Button x:Name="BTN_ADD_TO" Content="Add to library" Margin="10,134,0,0" Width="134" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Click="BTN_ADD_TO_Click"/>
 
