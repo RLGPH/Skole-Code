@@ -22,3 +22,4 @@ C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For 
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Library For Games.pdb
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Library For Games.genruntimeconfig.cache
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\ref\Library For Games.dll
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Library For Games.sourcelink.json

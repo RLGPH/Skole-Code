@@ -20,10 +20,13 @@ namespace Library_For_Games
     /// </summary>
     public partial class Most_Played_Save : Window
     {
-        Game_S game_s;
+        public Database _database = new();
+        readonly List<Game_S> games = new();
         public Most_Played_Save()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+             games = _database.game_s;
+            DTG_Games.ItemsSource = games;
         }
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)

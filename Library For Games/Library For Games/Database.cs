@@ -14,6 +14,7 @@ namespace Library_For_Games
         public List<Game_S> GameAddList(Game_S game) 
         {
             game_s = new List<Game_S>();
+
             int GameID = game.ID;
             string GName = game.Name;
             string GDescrip = game.Description;

@@ -21,7 +21,6 @@ namespace Library_For_Games
     /// </summary>
     public partial class MainWindow : Window
     {
-        Game_S game_s;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +29,6 @@ namespace Library_For_Games
 
         private void BTN_LIBRARY_Click(object sender, RoutedEventArgs e)
         {
-            Game_S game_S = new(1, "Warframe", "Blablabla", 1000, 1);
             Most_Played_Save most_Played_Save = new();
             most_Played_Save.Show();
         }

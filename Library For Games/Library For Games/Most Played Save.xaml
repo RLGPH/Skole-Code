@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Most_Played_Save" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="CB_Games" d:ItemsSource="{d:SampleData ItemCount=5}" Height="249" VerticalAlignment="Top" Margin="10,45,10,0"/>
+        <DataGrid x:Name="DTG_Games" d:ItemsSource="{d:SampleData ItemCount=5}" Height="249" VerticalAlignment="Top" Margin="10,45,10,0"/>
         <ComboBox HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119"/>
         <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="96,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click"/>

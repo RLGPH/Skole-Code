@@ -19,6 +19,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class Add_to_library : Window
     {
+        public Database database = new();
         public Add_to_library()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace Library_For_Games
             int GameID = 1;
             int FkeyID = 1;
             Game_S games = new(GameID,Gamename,Gamedescrip,Gamehours,FkeyID);
+            database.GameAddList(games);
         }
     }
 }
