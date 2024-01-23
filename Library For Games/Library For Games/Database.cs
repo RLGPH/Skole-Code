@@ -21,15 +21,15 @@ namespace Library_For_Games
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
-            using SqlCommand cmd = connection.CreateCommand();
+            string SQL = "INSERT INTO Game (GName,GDescription,GHours,Fkey)" +
+                         "VAUES(@GName,@GDescription,@GHours,@Fkey)SELECT SCOPE_IDENTITY()";
 
-            int GameID = game.ID;
-            string GName = game.Name;
-            string GDescrip = game.Description;
-            int GHours = game.Hours;
-            int FkeyID = game.ForignkeyID;
-            Game_S game_S = new(GameID, GName, GDescrip, GHours, FkeyID);
-
+            using SqlCommand cmd = new(SQL, connection);
+            cmd.Parameters.AddWithValue("@GName",game.Name);
+            cmd.Parameters.AddWithValue("@GDescription",game.Description);
+            cmd.Parameters.AddWithValue("@GHours",game.Hours);
+            cmd.Parameters.AddWithValue("@Fkey",game.ForignkeyID);
+            
             connection.Close();
         }
 
