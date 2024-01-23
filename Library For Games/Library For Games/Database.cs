@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Xml.Linq;
+using System.Data.SqlClient;
 
 namespace Library_For_Games
 {
@@ -14,14 +15,13 @@ namespace Library_For_Games
     public class Database
     {
         public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True; Trust Server Certificate=True";
-
-        public List<Game_S>? GamesDatabase;
-        public List<Game_S> GameAddlist(Game_S game)
+        
+        public void GameAddlist(Game_S game)
         {
-            if(GamesDatabase == null) 
-            {
-                GamesDatabase = new List<Game_S>();
-            }
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
+            using SqlCommand cmd = connection.CreateCommand();
 
             int GameID = game.ID;
             string GName = game.Name;
@@ -29,13 +29,10 @@ namespace Library_For_Games
             int GHours = game.Hours;
             int FkeyID = game.ForignkeyID;
             Game_S game_S = new(GameID, GName, GDescrip, GHours, FkeyID);
-            GamesDatabase.Add(game_S);
-            return GamesDatabase;
+
+            connection.Close();
         }
-        public List<Game_S> GetGames(Game_S game_S)
-        {   
-            return GamesDatabase;
-        }
+
         public void LibraryADD(Library library)
         { 
             int ID = library.ID;

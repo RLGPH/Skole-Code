@@ -101,7 +101,7 @@ namespace Library_For_Games {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library For Games;component/most%20played%20save.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library For Games;V1.0.0.0;component/most%20played%20save.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Most Played Save.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
