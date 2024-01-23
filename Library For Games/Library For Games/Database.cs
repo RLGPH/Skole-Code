@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using System.Xml.Linq;
 
 namespace Library_For_Games
@@ -12,12 +13,14 @@ namespace Library_For_Games
     
     public class Database
     {
-        public List<Game_S>? Gamesdatabase;
+        public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True; Trust Server Certificate=True";
+
+        public List<Game_S>? GamesDatabase;
         public List<Game_S> GameAddlist(Game_S game)
         {
-            if(Gamesdatabase == null) 
+            if(GamesDatabase == null) 
             {
-                Gamesdatabase = new List<Game_S>();
+                GamesDatabase = new List<Game_S>();
             }
 
             int GameID = game.ID;
@@ -26,12 +29,12 @@ namespace Library_For_Games
             int GHours = game.Hours;
             int FkeyID = game.ForignkeyID;
             Game_S game_S = new(GameID, GName, GDescrip, GHours, FkeyID);
-            Gamesdatabase.Add(game_S);
-            return Gamesdatabase;
+            GamesDatabase.Add(game_S);
+            return GamesDatabase;
         }
         public List<Game_S> GetGames(Game_S game_S)
         {   
-            return Gamesdatabase;
+            return GamesDatabase;
         }
         public void LibraryADD(Library library)
         { 
