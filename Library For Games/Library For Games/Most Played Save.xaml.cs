@@ -22,11 +22,11 @@ namespace Library_For_Games
     {
         public Database _database;
         public List<Game_S> games;
+        public Game_S _game;
         public Most_Played_Save()
         {
             InitializeComponent();
-            _database.GetGames();
-            games = _database.GetGames();
+            
 
             DTG_Games.ItemsSource = games;
         }

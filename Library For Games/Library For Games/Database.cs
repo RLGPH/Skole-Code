@@ -29,19 +29,10 @@ namespace Library_For_Games
             Gamesdatabase.Add(game_S);
             return Gamesdatabase;
         }
-
-        public List<Game_S> GetGames()
-        {
-            if (Gamesdatabase == null) 
-            {
-            }
-            else
-            {
-                
-            }
+        public List<Game_S> GetGames(Game_S game_S)
+        {   
             return Gamesdatabase;
         }
-
         public void LibraryADD(Library library)
         { 
             int ID = library.ID;
