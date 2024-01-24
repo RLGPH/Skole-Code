@@ -57,5 +57,19 @@ namespace Library_For_Games
             library.ID = id;
             connection.Close();
         }
+        public void DeleteObjects(Library library,Game_S game)
+        {
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
+            string SQL = "DELETE FROM Games WHERE ID = @ID";
+            using SqlCommand cmd = new(SQL, connection);
+            cmd.Parameters.AddWithValue("@ID", game.ID);
+            string sql = "DLETE FROM GLibrary WHERE LibraryID = @lID";
+            using SqlCommand CMD = new(sql, connection);
+            CMD.Parameters.AddWithValue("@lID", library.ID);
+
+            connection.Close();
+        }
     }
 }
