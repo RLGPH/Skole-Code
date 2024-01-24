@@ -16,6 +16,10 @@ namespace Library_For_Games
     {
         public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True";
         
+        List<Game_S> games = new();
+        List<Library> libraries = new();
+
+        //----------------ADD'S to the SQL Server----------------//
         public void GameAddlist(Game_S game)
         {
             using SqlConnection connection = new(connectionstring);
@@ -57,7 +61,10 @@ namespace Library_For_Games
             library.ID = id;
             connection.Close();
         }
-        public void DeleteObjects(Library library,Game_S game)
+        //----------------ADD'S to the SQL Server----------------//
+
+        //----------------Deletes the things in the SQL SERVER----------------//
+        public void DeleteObjects(Library library, Game_S game)
         {
             using SqlConnection connection = new(connectionstring);
             connection.Open();
@@ -71,5 +78,66 @@ namespace Library_For_Games
 
             connection.Close();
         }
+        //----------------Deletes the things in the SQL SERVER----------------//
+
+        //----------------gets the games----------------//
+        public List<Game_S> GetGames() 
+        {
+            if(games == null)
+            {
+                games = new List<Game_S>();
+            }
+            else
+            {
+                games.Clear();
+            }
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
+            string sql = "SELECT * FROM Games";
+
+            using SqlCommand cmd = new(sql, connection);
+            using SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int ID = (int)reader["ID"];
+                string Name = (string)reader["GName"];
+                string Description = (string)reader["GDescription"];
+                int Hours = (int)reader["GHours"];
+                int FKey = (int)reader["Fkey"];
+
+                Game_S game = new(ID,Name, Description, Hours, FKey);
+                games.Add(game);
+            }
+            connection.Close();
+
+            return games;
+        }
+        public List<Library> GetLibrary()
+        {
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
+            string sql = "SELECT * FROM GLibrary";
+
+            using SqlCommand cmd = new(sql, connection);
+            using SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int ID = (int)reader["LibraryID"];
+                bool Steam = (bool)reader["Steam"];
+                bool Epic = (bool)reader["Epic"];
+                bool Other = (bool)reader["Other"];
+
+                Library library = new(ID,Epic,Steam,Other);
+                libraries.Add(library);
+            }
+            connection.Close();
+
+            return libraries;
+        }
+        //----------------gets the games----------------//
     }
 }
