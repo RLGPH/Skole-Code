@@ -20,12 +20,12 @@ namespace Library_For_Games
     /// </summary>
     public partial class Most_Played_Save : Window
     {
-        Database _database;
+        readonly Database database;
         public Most_Played_Save()
         {
             InitializeComponent();
-            _database.GetGames();
-            List<Game_S> games = _database.GetGames();
+            database.GetGames();
+            List<Game_S> games = database.GetGames();
 
             DTG_Games.ItemsSource = games;
         }
