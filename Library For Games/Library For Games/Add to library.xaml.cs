@@ -32,18 +32,21 @@ namespace Library_For_Games
 
         private void BTN_Close_and_save_Click(object sender, RoutedEventArgs e)
         {
+            bool steam = (bool)CHB_Steam.IsChecked;
+            bool epic = (bool)CHB_Epic.IsChecked;
+            bool other = (bool)CHB_Other.IsChecked;
+
             string Gamename = TB_Game_Name.Text;
             string Gamedescrip = TB_DESCRIPTION.Text;
             int Gamehours = int.Parse(TB_Hours_Played.Text);
             int GameID = 1;
             int FkeyID = 1;
+
+            Library library = new(FkeyID, epic, steam, other);
+            database.LibraryADD(library);
+
             Game_S games = new(GameID,Gamename,Gamedescrip,Gamehours,FkeyID);
             database.GameAddlist(games);
-            bool steam = (bool)CHB_Steam.IsChecked;
-            bool epic = (bool)CHB_Epic.IsChecked;
-            bool other = (bool)CHB_Other.IsChecked;
-            Library library = new(FkeyID,epic,steam,other);
-
 
             Close();
         }
