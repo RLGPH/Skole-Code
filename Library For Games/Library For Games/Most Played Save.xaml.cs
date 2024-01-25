@@ -20,7 +20,8 @@ namespace Library_For_Games
     /// </summary>
     public partial class Most_Played_Save : Window
     {
-        readonly Database database;
+        Game_S Game_S;
+        readonly Database database = new();
         public Most_Played_Save()
         {
             InitializeComponent();

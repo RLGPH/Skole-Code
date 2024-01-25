@@ -47,7 +47,7 @@ namespace Library_For_Games
 
             Game_S games = new(GameID,Gamename,Gamedescrip,Gamehours,FkeyID);
             database.GameAddlist(games);
-
+            MessageBox.Show("Saved/ADDED");
             Close();
         }
     }
