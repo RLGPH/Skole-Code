@@ -23,6 +23,7 @@ namespace Library_For_Games
         public Add_to_library()
         {
             InitializeComponent();
+
         }
 
         private void BTN_Close_without_Save_Click(object sender, RoutedEventArgs e)

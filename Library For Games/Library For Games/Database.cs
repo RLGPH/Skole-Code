@@ -17,7 +17,7 @@ namespace Library_For_Games
         public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True";
         
         List<Game_S> games = new();
-        List<Library> libraries = new();
+        readonly List<Library> libraries = new();
 
         //----------------ADD'S to the SQL Server----------------//
         public void GameAddlist(Game_S game)
@@ -137,6 +137,15 @@ namespace Library_For_Games
             connection.Close();
 
             return libraries;
+        }
+
+        public void GetUsingID(Game_S game,Library library)
+        {
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
+            int SearchID = game.ID;
+
         }
         //----------------gets the games----------------//
     }
