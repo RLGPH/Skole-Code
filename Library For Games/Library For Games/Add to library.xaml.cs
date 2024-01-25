@@ -19,11 +19,30 @@ namespace Library_For_Games
     /// </summary>
     public partial class Add_to_library : Window
     {
+        public Game_S game;
+        public Library librarie;
         public Database database = new();
         public Add_to_library()
         {
             InitializeComponent();
-
+            int gID = 0;
+            if (gID > 0)
+            {
+                string gName = game.Name;
+                string gDescription = game.Description;
+                string gHours = game.Hours.ToString();
+                TB_Game_Name.Text = gName;
+                TB_DESCRIPTION.Text = gDescription;
+                TB_Hours_Played.Text = gHours;
+                TB_ID.Text = gID.ToString();
+            }
+            int lID = 1;
+            if (lID > 0)
+            {
+                CHB_Epic.IsChecked = librarie.Epic;
+                CHB_Steam.IsChecked = librarie.Steam;
+                CHB_Other.IsChecked = librarie.Other;
+            }
         }
 
         private void BTN_Close_without_Save_Click(object sender, RoutedEventArgs e)

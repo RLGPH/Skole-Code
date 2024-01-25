@@ -43,4 +43,14 @@ namespace Library_For_Games
             add_to_library.Show();
         }
     }
+    public class Combind
+    {
+        int MasterID {  get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int Hours {  get; set; }
+        public bool epic {  get; set; }
+        public bool steam {  get; set; }
+        public bool other { get; set; }
+    }
 }
