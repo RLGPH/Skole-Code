@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="Add_to_library" Height="250" Width="293">
+        Title="Add_to_library" Height="260" Width="293">
     <Grid>
         <TextBox x:Name="TB_Game_Name" HorizontalAlignment="Left" Margin="146,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Name of the game" HorizontalAlignment="Left" Margin="32,6,0,0" VerticalAlignment="Top"/>
@@ -15,10 +15,12 @@
         <CheckBox x:Name="CHB_Epic" Content="EpicGames" HorizontalAlignment="Left" Margin="126,57,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="CHB_Other" Content="Other" HorizontalAlignment="Left" Margin="209,77,0,0" VerticalAlignment="Top"/>
         <Label Content="which library its in" HorizontalAlignment="Left" Margin="0,58,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TB_DESCRIPTION" HorizontalAlignment="Left" Margin="146,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="95"/>
-        <Label Content="Description" HorizontalAlignment="Left" Margin="61,117,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="13,150,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click"/>
-        <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="13,183,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_and_save_Click"/>
+        <TextBox x:Name="TB_DESCRIPTION" HorizontalAlignment="Left" Margin="148,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="95"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="63,130,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="15,163,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click"/>
+        <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="15,196,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_and_save_Click"/>
+        <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="24" Margin="147,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" BorderBrush="White" IsReadOnly="True"/>
+        <Label Content="Working on ID:" HorizontalAlignment="Left" Margin="58,92,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
