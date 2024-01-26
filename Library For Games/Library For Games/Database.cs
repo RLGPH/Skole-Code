@@ -15,9 +15,7 @@ namespace Library_For_Games
     public class Database
     {
         public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True";
-        
-        List<Game_S> games = new();
-        readonly List<Library> libraries = new();
+
         List<Combind> combind = new();
 
         //----------------ADD'S to the SQL Server----------------//
@@ -95,7 +93,7 @@ namespace Library_For_Games
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
-            string sql = "SELECT * FROM Games + GLibrary";
+            string sql = "SELECT * FROM Games GLibrary";
 
             using SqlCommand cmd = new(sql, connection);
             using SqlDataReader reader = cmd.ExecuteReader();
