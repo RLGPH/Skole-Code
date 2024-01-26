@@ -95,7 +95,7 @@ namespace Library_For_Games
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
-            string sql = "SELECT * FROM Games GLibrary";
+            string sql = "SELECT * FROM Games + GLibrary";
 
             using SqlCommand cmd = new(sql, connection);
             using SqlDataReader reader = cmd.ExecuteReader();
