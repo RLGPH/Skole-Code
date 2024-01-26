@@ -18,6 +18,7 @@ namespace Library_For_Games
         
         List<Game_S> games = new();
         readonly List<Library> libraries = new();
+        List<Combind> combind = new();
 
         //----------------ADD'S to the SQL Server----------------//
         public void GameAddlist(Game_S game)
@@ -81,20 +82,20 @@ namespace Library_For_Games
         //----------------Deletes the things in the SQL SERVER----------------//
 
         //----------------gets the games----------------//
-        public List<Game_S> GetGames() 
+        public List<Combind> GetAndCombind() 
         {
-            if(games == null)
+            if(combind == null)
             {
-                games = new List<Game_S>();
+                combind = new List<Combind>();
             }
             else
             {
-                games.Clear();
+                combind.Clear();
             }
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
-            string sql = "SELECT * FROM Games";
+            string sql = "SELECT * FROM Games GLibrary";
 
             using SqlCommand cmd = new(sql, connection);
             using SqlDataReader reader = cmd.ExecuteReader();
@@ -106,39 +107,19 @@ namespace Library_For_Games
                 string Description = (string)reader["GDescription"];
                 int Hours = (int)reader["GHours"];
                 int FKey = (int)reader["Fkey"];
-
-                Game_S game = new(ID,Name, Description, Hours, FKey);
-                games.Add(game);
-            }
-            connection.Close();
-
-            return games;
-        }
-        public List<Library> GetLibrary()
-        {
-            using SqlConnection connection = new(connectionstring);
-            connection.Open();
-
-            string sql = "SELECT * FROM GLibrary";
-
-            using SqlCommand cmd = new(sql, connection);
-            using SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                int ID = (int)reader["LibraryID"];
+                int FID = (int)reader["LibraryID"];
                 bool Steam = (bool)reader["Steam"];
                 bool Epic = (bool)reader["Epic"];
                 bool Other = (bool)reader["Other"];
 
-                Library library = new(ID,Epic,Steam,Other);
-                libraries.Add(library);
+                Combind combinds = new(ID,Name,Description,Hours,FKey,FID,Steam,Epic,Other);
+                
+                combind.Add(combinds);
             }
             connection.Close();
 
-            return libraries;
+            return combind;
         }
-
         public void GetUsingID(Game_S game,Library library)
         {
             using SqlConnection connection = new(connectionstring);

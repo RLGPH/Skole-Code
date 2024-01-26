@@ -20,16 +20,13 @@ namespace Library_For_Games
     /// </summary>
     public partial class Most_Played_Save : Window
     {
-        readonly Game_S Game_S;
         readonly Database database = new();
         public Most_Played_Save()
         {
             InitializeComponent();
-            List<Game_S> games = database.GetGames();
-            List<Library> libraries = database.GetLibrary();
-            
+            List<Combind> combinds = database.GetAndCombind();
 
-            DTG_Games.ItemsSource = games;
+            DTG_Games.ItemsSource = combinds;
         }
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
@@ -49,8 +46,22 @@ namespace Library_For_Games
         public string Name { get; set; }
         public string Description { get; set; }
         public int Hours {  get; set; }
-        public bool epic {  get; set; }
-        public bool steam {  get; set; }
-        public bool other { get; set; }
+        public int Fkey { get; set; }
+        public int LibraryID { get; set; }
+        public bool Epic {  get; set; }
+        public bool Steam {  get; set; }
+        public bool Other { get; set; }
+        public Combind(int masterID, string name, string description, int hours, int fkey, int libraryID, bool epic, bool steam, bool other) 
+        {
+            MasterID = masterID;
+            Name = name;
+            Description = description;
+            Hours = hours;
+            Fkey = fkey;
+            LibraryID = libraryID;
+            Epic = epic;
+            Steam = steam;
+            Other = other;
+        }
     }
 }

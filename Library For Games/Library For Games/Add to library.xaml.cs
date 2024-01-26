@@ -36,7 +36,7 @@ namespace Library_For_Games
                 TB_Hours_Played.Text = gHours;
                 TB_ID.Text = gID.ToString();
             }
-            int lID = 1;
+            int lID = 0;
             if (lID > 0)
             {
                 CHB_Epic.IsChecked = librarie.Epic;
