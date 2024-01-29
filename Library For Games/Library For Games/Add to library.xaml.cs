@@ -22,10 +22,11 @@ namespace Library_For_Games
         public Game_S game;
         public Library librarie;
         public Database database = new();
-        public Add_to_library(int menu)
+        public Add_to_library(int Edit)
         {
             InitializeComponent();
-            if (menu > 0) 
+
+            if (Edit > 0) 
             {
                 int gID = game.ID;
                 if (gID > 0)
@@ -65,9 +66,8 @@ namespace Library_For_Games
             
             if (int.TryParse(TB_ID.Text,out int GameID))
             {
-                Library library = new(GameID, epic, steam, other);
-
-                Game_S game = new(GameID, Gamename, Gamedescrip, Gamehours, GameID);
+                _ = new Library(GameID, epic, steam, other);
+                _ = new Game_S(GameID, Gamename, Gamedescrip, Gamehours, GameID);
 
                 MessageBox.Show("EDIT SAVED");
             }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Most_Played_Save" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" >
+        <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" Grid.ColumnSpan="2" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding MasterID}"/>
                 <DataGridTextColumn Header="Game Name" Binding="{Binding Name}"/>
@@ -18,13 +18,13 @@
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ComboBox HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119"/>
-        <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="96,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click"/>
-        <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="217,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="96,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click"/>
-        <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="217,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click"/>
-        <TextBox x:Name="TB_ID_SELECT" HorizontalAlignment="Left" Margin="556,314,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Height="34" FontSize="18" BorderBrush="#FF696A6C"/>
-        <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="354,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18"/>
+        <ComboBox HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2"/>
+        <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26"/>
+        <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click"/>
+        <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="154,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click"/>
+        <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click"/>
+        <TextBox x:Name="TB_ID_SELECT" HorizontalAlignment="Left" Margin="536,314,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Height="34" FontSize="18" BorderBrush="#FF696A6C"/>
+        <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18"/>
     </Grid>
 </Window>
