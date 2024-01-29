@@ -36,13 +36,19 @@ namespace Library_For_Games
 
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)
         {
-            Add_to_library add_to_library = new();
+            Add_to_library add_to_library = new(0);
+            add_to_library.Show();
+        }
+
+        private void BTN_EDIT_Click(object sender, RoutedEventArgs e)
+        {
+            Add_to_library add_to_library = new(1);
             add_to_library.Show();
         }
     }
     public class Combind
     {
-        int MasterID {  get; set; }
+        public int MasterID {  get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Hours {  get; set; }

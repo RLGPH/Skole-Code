@@ -28,15 +28,15 @@ namespace Library_For_Games
             using SqlCommand getFkeycmd = new(getFkey, connection);
             int FKeyID = Convert.ToInt32(getFkeycmd.ExecuteScalar());
 
-            string SQL = "INSERT INTO Games (GName,GDescription,GHours,Fkey)" +
-                         "VALUES(@GName,@GDescription,@GHours,@Fkey)" +
+            string SQL = "INSERT INTO Games (GName,GDescription,GHours,LibraryID)" +
+                         "VALUES(@GName,@GDescription,@GHours,@LibraryID)" +
                          "SELECT SCOPE_IDENTITY()";
 
             using SqlCommand cmd = new(SQL, connection);
             cmd.Parameters.AddWithValue("@GName",game.Name);
             cmd.Parameters.AddWithValue("@GDescription",game.Description);
             cmd.Parameters.AddWithValue("@GHours",game.Hours);
-            cmd.Parameters.AddWithValue("@Fkey", FKeyID);
+            cmd.Parameters.AddWithValue("@LibraryID", FKeyID);
             
             int id = Convert.ToInt32(cmd.ExecuteScalar());
             game.ID = id;
@@ -93,7 +93,7 @@ namespace Library_For_Games
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
-            string sql = "SELECT * FROM Games GLibrary";
+            string sql = "SELECT * FROM Games INNER JOIN GLibrary ON Games.LibraryID = GLibrary.LibraryID";
 
             using SqlCommand cmd = new(sql, connection);
             using SqlDataReader reader = cmd.ExecuteReader();
@@ -104,7 +104,7 @@ namespace Library_For_Games
                 string Name = (string)reader["GName"];
                 string Description = (string)reader["GDescription"];
                 int Hours = (int)reader["GHours"];
-                int FKey = (int)reader["Fkey"];
+                int FKey = (int)reader["LibraryID"];
                 int FID = (int)reader["LibraryID"];
                 bool Steam = (bool)reader["Steam"];
                 bool Epic = (bool)reader["Epic"];
