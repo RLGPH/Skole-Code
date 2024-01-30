@@ -118,13 +118,33 @@ namespace Library_For_Games
 
             return combind;
         }
-        public void GetUsingID(Game_S game,Library library)
+        public void GetUsingID(Game_S game,Library library,int SearchID)
         {
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
-            int SearchID = game.ID;
+            string sql = "SELECT * FROM Games INNER JOIN GLibrary ON Games.LibraryID = GLibrary.LibraryID WHERE Games.ID = @GameID";
 
+            
+
+            using SqlCommand command = new(sql, connection);
+            command.Parameters.AddWithValue("@GameID", SearchID);
+
+            using SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                // Assuming the column names in your database match the properties of your Game_S class
+                game.ID = reader.GetInt32(reader.GetOrdinal("ID"));
+                game.Name = reader.GetString(reader.GetOrdinal("Name"));
+                game.Description = reader.GetString(reader.GetOrdinal("Description"));
+                game.Hours = reader.GetInt32(reader.GetOrdinal("Hours"));
+                // Assuming the Library information is also retrieved and stored in your Library object
+                library.ID = reader.GetInt32(reader.GetOrdinal("LibraryID"));
+                library.Epic = reader.GetBoolean(reader.GetOrdinal("Epic"));
+                library.Steam = reader.GetBoolean(reader.GetOrdinal("Steam"));
+                library.Other = reader.GetBoolean(reader.GetOrdinal("Other"));
+            }
+            connection.Close();
         }
         //----------------gets the games----------------//
     }

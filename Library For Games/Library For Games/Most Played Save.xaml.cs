@@ -36,14 +36,27 @@ namespace Library_For_Games
 
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)
         {
-            Add_to_library add_to_library = new(0);
+            Add_to_library add_to_library = new(0, 0);
             add_to_library.Show();
         }
 
         private void BTN_EDIT_Click(object sender, RoutedEventArgs e)
         {
-            Add_to_library add_to_library = new(1);
-            add_to_library.Show();
+            if (int.TryParse(TB_ID_SELECT.Text,out int ID))
+            {
+                Add_to_library add_to_library = new(1, ID);
+                add_to_library.Show();
+            }
+        }
+
+        private void DTG_Games_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DTG_Games != null)
+            {
+                Combind combind = (Combind)DTG_Games.SelectedItem;
+                int ID = combind.MasterID;
+                TB_ID_SELECT.Text = ID.ToString();
+            }
         }
     }
     public class Combind

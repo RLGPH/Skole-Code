@@ -36,7 +36,7 @@ namespace Library_For_Games
         private void BTN_ADD_TO_Click(object sender, RoutedEventArgs e)
         {
 
-            Add_to_library add_to_library = new(0);
+            Add_to_library add_to_library = new(0,0);
             add_to_library.Show();
         }
     }
