@@ -43,9 +43,18 @@ namespace Library_For_Games
                 int lID = Library.ID;
                 if (lID > 0)
                 {
-                    CHB_Epic.IsChecked = Library.Epic;
-                    CHB_Steam.IsChecked = Library.Steam;
-                    CHB_Other.IsChecked = Library.Other;
+                    if (Library.Epic == true)
+                    {
+                        CHB_Epic.IsChecked = Library.Epic;
+                    }
+                    if (Library.Steam == true)
+                    {
+                        CHB_Steam.IsChecked = Library.Steam;
+                    }
+                    if (Library.Other == true)
+                    {
+                        CHB_Other.IsChecked = Library.Other;
+                    }
                 }
             }
         }
