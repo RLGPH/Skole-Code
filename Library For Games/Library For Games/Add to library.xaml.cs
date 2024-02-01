@@ -28,7 +28,7 @@ namespace Library_For_Games
 
             if (Edit > 0) 
             {
-                database.GetUsingID(game,Library,ID);
+                
                 int gID = game.ID;
                 if (gID > 0)
                 {
