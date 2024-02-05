@@ -36,7 +36,9 @@ namespace Library_For_Games
 
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)
         {
-            Add_to_library add_to_library = new(0, 0);
+            Library library = new(0, false, false, false);
+            Game_S game = new(0, "null", "null", 0, 0);
+            Add_to_library add_to_library = new(0, 0, game, library);
             add_to_library.Show();
         }
 
@@ -44,7 +46,22 @@ namespace Library_For_Games
         {
             if (int.TryParse(TB_ID_SELECT.Text,out int ID))
             {
-                Add_to_library add_to_library = new(1, ID);
+                DTG_Games.SelectedItem = ID;
+
+                Combind combind = (Combind)DTG_Games.SelectedItem;
+                int id = combind.MasterID;
+                string name = combind.Name;
+                string descrip = combind.Description;
+                int Hours = combind.Hours;
+                int fKey = combind.Fkey;
+                Game_S game = new(id,name,descrip,Hours,fKey);
+                int libraryID = combind.LibraryID;
+                bool epic = combind.Epic;
+                bool steam = combind.Steam;
+                bool other = combind.Other;
+                Library library = new(libraryID,epic,steam,other);
+
+                Add_to_library add_to_library = new(1, ID, game, library);
                 add_to_library.Show();
             }
         }

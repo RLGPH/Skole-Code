@@ -22,14 +22,13 @@ namespace Library_For_Games
         public Game_S game;
         public Library Library;
         public Database database = new();
-        public Add_to_library(int Edit,int ID)
+        public Add_to_library(int Edit,int ID,Game_S game,Library library)
         {
             InitializeComponent();
 
             if (Edit > 0) 
             {
-                
-                int gID = game.ID;
+                int gID = ID;
                 if (gID > 0)
                 {
                     string gName = game.Name;
@@ -40,20 +39,20 @@ namespace Library_For_Games
                     TB_Hours_Played.Text = gHours;
                     TB_ID.Text = gID.ToString();
                 }
-                int lID = Library.ID;
+                int lID = ID;
                 if (lID > 0)
                 {
-                    if (Library.Epic == true)
+                    if (library.Epic == true)
                     {
-                        CHB_Epic.IsChecked = Library.Epic;
+                        CHB_Epic.IsChecked = library.Epic;
                     }
-                    if (Library.Steam == true)
+                    if (library.Steam == true)
                     {
-                        CHB_Steam.IsChecked = Library.Steam;
+                        CHB_Steam.IsChecked = library.Steam;
                     }
-                    if (Library.Other == true)
+                    if (library.Other == true)
                     {
-                        CHB_Other.IsChecked = Library.Other;
+                        CHB_Other.IsChecked = library.Other;
                     }
                 }
             }
