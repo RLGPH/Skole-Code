@@ -61,7 +61,32 @@ namespace Library_For_Games
             connection.Close();
         }
         //----------------ADD'S to the SQL Server----------------//
+        //----------------Edit things in the SQL server----------//
+        public void Editobjectsandopdates(Library library,Game_S game)
+        {
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
 
+            string sqlGame = "UPDATE Games SET GName = @GName, GDescription = @GDescription, GHours = @GHours WHERE ID = @ID";
+            string sqlLibrary = "UPDATE GLibrary SET Steam = @Steam, Epic = @Epic, Other = @Other WHERE LibraryID = @LibraryID";
+
+            using SqlCommand updateGame = new(sqlGame, connection);
+            using SqlCommand updateLibrary = new(sqlLibrary, connection);
+            updateGame.Parameters.AddWithValue("@GName", game.Name);
+            updateGame.Parameters.AddWithValue("@GDescription", game.Description);
+            updateGame.Parameters.AddWithValue("@GHours", game.Hours);
+            updateGame.Parameters.AddWithValue("@ID", game.ID);
+            updateGame.ExecuteNonQuery();
+
+            updateLibrary.Parameters.AddWithValue("@Steam", library.Steam);
+            updateLibrary.Parameters.AddWithValue("@Epic", library.Epic);
+            updateLibrary.Parameters.AddWithValue("@Other", library.Other);
+            updateLibrary.Parameters.AddWithValue("@LibraryID", library.ID);
+            updateLibrary.ExecuteNonQuery();
+
+            connection.Close();
+        }
+        //----------------Edit things in the SQL server----------//
         //----------------Deletes the things in the SQL SERVER----------------//
         public void DeleteObjects(Library library, Game_S game)
         {
@@ -117,8 +142,7 @@ namespace Library_For_Games
             connection.Close();
 
             return combind;
-        }
-        
+        }   
         //----------------gets the games----------------//
     }
 }
