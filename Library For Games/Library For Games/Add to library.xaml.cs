@@ -71,29 +71,46 @@ namespace Library_For_Games
 
             string Gamename = TB_Game_Name.Text;
             string Gamedescrip = TB_DESCRIPTION.Text;
-            int Gamehours = int.Parse(TB_Hours_Played.Text);
+            
             
             if (int.TryParse(TB_ID.Text,out int GameID))
             {
-                Library library = new(GameID, epic, steam, other);
-                Game_S game = new(GameID, Gamename, Gamedescrip, Gamehours, GameID);
+                if (int.TryParse(TB_Hours_Played.Text, out int Gamehours))
+                {
+                    Library library = new(GameID, epic, steam, other);
+                    Game_S game = new(GameID, Gamename, Gamedescrip, Gamehours, GameID);
 
-                database.Editobjectsandopdates(library,game);
+                    database.Editobjectsandopdates(library, game);
 
-                MessageBox.Show("EDIT SAVED");
+                    MessageBox.Show("EDIT SAVED");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("please type a valid number what you typed:", Gamehours.ToString());
+                }
             }
             else if(GameID <= 0)
             {
-                int FkeyID = 0;
+                if (int.TryParse(TB_Hours_Played.Text, out int Gamehours))
+                {
 
-                Library library = new(FkeyID, epic, steam, other);
-                database.LibraryADD(library);
 
-                Game_S games = new(GameID, Gamename, Gamedescrip, Gamehours, FkeyID);
-                database.GameAddlist(games);
-                MessageBox.Show("GAME ADDED");
+                    int FkeyID = 0;
+
+                    Library library = new(FkeyID, epic, steam, other);
+                    database.LibraryADD(library);
+
+                    Game_S games = new(GameID, Gamename, Gamedescrip, Gamehours, FkeyID);
+                    database.GameAddlist(games);
+                    MessageBox.Show("GAME ADDED");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("please type a valid number what you typed:", Gamehours.ToString());
+                }
             }
-            Close();
         }
     }
 }
