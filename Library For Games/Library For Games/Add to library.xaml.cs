@@ -75,8 +75,10 @@ namespace Library_For_Games
             
             if (int.TryParse(TB_ID.Text,out int GameID))
             {
-                _ = new Library(GameID, epic, steam, other);
-                _ = new Game_S(GameID, Gamename, Gamedescrip, Gamehours, GameID);
+                Library library = new(GameID, epic, steam, other);
+                Game_S game = new(GameID, Gamename, Gamedescrip, Gamehours, GameID);
+
+                database.Editobjectsandopdates(library,game);
 
                 MessageBox.Show("EDIT SAVED");
             }
