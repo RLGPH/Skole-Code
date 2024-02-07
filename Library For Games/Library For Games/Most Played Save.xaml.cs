@@ -49,12 +49,14 @@ namespace Library_For_Games
                 DTG_Games.SelectedItem = ID;
 
                 Combind combind = (Combind)DTG_Games.SelectedItem;
+
                 int id = combind.MasterID;
                 string name = combind.Name;
                 string descrip = combind.Description;
                 int Hours = combind.Hours;
                 int fKey = combind.Fkey;
                 Game_S game = new(id,name,descrip,Hours,fKey);
+
                 int libraryID = combind.LibraryID;
                 bool epic = combind.Epic;
                 bool steam = combind.Steam;
@@ -62,17 +64,25 @@ namespace Library_For_Games
                 Library library = new(libraryID,epic,steam,other);
 
                 Add_to_library add_to_library = new(1, ID, game, library);
-                add_to_library.Show();
+                bool? resault = add_to_library.ShowDialog();
+                if (resault == true)
+                {
+                    List<Combind> combinds = database.GetAndCombind();
+                    DTG_Games.ItemsSource = null;
+                    DTG_Games.ItemsSource = combinds;
+                }
             }
         }
 
         private void DTG_Games_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (DTG_Games != null)
+            if (DTG_Games.ItemsSource != null)
             {
                 Combind combind = (Combind)DTG_Games.SelectedItem;
+                
                 int ID = combind.MasterID;
                 TB_ID_SELECT.Text = ID.ToString();
+                
             }
         }
     }

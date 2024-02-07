@@ -54,6 +54,7 @@ namespace Library_For_Games
                     {
                         CHB_Other.IsChecked = library.Other;
                     }
+                    MessageBox.Show("item was succesfully loaded");
                 }
             }
         }
@@ -83,6 +84,7 @@ namespace Library_For_Games
                     database.Editobjectsandopdates(library, game);
 
                     MessageBox.Show("EDIT SAVED");
+                    DialogResult = true;
                     Close();
                 }
                 else
@@ -94,8 +96,6 @@ namespace Library_For_Games
             {
                 if (int.TryParse(TB_Hours_Played.Text, out int Gamehours))
                 {
-
-
                     int FkeyID = 0;
 
                     Library library = new(FkeyID, epic, steam, other);
@@ -104,12 +104,17 @@ namespace Library_For_Games
                     Game_S games = new(GameID, Gamename, Gamedescrip, Gamehours, FkeyID);
                     database.GameAddlist(games);
                     MessageBox.Show("GAME ADDED");
+                   
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("please type a valid number what you typed:", Gamehours.ToString());
+                    MessageBox.Show("please type a valid number what you typed:" + Gamehours.ToString() + "either you have writen a letter or a word");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Something whent wrong with saving changes");
             }
         }
     }

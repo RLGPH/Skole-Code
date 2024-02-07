@@ -5,26 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="Most_Played_Save" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" Grid.ColumnSpan="2" SelectionChanged="DTG_Games_SelectionChanged" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding MasterID}"/>
-                <DataGridTextColumn Header="Game Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Hours played" Binding="{Binding Hours}"/>
-                <DataGridCheckBoxColumn Header="Epic" Binding="{Binding Epic}"/>
-                <DataGridCheckBoxColumn Header="Steam" Binding="{Binding Steam}"/>
-                <DataGridCheckBoxColumn Header="Other" Binding="{Binding Other}"/>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <ComboBox HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2"/>
-        <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26"/>
-        <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click"/>
-        <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="154,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click"/>
-        <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click"/>
-        <TextBox x:Name="TB_ID_SELECT" HorizontalAlignment="Left" Margin="536,314,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Height="34" FontSize="18" BorderBrush="#FF696A6C"/>
-        <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18"/>
-    </Grid>
+        Title="Most_Played_Save" Height="450" Width="800" Background="Black" >
+    <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
+        <Grid>
+            <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" Grid.ColumnSpan="2" SelectionChanged="DTG_Games_SelectionChanged" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding MasterID}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Game Name" Binding="{Binding Name}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Hours played" Binding="{Binding Hours}" IsReadOnly="True"/>
+                    <DataGridCheckBoxColumn Header="Epic" Binding="{Binding Epic}" IsReadOnly="True"/>
+                    <DataGridCheckBoxColumn Header="Steam" Binding="{Binding Steam}" IsReadOnly="True"/>
+                    <DataGridCheckBoxColumn Header="Other" Binding="{Binding Other}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+                <DataGrid.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+            <ComboBox HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2">
+            </ComboBox>
+            <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26" Foreground="White"/>
+            <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click" Background="#FF398D2E">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF5F5F">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="154,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click" Background="#FF398D2E">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click" Background="#FFFF5F5F">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox x:Name="TB_ID_SELECT" HorizontalAlignment="Left" Margin="536,314,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Height="34" FontSize="18" BorderBrush="#FF696A6C" >
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18" Foreground="White"/>
+        </Grid>
+    </Border>
 </Window>
