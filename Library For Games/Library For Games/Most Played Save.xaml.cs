@@ -95,6 +95,11 @@ namespace Library_For_Games
             DTG_Games.ItemsSource = null;
             DTG_Games.ItemsSource = results;
         }
+
+        private void CBB_Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
     public class Combind
     {
