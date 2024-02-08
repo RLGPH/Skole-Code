@@ -25,6 +25,14 @@
                 </DataGrid.Resources>
             </DataGrid>
             <ComboBox x:Name="CBB_Filter" HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2" SelectionChanged="CBB_Filter_SelectionChanged">
+                <ComboBoxItem Content="All" Tag="0"/>
+                <ComboBoxItem Content="Steam" Tag="1"/>
+                <ComboBoxItem Content="Epic" Tag="2"/>
+                <ComboBoxItem Content="Other" Tag="3"/>
+                <ComboBoxItem Content="H-L Hours" Tag="4" />
+                <ComboBoxItem Content="L-H Hours" Tag="5"/>
+                <ComboBoxItem Content="A-Z" Tag="6"/>
+                <ComboBoxItem Content="Z-A" Tag="7"/>
             </ComboBox>
             <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26" Foreground="White"/>
             <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click" Background="#FF398D2E">
@@ -63,7 +71,13 @@
                 </TextBox.Resources>
             </TextBox>
             <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18" Foreground="White"/>
-            <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="432,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged"/>
+            <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="432,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
             <Label Content="Search" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.626,0.672" Foreground="White"/>
         </Grid>
     </Border>

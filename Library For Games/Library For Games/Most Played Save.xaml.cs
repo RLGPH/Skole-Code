@@ -98,7 +98,48 @@ namespace Library_For_Games
 
         private void CBB_Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            var tag = int.Parse(((ComboBoxItem)CBB_Filter.SelectedItem).Tag.ToString());
+            if(tag == 0)
+            {
+                MessageBox.Show("all");
+            }
+            else if(tag == 1 || tag == 2 || tag == 3)
+            {
+                if(tag == 1)
+                {
+                    MessageBox.Show("steam");
+                }
+                else if(tag == 2)
+                {
+                    MessageBox.Show("epic");
+                }
+                else if(tag == 3)
+                {
+                    MessageBox.Show("other");
+                }
+            }
+            else if (tag == 4 || tag == 5) 
+            {
+                if (tag == 4)
+                {
+                    MessageBox.Show("H-L");
+                }
+                else if (tag == 5)
+                {
+                    MessageBox.Show("L-H");
+                }
+            }
+            else if (tag == 6 || tag == 7)
+            {
+                if(tag == 6)
+                {
+                    MessageBox.Show("A-Z");
+                }
+                else if(tag == 7)
+                {
+                    MessageBox.Show("Z-A");
+                }
+            }
         }
     }
     public class Combind
