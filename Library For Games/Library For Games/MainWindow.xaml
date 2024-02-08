@@ -9,8 +9,20 @@
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
             <Label Content="Library for games" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="44" Width="185" FontSize="22" Foreground="White"/>
-            <Button x:Name="BTN_LIBRARY" Content="Library" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="50" Width="134" FontSize="20" Click="BTN_LIBRARY_Click"/>
-            <Button x:Name="BTN_ADD_TO" Content="Add to library" Margin="10,134,0,0" Width="134" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Click="BTN_ADD_TO_Click"/>
+            <Button x:Name="BTN_LIBRARY" Content="Library" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="50" Width="134" FontSize="20" Click="BTN_LIBRARY_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_ADD_TO" Content="Add to library" Margin="10,134,0,0" Width="134" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Click="BTN_ADD_TO_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
 
         </Grid>
     </Border>

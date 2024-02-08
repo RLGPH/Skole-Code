@@ -50,7 +50,7 @@
                 </Style>
             </Button.Resources>
             </Button>
-            <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="24" Margin="147,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="59" BorderBrush="White" IsReadOnly="True" Background="Black" Foreground="White">
+            <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="24" Margin="147,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="29" BorderBrush="White" IsReadOnly="True" Background="Black" Foreground="White">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="6"/>

@@ -135,7 +135,7 @@ namespace Library_For_Games
                 bool Epic = (bool)reader["Epic"];
                 bool Other = (bool)reader["Other"];
 
-                Combind combinds = new(ID,Name,Description,Hours,FKey,FID,Steam,Epic,Other);
+                Combind combinds = new(ID,Name,Description,Hours,FKey,FID,Epic,Steam,Other);
                 
                 combind.Add(combinds);
             }

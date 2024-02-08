@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -84,6 +85,15 @@ namespace Library_For_Games
                 TB_ID_SELECT.Text = ID.ToString();
                 
             }
+        }
+
+        private void TB_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<Combind> combind = database.GetAndCombind();
+            string searchText = TB_Search.Text.ToLower();
+            var results = combind.Where(c => c.Name.ToLower().StartsWith(searchText));
+            DTG_Games.ItemsSource = null;
+            DTG_Games.ItemsSource = results;
         }
     }
     public class Combind

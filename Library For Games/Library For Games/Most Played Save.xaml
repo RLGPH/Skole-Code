@@ -8,7 +8,7 @@
         Title="Most_Played_Save" Height="450" Width="800" Background="Black" >
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
-            <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" Grid.ColumnSpan="2" SelectionChanged="DTG_Games_SelectionChanged" >
+            <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" SelectionChanged="DTG_Games_SelectionChanged" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding MasterID}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Game Name" Binding="{Binding Name}" IsReadOnly="True"/>
@@ -24,7 +24,7 @@
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
-            <ComboBox HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2">
+            <ComboBox x:Name="CBB_Filter" HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2">
             </ComboBox>
             <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26" Foreground="White"/>
             <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click" Background="#FF398D2E">
@@ -63,6 +63,7 @@
                 </TextBox.Resources>
             </TextBox>
             <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18" Foreground="White"/>
+            <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="312,18,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged"/>
         </Grid>
     </Border>
 </Window>
