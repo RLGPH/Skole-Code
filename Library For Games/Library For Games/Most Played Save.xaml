@@ -24,7 +24,7 @@
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
-            <ComboBox x:Name="CBB_Filter" HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2" SelectionChanged="CBB_Filter_SelectionChanged">
+            <ComboBox x:Name="CBB_Filter" HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2" SelectionChanged="CBB_Filter_SelectionChanged" FontFamily="Bahnschrift SemiBold">
                 <ComboBoxItem Content="All" Tag="0"/>
                 <ComboBoxItem Content="Steam" Tag="1"/>
                 <ComboBoxItem Content="Epic" Tag="2"/>
@@ -34,51 +34,51 @@
                 <ComboBoxItem Content="A-Z" Tag="6"/>
                 <ComboBoxItem Content="Z-A" Tag="7"/>
             </ComboBox>
-            <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26" Foreground="White"/>
-            <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click" Background="#FF1CF600">
+            <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+            <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click" Background="#FF1CF600" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF0404" Foreground="White">
+            <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF0404" Foreground="White" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="154,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click" Background="#FF1EFF00">
+            <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="154,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click" Background="#FF1EFF00" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="White">
+            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="White" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <TextBox x:Name="TB_ID_SELECT" HorizontalAlignment="Left" Margin="536,314,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Height="34" FontSize="18" BorderBrush="#FF696A6C" >
+            <TextBox x:Name="TB_ID_SELECT" HorizontalAlignment="Left" Margin="521,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="84" Height="26" FontSize="18" BorderBrush="#FF696A6C" FontFamily="Bahnschrift SemiBold">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="6"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18" Foreground="White"/>
-            <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="432,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged">
+            <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+            <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="432,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged" FontFamily="Bahnschrift SemiBold">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="8"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <Label Content="Search" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.626,0.672" Foreground="White"/>
+            <Label Content="Search" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.626,0.672" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
         </Grid>
     </Border>
 </Window>
