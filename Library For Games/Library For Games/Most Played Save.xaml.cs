@@ -94,54 +94,54 @@ namespace Library_For_Games
             var results = combind.Where(c => c.Name.ToLower().StartsWith(searchText));
             DTG_Games.ItemsSource = null;
             DTG_Games.ItemsSource = results;
+            if(string.IsNullOrWhiteSpace(searchText))
+            {
+                var args = new SelectionChangedEventArgs(e.RoutedEvent, new List<object>(), new List<object>());
+
+                CBB_Filter_SelectionChanged(sender, args);
+            }
         }
 
         private void CBB_Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var tag = int.Parse(((ComboBoxItem)CBB_Filter.SelectedItem).Tag.ToString());
-            if(tag == 0)
+            var tag = CBB_Filter.SelectedItem != null ? int.Parse(((ComboBoxItem)CBB_Filter.SelectedItem).Tag.ToString()) : 0;
+
+            List<Combind> combinds = database.GetAndCombind();
+            IEnumerable<Combind> filterList = null;
+
+            switch (tag)
             {
-                MessageBox.Show("all");
+                case 0:
+                    filterList = combinds;
+                    break;
+                case 1:
+                    filterList = combinds.Where(c => c.Steam);
+                    break;
+                case 2:
+                    filterList = combinds.Where(c => c.Epic);
+                    break;
+                case 3:
+                    filterList = combinds.Where(c => c.Other);
+                    break;
+                case 4:
+                    filterList = combinds.OrderByDescending(c => c.Hours);
+                    break;
+                case 5:
+                    filterList = combinds.OrderBy(c => c.Hours);
+                    break;
+                case 6:
+                    filterList = combinds.OrderBy(c => c.Name);
+                    break;
+                case 7:
+                    filterList = combinds.OrderByDescending(c => c.Name);
+                    break;
             }
-            else if(tag == 1 || tag == 2 || tag == 3)
-            {
-                if(tag == 1)
-                {
-                    MessageBox.Show("steam");
-                }
-                else if(tag == 2)
-                {
-                    MessageBox.Show("epic");
-                }
-                else if(tag == 3)
-                {
-                    MessageBox.Show("other");
-                }
-            }
-            else if (tag == 4 || tag == 5) 
-            {
-                if (tag == 4)
-                {
-                    MessageBox.Show("H-L");
-                }
-                else if (tag == 5)
-                {
-                    MessageBox.Show("L-H");
-                }
-            }
-            else if (tag == 6 || tag == 7)
-            {
-                if(tag == 6)
-                {
-                    MessageBox.Show("A-Z");
-                }
-                else if(tag == 7)
-                {
-                    MessageBox.Show("Z-A");
-                }
-            }
+
+            DTG_Games.ItemsSource = null;
+            DTG_Games.ItemsSource = filterList;
         }
     }
+    
     public class Combind
     {
         public int MasterID { get; set; }
