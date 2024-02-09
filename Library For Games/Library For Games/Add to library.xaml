@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="Add_to_library" Height="260" Width="293" Background="Black">
+        Title="Add_to_library" Height="286" Width="322" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
             <TextBox x:Name="TB_Game_Name" HorizontalAlignment="Left" Margin="146,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift SemiBold">
@@ -15,7 +15,7 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <Label Content="Name of the game" HorizontalAlignment="Left" Margin="32,6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+            <Label Content="Name of the game" HorizontalAlignment="Left" Margin="38,6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
             <TextBox x:Name="TB_Hours_Played" HorizontalAlignment="Left" Margin="146,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Bahnschrift SemiBold">
                 <TextBox.Resources>
                     <Style TargetType="Border">
@@ -23,11 +23,11 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <Label Content="Hours Played" HorizontalAlignment="Left" Margin="61,29,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+            <Label Content="Hours Played" HorizontalAlignment="Left" Margin="65,29,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
             <CheckBox x:Name="CHB_Steam" Content="Steam" HorizontalAlignment="Left" Margin="209,56,0,0" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
             <CheckBox x:Name="CHB_Epic" Content="EpicGames" HorizontalAlignment="Left" Margin="126,57,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
             <CheckBox x:Name="CHB_Other" Content="Other" HorizontalAlignment="Left" Margin="209,77,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
-            <Label Content="which library its in" HorizontalAlignment="Left" Margin="0,58,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+            <Label Content="which library its in" HorizontalAlignment="Left" Margin="16,58,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
             <TextBox x:Name="TB_DESCRIPTION" HorizontalAlignment="Left" Margin="148,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="95" FontFamily="Bahnschrift SemiBold">
                 <TextBox.Resources>
                     <Style TargetType="Border">
@@ -36,7 +36,7 @@
                 </TextBox.Resources>
             </TextBox>
             <Label Content="Description" HorizontalAlignment="Left" Margin="63,130,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
-            <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="15,163,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click" Background="Red" Foreground="White" FontFamily="Bahnschrift SemiBold">
+            <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="15,163,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
@@ -50,7 +50,7 @@
                 </Style>
             </Button.Resources>
             </Button>
-            <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="24" Margin="147,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="29" BorderBrush="White" IsReadOnly="True" Background="Black" Foreground="White" FontFamily="Bahnschrift SemiBold">
+            <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="22" Margin="146,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="29" BorderBrush="White" IsReadOnly="True" Background="Black" Foreground="White" FontFamily="Bahnschrift SemiBold">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="6"/>

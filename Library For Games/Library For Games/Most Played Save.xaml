@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Most_Played_Save" Height="450" Width="800" Background="Black" >
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
-        <Grid>
-            <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" SelectionChanged="DTG_Games_SelectionChanged" >
+        <Grid Margin="3,0,-3,0">
+            <DataGrid x:Name="DTG_Games" Height="249" VerticalAlignment="Top" Margin="10,45,10,0" AutoGenerateColumns="False" SelectionChanged="DTG_Games_SelectionChanged" Background="Black" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding MasterID}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="Game Name" Binding="{Binding Name}" IsReadOnly="True"/>
@@ -24,7 +24,7 @@
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
-            <ComboBox x:Name="CBB_Filter" HorizontalAlignment="Left" Margin="155,16,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2" SelectionChanged="CBB_Filter_SelectionChanged" FontFamily="Bahnschrift SemiBold">
+            <ComboBox x:Name="CBB_Filter" HorizontalAlignment="Left" Margin="150,16,0,0" VerticalAlignment="Top" Width="120" Height="22" SelectionChanged="CBB_Filter_SelectionChanged" FontFamily="Bahnschrift SemiBold">
                 <ComboBoxItem Content="All" Tag="0"/>
                 <ComboBoxItem Content="Steam" Tag="1"/>
                 <ComboBoxItem Content="Epic" Tag="2"/>
@@ -42,7 +42,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF0404" Foreground="White" FontFamily="Bahnschrift SemiBold">
+            <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF0404" Foreground="Black" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
@@ -56,7 +56,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="White" FontFamily="Bahnschrift SemiBold">
+            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
@@ -71,7 +71,7 @@
                 </TextBox.Resources>
             </TextBox>
             <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="334,314,0,0" VerticalAlignment="Top" Width="197" Height="34" FontSize="18" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
-            <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="432,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged" FontFamily="Bahnschrift SemiBold">
+            <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="423,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged" FontFamily="Bahnschrift SemiBold">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="8"/>
