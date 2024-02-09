@@ -36,14 +36,14 @@
                 </TextBox.Resources>
             </TextBox>
             <Label Content="Description" HorizontalAlignment="Left" Margin="63,130,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="15,163,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click" Background="#FFFF5F5F" >
+            <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="15,163,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click" Background="Red" Foreground="White" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="15,196,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_and_save_Click" Background="#FF398D2E" >
+            <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="15,196,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_and_save_Click" Background="#FF1EFF00" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5" />

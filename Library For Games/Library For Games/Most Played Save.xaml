@@ -35,28 +35,28 @@
                 <ComboBoxItem Content="Z-A" Tag="7"/>
             </ComboBox>
             <Label Content="Select Filter option" HorizontalAlignment="Left" Margin="36,14,0,0" VerticalAlignment="Top" Width="119" Height="26" Foreground="White"/>
-            <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click" Background="#FF398D2E">
+            <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="154,314,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_ADD_Click" Background="#FF1CF600">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF5F5F">
+            <Button x:Name="BTN_REMOVE" Content="REMOVE" Margin="33,314,0,0" Height="34" Width="116" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF0404" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="154,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click" Background="#FF398D2E">
+            <Button x:Name="BTN_EDIT" Content="EDIT" HorizontalAlignment="Left" Margin="154,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_EDIT_Click" Background="#FF1EFF00">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click" Background="#FFFF5F5F">
+            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="33,353,0,0" VerticalAlignment="Top" Height="34" Width="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="White">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
