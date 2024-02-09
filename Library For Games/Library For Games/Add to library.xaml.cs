@@ -37,6 +37,7 @@ namespace Library_For_Games
                     TB_Game_Name.Text = gName;
                     TB_DESCRIPTION.Text = gDescription;
                     TB_Hours_Played.Text = gHours;
+                    TB_ID.Text = null;
                     TB_ID.Text = gID.ToString();
                 }
                 int lID = ID;
