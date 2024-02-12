@@ -40,5 +40,11 @@ namespace Library_For_Games
             Add_to_library add_to_library = new(0, 0, game, library);
             add_to_library.Show();
         }
+
+        private void BTN_Steam_Sync_Click(object sender, RoutedEventArgs e)
+        {
+            SyncDataFromProfile syncDataFromProfile = new();
+            syncDataFromProfile.Show();
+        }
     }
 }

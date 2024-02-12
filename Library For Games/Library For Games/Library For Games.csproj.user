@@ -13,6 +13,9 @@
     <Compile Update="Most Played Save.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SyncDataFromProfile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Add to library.xaml">
@@ -22,6 +25,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Most Played Save.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SyncDataFromProfile.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -5,25 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="MainWindow" Height="265" Width="277" Background="Black">
+        Title="MainWindow" Height="305" Width="308" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
             <Label Content="Library for games" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="44" Width="185" FontSize="22" Foreground="#FF5261EB" FontFamily="Bahnschrift SemiBold"/>
-            <Button x:Name="BTN_LIBRARY" Content="Library" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Height="50" Width="134" FontSize="20" Click="BTN_LIBRARY_Click" Background="#FF5261EB" FontFamily="Bahnschrift SemiBold">
+            <Button x:Name="BTN_LIBRARY" Content="Library" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="50" Width="167" FontSize="20" Click="BTN_LIBRARY_Click" Background="#FF5261EB" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="BTN_ADD_TO" Content="Add to library" Margin="10,134,0,0" Width="134" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Click="BTN_ADD_TO_Click" Background="#FF5261EB" FontFamily="Bahnschrift SemiBold">
+            <Button x:Name="BTN_ADD_TO" Content="Add to library" Margin="10,120,0,0" Width="167" FontSize="20" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Click="BTN_ADD_TO_Click" Background="#FF5261EB" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5" />
                     </Style>
                 </Button.Resources>
             </Button>
-
+            <Button x:Name="BTN_Steam_Sync" Content="Sync Steam Data" HorizontalAlignment="Left" Margin="10,180,0,0" Width="167" FontSize="20" Height="50" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Click="BTN_Steam_Sync_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Button.Resources>
+            </Button>
         </Grid>
     </Border>
 </Window>
