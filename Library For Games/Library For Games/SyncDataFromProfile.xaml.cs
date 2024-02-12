@@ -11,9 +11,11 @@ namespace Library_For_Games
     /// </summary>
     public partial class SyncDataFromProfile : Window
     {
+        Database database;
         public SyncDataFromProfile()
         {
             InitializeComponent();
+            database = new Database();
         }
 
         private void BTN_Updated_steam_Click(object sender, RoutedEventArgs e)
@@ -56,19 +58,21 @@ namespace Library_For_Games
 
                             // Fetch the game name using the provided appID
                             string gameName = await steamApiClient.GetGameNameAsync(appId);
-
+                            if (gameName != null)
+                            {
+                                Game_S games = new(1, gameName, "none", playtimeHours, 1);
+                                Library library = new(1, false, true, false);
+                                database.LibraryADD(library);
+                                database.GameAddlist(games);
+                            }
                             // Append game details to the message
                             message += $"Game Name: {gameName}, App ID: {appId}, Playtime: {playtimeHours} hours\n";
+
                         }
 
                         MessageBox.Show(message, "Steam Games, Playtime, and Names");
                     }
-                    else
-                    {
-                        // Log the error if the response is not successful
-                        Console.WriteLine($"HTTP error: {response.StatusCode}");
-                        MessageBox.Show($"HTTP error: {response.StatusCode}", "Error");
-                    }
+                    
                 }
 
                 catch (HttpRequestException ex)
@@ -76,7 +80,7 @@ namespace Library_For_Games
                     MessageBox.Show($"HTTP error: {ex.Message}", "Error");
                 }
             }
-
+            Close();
         }
     }
     public class SteamApiClient
