@@ -5,25 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="SyncDataFromProfile" Height="228" Width="264">
-    <Grid>
-        <Button x:Name="BTN_GET_STEAM" Content="Get Steam Data" HorizontalAlignment="Left" FontSize="12 px" Margin="10,162,0,0" Click="BTN_GET_STEAM_Click" Width="104" Height="35" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10" />
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="BTN_Updated_steam" Content="Sync Steam Data" Click="BTN_Updated_steam_Click" HorizontalAlignment="Left" FontSize="12 px" Margin="123,162,0,0" Width="104" Height="35" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10" />
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Label Content="SteamID :" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top"/>
-        <Label Content="API-Key :" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TB_SteamID" HorizontalAlignment="Left" Margin="70,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-        <TextBox x:Name="TB_API_KEY" HorizontalAlignment="Left" Margin="70,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-    </Grid>
+        Title="SyncDataFromProfile" Height="228" Width="264" Background="Black">
+    <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
+        <Grid>
+            <Button x:Name="BTN_GET_STEAM" Content="Get Steam Data" HorizontalAlignment="Left" FontSize="12 px" Margin="10,144,0,0" Click="BTN_GET_STEAM_Click" Width="104" Height="36" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="8" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_Updated_steam" Content="Sync Steam Data" Click="BTN_Updated_steam_Click" HorizontalAlignment="Left" FontSize="12 px" Margin="123,144,0,0" Width="104" Height="35" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Label Content="SteamID :" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="API-Key :" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White"/>
+            <TextBox x:Name="TB_SteamID" HorizontalAlignment="Left" Margin="70,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
+            <TextBox x:Name="TB_API_KEY" HorizontalAlignment="Left" Margin="70,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="157"/>
+        </Grid>
+    </Border>
 </Window>

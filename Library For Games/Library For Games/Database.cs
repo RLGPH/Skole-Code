@@ -87,6 +87,9 @@ namespace Library_For_Games
             connection.Close();
         }
         //----------------Edit things in the SQL server----------//
+        //----------------Get from steam If name allready exist--//
+
+        //----------------Get from steam If name allready exist--//
         //----------------Deletes the things in the SQL SERVER----------------//
         public void DeleteObjects(Library library, Game_S game)
         {

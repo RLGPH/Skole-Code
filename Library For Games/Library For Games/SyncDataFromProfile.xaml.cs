@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Newtonsoft.Json.Linq;
 
 namespace Library_For_Games
 {
@@ -26,12 +18,128 @@ namespace Library_For_Games
 
         private void BTN_Updated_steam_Click(object sender, RoutedEventArgs e)
         {
-
+            string SteamID = TB_SteamID.Text;
+            string API = TB_API_KEY.Text;
         }
 
-        private void BTN_GET_STEAM_Click(object sender, RoutedEventArgs e)
+        private async void BTN_GET_STEAM_Click(object sender, RoutedEventArgs e)
         {
+            string SteamID = TB_SteamID.Text;
+            string apiKey = TB_API_KEY.Text;
+            string url = $"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={apiKey}&steamid={SteamID}&format=json";
 
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(url);
+
+                    // Check if the response is successful
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show(responseBody, "JSON Response");
+
+                        // Parse the JSON response
+                        JObject json = JObject.Parse(responseBody);
+                        JArray gamesArray = (JArray)json["response"]["games"];
+                        
+                        SteamApiClient steamApiClient = new SteamApiClient();
+
+                        // Display the games and playtime in a MessageBox
+                        string message = "Games and Playtime:\n\n";
+                        foreach (JObject game in gamesArray)
+                        {
+                            int appId = game["appid"].ToObject<int>();
+                            int playtimeMinutes = game["playtime_forever"].ToObject<int>();
+                            int playtimeHours = playtimeMinutes / 60;
+
+                            // Fetch the game name using the provided appID
+                            string gameName = await steamApiClient.GetGameNameAsync(appId);
+
+                            // Append game details to the message
+                            message += $"Game Name: {gameName}, App ID: {appId}, Playtime: {playtimeHours} hours\n";
+                        }
+
+                        MessageBox.Show(message, "Steam Games, Playtime, and Names");
+                    }
+                    else
+                    {
+                        // Log the error if the response is not successful
+                        Console.WriteLine($"HTTP error: {response.StatusCode}");
+                        MessageBox.Show($"HTTP error: {response.StatusCode}", "Error");
+                    }
+                }
+
+                catch (HttpRequestException ex)
+                {
+                    MessageBox.Show($"HTTP error: {ex.Message}", "Error");
+                }
+            }
+
+        }
+    }
+    public class SteamApiClient
+    {
+        private HttpClient _httpClient;
+
+        public SteamApiClient()
+        {
+            _httpClient = new HttpClient();
+        }
+
+        public async Task<string> GetGameNameAsync(int appId)
+        {
+            // Make a request to the GetAppDetails endpoint with the provided appID
+            string url = $"https://store.steampowered.com/api/appdetails?appids={appId}";
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+
+            // Check if the request was successful
+            if (response.IsSuccessStatusCode)
+            {
+                // Read the response content
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                // Parse the JSON response to extract the game name
+                // Note: You'll need to implement proper JSON parsing logic here
+                // This is just a simplified example
+                dynamic jsonResponse = Newtonsoft.Json.JsonConvert.DeserializeObject(responseBody);
+
+                // Check for null references before accessing properties
+                if (jsonResponse != null && jsonResponse[appId.ToString()] != null && jsonResponse[appId.ToString()]["data"] != null && jsonResponse[appId.ToString()]["data"]["name"] != null)
+                {
+                    string gameName = jsonResponse[appId.ToString()]["data"]["name"];
+                    return gameName;
+                }
+                else
+                {
+                    // Handle the case where the jsonResponse doesn't contain the expected data
+                    Console.WriteLine($"Unable to retrieve game name for appId: {appId}");
+                    return null;
+                }
+            }
+            else
+            {
+                // Request failed, handle the error
+                Console.WriteLine($"Failed to fetch game details for appId: {appId}. Status code: {response.StatusCode}");
+                return null;
+            }
+        }
+
+        public async Task<string> GetGameNameByAppIdAsync(int appId)
+        {
+            try
+            {
+                // Immediately fetch the game name using the provided appID
+                string gameName = await GetGameNameAsync(appId);
+                return gameName;
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions
+                Console.WriteLine($"Error fetching game name: {ex.Message}");
+                return null;
+            }
         }
     }
 }

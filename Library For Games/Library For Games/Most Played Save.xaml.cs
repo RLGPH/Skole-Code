@@ -73,6 +73,10 @@ namespace Library_For_Games
                     DTG_Games.ItemsSource = combinds;
                 }
             }
+            else
+            {
+                MessageBox.Show("plese select ID");
+            }
         }
 
         private void DTG_Games_SelectionChanged(object sender, SelectionChangedEventArgs e)

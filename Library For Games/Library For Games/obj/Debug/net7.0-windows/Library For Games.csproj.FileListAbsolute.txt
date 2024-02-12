@@ -31,3 +31,6 @@ C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For 
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Library For Games.csproj.AssemblyReference.cache
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Library For Games.csproj.CopyComplete
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\SyncDataFromProfile.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\SyncDataFromProfile.baml
