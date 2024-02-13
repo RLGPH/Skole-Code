@@ -34,3 +34,5 @@ C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For 
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\SyncDataFromProfile.g.cs
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\SyncDataFromProfile.baml
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\get all steam confirm.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\get all steam confirm.baml

@@ -88,7 +88,47 @@ namespace Library_For_Games
         }
         //----------------Edit things in the SQL server----------//
         //----------------Get from steam If name allready exist--//
+        public void ChecksSteamAndDatabase(Game_S game)
+        {
+            using SqlConnection connection = new SqlConnection(connectionstring);
+            connection.Open();
 
+            // Step 1: Write a SQL query to select the game with the specified name
+            string selectQuery = "SELECT ID, GHours FROM Games WHERE GName = @gameName";
+
+            // Step 2: Execute the query and check if any rows are returned
+            using SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+            selectCommand.Parameters.AddWithValue("@gameName", game.Name);
+            using SqlDataReader reader = selectCommand.ExecuteReader();
+
+            if (reader.Read())
+            {
+                // Step 3: If a game with the same name exists, update its GHours
+                int gameId = reader.GetInt32(0); // Get the ID of the game
+
+                // Close the data reader before executing the update command
+                reader.Close();
+
+                string updateQuery = "UPDATE Games SET GHours = @updatedHours WHERE ID = @gameId";
+                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@updatedHours", game.Hours);
+                    updateCommand.Parameters.AddWithValue("@gameId", gameId);
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+            else
+            {
+                // Step 4: If the game name doesn't exist in the database, add it
+                reader.Close();
+                Library library = new(1, false, true, false);
+                LibraryADD(library);
+                GameAddlist(game);
+                
+            }
+
+            connection.Close();
+        }
         //----------------Get from steam If name allready exist--//
         //----------------Deletes the things in the SQL SERVER----------------//
         public void DeleteObjects(Library library, Game_S game)

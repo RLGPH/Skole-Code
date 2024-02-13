@@ -10,6 +10,9 @@
     <Compile Update="Add to library.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="get all steam confirm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Most Played Save.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +22,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Add to library.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="get all steam confirm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

@@ -18,13 +18,7 @@ namespace Library_For_Games
             database = new Database();
         }
 
-        private void BTN_Updated_steam_Click(object sender, RoutedEventArgs e)
-        {
-            string SteamID = TB_SteamID.Text;
-            string API = TB_API_KEY.Text;
-        }
-
-        private async void BTN_GET_STEAM_Click(object sender, RoutedEventArgs e)
+        private async void BTN_Updated_steam_Click(object sender, RoutedEventArgs e)
         {
             string SteamID = TB_SteamID.Text;
             string apiKey = TB_API_KEY.Text;
@@ -40,12 +34,11 @@ namespace Library_For_Games
                     if (response.IsSuccessStatusCode)
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show(responseBody, "JSON Response");
 
                         // Parse the JSON response
                         JObject json = JObject.Parse(responseBody);
                         JArray gamesArray = (JArray)json["response"]["games"];
-                        
+
                         SteamApiClient steamApiClient = new SteamApiClient();
 
                         // Display the games and playtime in a MessageBox
@@ -61,18 +54,13 @@ namespace Library_For_Games
                             if (gameName != null)
                             {
                                 Game_S games = new(1, gameName, "none", playtimeHours, 1);
-                                Library library = new(1, false, true, false);
-                                database.LibraryADD(library);
-                                database.GameAddlist(games);
+                                database.ChecksSteamAndDatabase(games);
                             }
-                            // Append game details to the message
-                            message += $"Game Name: {gameName}, App ID: {appId}, Playtime: {playtimeHours} hours\n";
-
                         }
 
-                        MessageBox.Show(message, "Steam Games, Playtime, and Names");
+                        MessageBox.Show("sync complete");
                     }
-                    
+
                 }
 
                 catch (HttpRequestException ex)
