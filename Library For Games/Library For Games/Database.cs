@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Media;
-using System.Xml.Linq;
 using System.Data.SqlClient;
 
 namespace Library_For_Games
 {
-    
+
     public class Database
     {
         public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True";
@@ -93,20 +86,16 @@ namespace Library_For_Games
             using SqlConnection connection = new SqlConnection(connectionstring);
             connection.Open();
 
-            // Step 1: Write a SQL query to select the game with the specified name
             string selectQuery = "SELECT ID, GHours FROM Games WHERE GName = @gameName";
 
-            // Step 2: Execute the query and check if any rows are returned
             using SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
             selectCommand.Parameters.AddWithValue("@gameName", game.Name);
             using SqlDataReader reader = selectCommand.ExecuteReader();
 
             if (reader.Read())
             {
-                // Step 3: If a game with the same name exists, update its GHours
-                int gameId = reader.GetInt32(0); // Get the ID of the game
+                int gameId = reader.GetInt32(0); 
 
-                // Close the data reader before executing the update command
                 reader.Close();
 
                 string updateQuery = "UPDATE Games SET GHours = @updatedHours WHERE ID = @gameId";
@@ -119,12 +108,10 @@ namespace Library_For_Games
             }
             else
             {
-                // Step 4: If the game name doesn't exist in the database, add it
                 reader.Close();
                 Library library = new(1, false, true, false);
                 LibraryADD(library);
-                GameAddlist(game);
-                
+                GameAddlist(game);   
             }
 
             connection.Close();

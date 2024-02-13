@@ -20,9 +20,9 @@ namespace Library_For_Games
 
         private async void BTN_Updated_steam_Click(object sender, RoutedEventArgs e)
         {
-            string SteamID = TB_SteamID.Text;
+            string UserID = TB_UserID.Text;
             string apiKey = TB_API_KEY.Text;
-            string url = $"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={apiKey}&steamid={SteamID}&format=json";
+            string url = $"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={apiKey}&steamid={UserID}&format=json";
 
             using (HttpClient client = new HttpClient())
             {
@@ -30,18 +30,18 @@ namespace Library_For_Games
                 {
                     HttpResponseMessage response = await client.GetAsync(url);
 
-                    // Check if the response is successful
+                    
                     if (response.IsSuccessStatusCode)
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
 
-                        // Parse the JSON response
+                        
                         JObject json = JObject.Parse(responseBody);
                         JArray gamesArray = (JArray)json["response"]["games"];
 
                         SteamApiClient steamApiClient = new SteamApiClient();
 
-                        // Display the games and playtime in a MessageBox
+                        
                         string message = "Games and Playtime:\n\n";
                         foreach (JObject game in gamesArray)
                         {
@@ -49,7 +49,7 @@ namespace Library_For_Games
                             int playtimeMinutes = game["playtime_forever"].ToObject<int>();
                             int playtimeHours = playtimeMinutes / 60;
 
-                            // Fetch the game name using the provided appID
+                            
                             string gameName = await steamApiClient.GetGameNameAsync(appId);
                             if (gameName != null)
                             {
@@ -69,6 +69,13 @@ namespace Library_For_Games
                 }
             }
             Close();
+        }
+
+        private void BTN_Sync_Epic_Click(object sender, RoutedEventArgs e)
+        {
+            string UserID = TB_UserID.Text;
+            string APIKey = TB_API_KEY.Text;
+            string url = $"";
         }
     }
     public class SteamApiClient
