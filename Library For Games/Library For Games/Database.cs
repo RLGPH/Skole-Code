@@ -98,10 +98,11 @@ namespace Library_For_Games
 
                 reader.Close();
 
-                string updateQuery = "UPDATE Games SET GHours = @updatedHours WHERE ID = @gameId";
+                string updateQuery = "UPDATE Games SET GHours = @updatedHours, GDescription = @GDescription WHERE ID = @gameId";
                 using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                 {
                     updateCommand.Parameters.AddWithValue("@updatedHours", game.Hours);
+                    updateCommand.Parameters.AddWithValue("@GDescription", game.Description);
                     updateCommand.Parameters.AddWithValue("@gameId", gameId);
                     updateCommand.ExecuteNonQuery();
                 }

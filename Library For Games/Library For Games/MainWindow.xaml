@@ -8,7 +8,7 @@
         Title="MainWindow" Height="305" Width="308" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
-            <Label Content="Library for games" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="44" Width="185" FontSize="22" Foreground="#FF5261EB" FontFamily="Bahnschrift SemiBold"/>
+            <Label Content="Library for games" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Height="39" Width="184" FontSize="22" Foreground="#FF5261EB" FontFamily="Bahnschrift SemiBold"/>
             <Button x:Name="BTN_LIBRARY" Content="Library" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="50" Width="167" FontSize="20" Click="BTN_LIBRARY_Click" Background="#FF5261EB" FontFamily="Bahnschrift SemiBold">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -24,12 +24,13 @@
                 </Button.Resources>
             </Button>
             <Button x:Name="BTN_Steam_Sync" Content="Sync Steam Data" HorizontalAlignment="Left" Margin="10,180,0,0" Width="167" FontSize="20" Height="50" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Click="BTN_Steam_Sync_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5" />
-                </Style>
-            </Button.Resources>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
             </Button>
+            <Border BorderBrush="#FF5261EB" BorderThickness="2" Margin="10,10,0,0" HorizontalAlignment="Left" Width="184" Height="44" VerticalAlignment="Top" CornerRadius="5"/>
         </Grid>
     </Border>
 </Window>

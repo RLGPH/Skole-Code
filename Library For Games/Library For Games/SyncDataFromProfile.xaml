@@ -19,13 +19,7 @@
             <Label Content="API-Key :" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBox x:Name="TB_UserID" HorizontalAlignment="Left" Margin="70,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
             <TextBox x:Name="TB_API_KEY" HorizontalAlignment="Left" Margin="70,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-            <Button x:Name="BTN_Sync_Epic" Content="Sync Epicgames" HorizontalAlignment="Left" FontSize="12 px" Margin="126,143,0,0" Width="104" Height="35" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Click="BTN_Sync_Epic_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10" />
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <Border BorderBrush="White" BorderThickness="3" Margin="10,10,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="222" Height="106" VerticalAlignment="Top"/>
         </Grid>
     </Border>
 </Window>

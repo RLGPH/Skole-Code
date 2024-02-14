@@ -79,6 +79,7 @@
                 </TextBox.Resources>
             </TextBox>
             <Label Content="Search" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.626,0.672" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+            <Border BorderBrush="White" BorderThickness="2" Margin="334,314,163,74" CornerRadius="7"/>
         </Grid>
     </Border>
 </Window>

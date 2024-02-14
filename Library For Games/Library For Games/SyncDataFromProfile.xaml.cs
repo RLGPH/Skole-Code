@@ -30,18 +30,15 @@ namespace Library_For_Games
                 {
                     HttpResponseMessage response = await client.GetAsync(url);
 
-                    
                     if (response.IsSuccessStatusCode)
                     {
                         string responseBody = await response.Content.ReadAsStringAsync();
 
-                        
                         JObject json = JObject.Parse(responseBody);
                         JArray gamesArray = (JArray)json["response"]["games"];
 
                         SteamApiClient steamApiClient = new SteamApiClient();
 
-                        
                         string message = "Games and Playtime:\n\n";
                         foreach (JObject game in gamesArray)
                         {
@@ -49,33 +46,26 @@ namespace Library_For_Games
                             int playtimeMinutes = game["playtime_forever"].ToObject<int>();
                             int playtimeHours = playtimeMinutes / 60;
 
-                            
                             string gameName = await steamApiClient.GetGameNameAsync(appId);
+                            string gameDescription = await steamApiClient.GetGameDetailsAsync(appId);
+
                             if (gameName != null)
                             {
-                                Game_S games = new(1, gameName, "none", playtimeHours, 1);
+                                Game_S games = new(1, gameName, "None", playtimeHours, 1);
                                 database.ChecksSteamAndDatabase(games);
                             }
                         }
 
-                        MessageBox.Show("sync complete");
+                        MessageBox.Show("Sync complete");
                     }
-
                 }
-
                 catch (HttpRequestException ex)
                 {
                     MessageBox.Show($"HTTP error: {ex.Message}", "Error");
                 }
             }
-            Close();
-        }
 
-        private void BTN_Sync_Epic_Click(object sender, RoutedEventArgs e)
-        {
-            string UserID = TB_UserID.Text;
-            string APIKey = TB_API_KEY.Text;
-            string url = $"";
+            Close(); // Moved Close() outside the using block
         }
     }
     public class SteamApiClient
@@ -87,6 +77,41 @@ namespace Library_For_Games
             _httpClient = new HttpClient();
         }
 
+        public async Task<string> GetGameDetailsAsync(int appId)
+        {
+            // Make a request to the GetAppDetails endpoint with the provided appID
+            string url = $"https://store.steampowered.com/api/appdetails?appids={appId}";
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+
+            // Check if the request was successful
+            if (response.IsSuccessStatusCode)
+            {
+                // Read the response content
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                // Parse the JSON response to extract the game description
+                dynamic jsonResponse = Newtonsoft.Json.JsonConvert.DeserializeObject(responseBody);
+
+                // Check for null references before accessing properties
+                if (jsonResponse != null && jsonResponse[appId.ToString()] != null && jsonResponse[appId.ToString()]["data"] != null && jsonResponse[appId.ToString()]["data"]["detailed_description"] != null)
+                {
+                    string gameDescription = jsonResponse[appId.ToString()]["data"]["detailed_description"];
+                    return gameDescription;
+                }
+                else
+                {
+                    // Handle the case where the jsonResponse doesn't contain the expected data
+                    Console.WriteLine($"Unable to retrieve game details for appId: {appId}");
+                    return null;
+                }
+            }
+            else
+            {
+                // Request failed, handle the error
+                Console.WriteLine($"Failed to fetch game details for appId: {appId}. Status code: {response.StatusCode}");
+                return null;
+            }
+        }
         public async Task<string> GetGameNameAsync(int appId)
         {
             // Make a request to the GetAppDetails endpoint with the provided appID
@@ -100,8 +125,6 @@ namespace Library_For_Games
                 string responseBody = await response.Content.ReadAsStringAsync();
 
                 // Parse the JSON response to extract the game name
-                // Note: You'll need to implement proper JSON parsing logic here
-                // This is just a simplified example
                 dynamic jsonResponse = Newtonsoft.Json.JsonConvert.DeserializeObject(responseBody);
 
                 // Check for null references before accessing properties
@@ -123,22 +146,7 @@ namespace Library_For_Games
                 Console.WriteLine($"Failed to fetch game details for appId: {appId}. Status code: {response.StatusCode}");
                 return null;
             }
-        }
 
-        public async Task<string> GetGameNameByAppIdAsync(int appId)
-        {
-            try
-            {
-                // Immediately fetch the game name using the provided appID
-                string gameName = await GetGameNameAsync(appId);
-                return gameName;
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions
-                Console.WriteLine($"Error fetching game name: {ex.Message}");
-                return null;
-            }
         }
     }
 }
