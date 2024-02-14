@@ -111,7 +111,7 @@ namespace Library_For_Games
             var tag = CBB_Filter.SelectedItem != null ? int.Parse(((ComboBoxItem)CBB_Filter.SelectedItem).Tag.ToString()) : 0;
 
             List<Combind> combinds = database.GetAndCombind();
-            IEnumerable<Combind> filterList = null;
+            IEnumerable<Combind>? filterList = null;
 
             switch (tag)
             {
