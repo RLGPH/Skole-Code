@@ -19,7 +19,7 @@
             <Label Content="API-Key :" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBox x:Name="TB_UserID" HorizontalAlignment="Left" Margin="70,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
             <TextBox x:Name="TB_API_KEY" HorizontalAlignment="Left" Margin="70,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-            <Border BorderBrush="White" BorderThickness="3" Margin="10,10,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="222" Height="106" VerticalAlignment="Top"/>
+            <Border BorderBrush="White" BorderThickness="3" Margin="0,10,0,0" CornerRadius="10" HorizontalAlignment="Center" Width="232" Height="117" VerticalAlignment="Top"/>
         </Grid>
     </Border>
 </Window>

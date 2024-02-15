@@ -64,7 +64,7 @@
             <Border BorderBrush="White" BorderThickness="1" Margin="15,54,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="260" Height="40" VerticalAlignment="Top"/>
             <Border BorderBrush="White" BorderThickness="1" Margin="16,31,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="259" Height="21" VerticalAlignment="Top"/>
             <Border BorderBrush="White" BorderThickness="1" Margin="16,7,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="259" Height="22" VerticalAlignment="Top"/>
-            <Border BorderBrush="White" BorderThickness="1" Margin="138,134,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="137" Height="94" VerticalAlignment="Top"/>
+            <Border BorderBrush="White" BorderThickness="1" Margin="138,134,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="137" Height="114" VerticalAlignment="Top"/>
 
         </Grid>
     </Border>
