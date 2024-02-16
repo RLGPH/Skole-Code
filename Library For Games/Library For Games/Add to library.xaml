@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="Add_to_library" Height="286" Width="322" Background="Black">
+        Title="Add_to_library" Height="300" Width="350" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -16,92 +16,105 @@
                 <ColumnDefinition Width="25*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="26*"/>
-                <RowDefinition Height="28*"/>
-                <RowDefinition Height="41*"/>
-                <RowDefinition Height="33*"/>
-                <RowDefinition Height="65*"/>
-                <RowDefinition Height="65*"/>
+                <RowDefinition Height="36*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="67*"/>
+                <RowDefinition Height="40*"/>
             </Grid.RowDefinitions>
-            
-            <TextBox x:Name="TB_Game_Name" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontFamily="Bahnschrift SemiBold" Grid.Column="2" Grid.ColumnSpan="2">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="6"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <Label Content="Name of the game" HorizontalAlignment="Left" Margin="5,6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-            
-            
-            <TextBox x:Name="TB_Hours_Played" HorizontalAlignment="Left" Margin="86,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="166" FontFamily="Bahnschrift SemiBold" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="6"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <Label Content="Hours Played" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="1" Grid.Column="1"/>
-            
-            
-            <CheckBox x:Name="CHB_Steam" Content="Steam" HorizontalAlignment="Left" Margin="37,2,0,0" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="2" Grid.Column="3"/>
-            <CheckBox x:Name="CHB_Epic" Content="EpicGames" HorizontalAlignment="Left" Margin="0,2,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
-            <CheckBox x:Name="CHB_Other" Content="Other" HorizontalAlignment="Left" Margin="37,23,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="2" Grid.Column="3"/>
-            <Label Content="which library its in" HorizontalAlignment="Center" Margin="0,4,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="2" Grid.Column="1"/>
-            
-            
-            <TextBox x:Name="TB_DESCRIPTION" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="61" FontFamily="Bahnschrift SemiBold" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="6"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <Label Content="Description" HorizontalAlignment="Center" Margin="0,6,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
-            
-            
-            <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="1,35,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_without_Save_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5" />
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="1,3,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="BTN_Close_and_save_Click" Background="#FF1EFF00" FontFamily="Bahnschrift SemiBold" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5" />
-                    </Style>
-                </Button.Resources>
-            </Button>
-            
-            
-            <Label Content="Working on ID:" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="3" Grid.Column="1"/>
-            
-            
-            <Border BorderBrush="White" BorderThickness="1" Margin="2,0,0,0" CornerRadius="10" RenderTransformOrigin="0.376,0.554" HorizontalAlignment="Left" Width="151" Height="24" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
 
-                <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="New" VerticalAlignment="Center" Width="58" BorderBrush="White" IsReadOnly="True" Background="Black" Foreground="White" FontFamily="Bahnschrift SemiBold" Margin="82,0,0,0">
+            <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,6,0,0">
+                <Label Content="Name of the game" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+                <TextBox x:Name="TB_Game_Name" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontFamily="Bahnschrift SemiBold">
                     <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
+                        <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="6"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
-            </Border>
-            
-            
-            <Border BorderBrush="White" BorderThickness="1" Margin="1,0,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="260" Height="40" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
-            
-            
-            <Border BorderBrush="White" BorderThickness="1" Margin="2,5,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="259" Height="21" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
-            
-            
-            <Border BorderBrush="White" BorderThickness="1" Margin="2,7,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="259" Height="22" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="3"/>
-            
-            
-            <Border BorderBrush="White" BorderThickness="1" Margin="12,6,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="137" Height="94" VerticalAlignment="Top" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            </StackPanel>
 
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Hours Played" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="1" Grid.Column="1" Height="21" Width="82"/>
+                <TextBox x:Name="TB_Hours_Played" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="166" FontFamily="Bahnschrift SemiBold" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Height="17">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical">
+                <CheckBox x:Name="CHB_Steam" Content="Steam" HorizontalAlignment="Left" Margin="44,11,0,0" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="2" Grid.Column="3"/>
+                <CheckBox x:Name="CHB_Other" Content="Other" HorizontalAlignment="Center" Margin="13,2,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Height="15" Width="49"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3">
+                <CheckBox x:Name="CHB_Epic" Content="EpicGames" HorizontalAlignment="Left" Margin="12,12,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Height="15" Width="80"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Vertical">
+                <Label Content="which library its in:" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontFamily="Bahnschrift SemiBold" Height="24" Width="110" Margin="-14,16,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Grid.RowSpan="5" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Vertical" HorizontalAlignment="Center">
+                <Label Content="Description" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Bahnschrift SemiBold" Height="24" Width="72"/>
+                <TextBox x:Name="TB_DESCRIPTION" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bahnschrift SemiBold">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30" Width="110" Click="BTN_Close_without_Save_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold" Grid.Row="4" Grid.Column="1">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+                <Button x:Name="BTN_Close_and_save" Content="Close and save" HorizontalAlignment="Left" Margin="0,6,0,0" VerticalAlignment="Center" Height="30" Width="110" Click="BTN_Close_and_save_Click" Background="#FF1EFF00" FontFamily="Bahnschrift SemiBold" Grid.Row="5" Grid.Column="1">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Working on ID:" HorizontalAlignment="Left" Margin="-46,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Bahnschrift SemiBold" Grid.Row="3" Grid.Column="1" Height="24" Width="87"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Vertical">
+                <Border BorderBrush="White" BorderThickness="1" Margin="20,8,0,0" CornerRadius="10" RenderTransformOrigin="0.376,0.554" HorizontalAlignment="Left" Width="151" Height="24" VerticalAlignment="Center">
+                    <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="New" VerticalAlignment="Center" Width="58" BorderBrush="White" IsReadOnly="True" Background="Black" Foreground="White" FontFamily="Bahnschrift SemiBold" Margin="86,0,0,0">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="6"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" >
+                <Border BorderBrush="White" BorderThickness="1" Margin="8,8,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="260" Height="40" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border BorderBrush="White" BorderThickness="1" Margin="10,0,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="259" Height="21" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+            </StackPanel>
+                
+            <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5" Margin="0,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Border BorderBrush="White" BorderThickness="1" Margin="-16,7,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="259" Height="22" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Grid.RowSpan="5" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                <Border BorderBrush="White" BorderThickness="1" Margin="0,2,0,0" CornerRadius="10" HorizontalAlignment="Left" Width="137" Height="94" VerticalAlignment="Top" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>
