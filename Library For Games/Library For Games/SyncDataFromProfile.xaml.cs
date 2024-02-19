@@ -22,12 +22,15 @@ namespace Library_For_Games
         {
             string UserID = TB_UserID.Text;
             string apiKey = TB_API_KEY.Text;
+            //steam api url using APIKey gotten from a text box and userID from Textbox
             string url = $"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={apiKey}&steamid={UserID}&format=json";
 
+            //recives http response
             using (HttpClient client = new HttpClient())
             {
                 try
                 {
+                    //http response message
                     HttpResponseMessage response = await client.GetAsync(url);
 
                     if (response.IsSuccessStatusCode)

@@ -113,11 +113,11 @@ namespace Library_For_Games
 
             if (reader.Read())
             {
-                //
+                //gets gameID using gamename
                 int gameId = reader.GetInt32(0); 
 
                 reader.Close();
-
+                //opens to update relavent Data
                 string updateQuery = "UPDATE Games SET GHours = @updatedHours, GDescription = @GDescription WHERE ID = @gameId";
                 using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                 {
@@ -129,7 +129,9 @@ namespace Library_For_Games
             }
             else
             {
+                //incase reader is on shut it off
                 reader.Close();
+                //sends data to be added to database if it didnt already exist
                 Library library = new(1, false, true, false);
                 LibraryADD(library);
                 GameAddlist(game);   
@@ -141,9 +143,11 @@ namespace Library_For_Games
         //----------------Deletes the things in the SQL SERVER----------------//
         public void DeleteObjects(Library library, Game_S game)
         {
+            //fine i guess i can explain it opens connection
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
+            //deletes from both Games in database and GLibrary
             string SQL = "DELETE FROM Games WHERE ID = @ID";
             using SqlCommand cmd = new(SQL, connection);
             cmd.Parameters.AddWithValue("@ID", game.ID);
@@ -151,6 +155,7 @@ namespace Library_For_Games
             using SqlCommand CMD = new(sql, connection);
             CMD.Parameters.AddWithValue("@lID", library.ID);
 
+            //heres jhony 
             connection.Close();
         }
         //----------------Deletes the things in the SQL SERVER----------------//
@@ -158,6 +163,7 @@ namespace Library_For_Games
         //----------------gets the games----------------//
         public List<Combind> GetAndCombind() 
         {
+            //if list is null instence list
             if(combind == null)
             {
                 combind = new List<Combind>();
@@ -166,14 +172,18 @@ namespace Library_For_Games
             {
                 combind.Clear();
             }
+            //guess what im stealing you data with this line. opens connection
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
+            //joins both database aka compares if its the same id from the forign and main key
             string sql = "SELECT * FROM Games INNER JOIN GLibrary ON Games.LibraryID = GLibrary.LibraryID";
+
 
             using SqlCommand cmd = new(sql, connection);
             using SqlDataReader reader = cmd.ExecuteReader();
-
+            
+            //gets from database with the reader the reader will continue til no more data can be read
             while (reader.Read())
             {
                 int ID = (int)reader["ID"];
@@ -186,14 +196,28 @@ namespace Library_For_Games
                 bool Epic = (bool)reader["Epic"];
                 bool Other = (bool)reader["Other"];
 
+                //puts it in combind and adds it 
                 Combind combinds = new(ID,Name,Description,Hours,FKey,FID,Epic,Steam,Other);
                 
                 combind.Add(combinds);
             }
+            //you cant make me explain again just go to line 66 trust it wont leave room for questions
             connection.Close();
-
+            //returns data
             return combind;
         }   
         //----------------gets the games----------------//
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+//why are you still here there is nothing more go home go to sleep and for you jhony go away you shouldnt have access to this
