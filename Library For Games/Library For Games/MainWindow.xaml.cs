@@ -29,20 +29,25 @@ namespace Library_For_Games
 
         private void BTN_LIBRARY_Click(object sender, RoutedEventArgs e)
         {
+            //opens the window use to show whats saved in SQL database
             Most_Played_Save most_Played_Save = new();
             most_Played_Save.Show();
         }
 
         private void BTN_ADD_TO_Click(object sender, RoutedEventArgs e)
         {
+            //gives some dumby information to get past the dependinsie
             Library library = new(0, false, false, false);
             Game_S game = new(0,"null","null",0,0);
+
+            //opens window for add window
             Add_to_library add_to_library = new(0, 0, game, library);
             add_to_library.Show();
         }
 
         private void BTN_Steam_Sync_Click(object sender, RoutedEventArgs e)
         {
+            //opens sync windows 
             SyncDataFromProfile syncDataFromProfile = new();
             syncDataFromProfile.Show();
         }

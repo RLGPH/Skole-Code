@@ -7,6 +7,7 @@ namespace Library_For_Games
 
     public class Database
     {
+        //change data source to what ever you need but is the string need to connect to SQL database
         public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True";
 
         List<Combind> combind = new();
@@ -14,23 +15,28 @@ namespace Library_For_Games
         //----------------ADD'S to the SQL Server----------------//
         public void GameAddlist(Game_S game)
         {
+            //uses string to open connection
             using SqlConnection connection = new(connectionstring);
             connection.Open();
-
+            
+            //selects latest library ID
             string getFkey = "SELECT TOP 1 LibraryID FROM GLibrary ORDER BY LibraryID DESC";
             using SqlCommand getFkeycmd = new(getFkey, connection);
             int FKeyID = Convert.ToInt32(getFkeycmd.ExecuteScalar());
 
+            //inserts string tells what the names refer to
             string SQL = "INSERT INTO Games (GName,GDescription,GHours,LibraryID)" +
                          "VALUES(@GName,@GDescription,@GHours,@LibraryID)" +
                          "SELECT SCOPE_IDENTITY()";
 
+            //the commands used to add said values
             using SqlCommand cmd = new(SQL, connection);
             cmd.Parameters.AddWithValue("@GName",game.Name);
             cmd.Parameters.AddWithValue("@GDescription",game.Description);
             cmd.Parameters.AddWithValue("@GHours",game.Hours);
             cmd.Parameters.AddWithValue("@LibraryID", FKeyID);
             
+            //auto scale ID
             int id = Convert.ToInt32(cmd.ExecuteScalar());
             game.ID = id;
             
@@ -39,30 +45,40 @@ namespace Library_For_Games
 
         public void LibraryADD(Library library)
         { 
+            //opens connection using connection string
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
+            //assoctiates which values is going to recive data
             string SQL = "INSERT INTO GLibrary (Steam, Epic, Other)" +
                          "VALUES(@Steam,@Epic,@Other)SELECT SCOPE_IDENTITY()";
+            
+            //sends/adds before mentioned data to SQL DATABASE
             using SqlCommand cmd = new(SQL, connection);
             cmd.Parameters.AddWithValue("@Steam", library.Steam);
             cmd.Parameters.AddWithValue("@Epic", library.Epic);
             cmd.Parameters.AddWithValue("@Other", library.Other);
 
+            //executes the auto scalar
             int id = Convert.ToInt32(cmd.ExecuteScalar());
             library.ID = id;
+
+            //closes connection
             connection.Close();
         }
         //----------------ADD'S to the SQL Server----------------//
         //----------------Edit things in the SQL server----------//
         public void Editobjectsandopdates(Library library,Game_S game)
         {
+            //opens connection usin connection string
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
+            //asigning data postions with names
             string sqlGame = "UPDATE Games SET GName = @GName, GDescription = @GDescription, GHours = @GHours WHERE ID = @ID";
             string sqlLibrary = "UPDATE GLibrary SET Steam = @Steam, Epic = @Epic, Other = @Other WHERE LibraryID = @LibraryID";
 
+            //gives and changes the data being give to SQL database
             using SqlCommand updateGame = new(sqlGame, connection);
             using SqlCommand updateLibrary = new(sqlLibrary, connection);
             updateGame.Parameters.AddWithValue("@GName", game.Name);
@@ -77,15 +93,18 @@ namespace Library_For_Games
             updateLibrary.Parameters.AddWithValue("@LibraryID", library.ID);
             updateLibrary.ExecuteNonQuery();
 
+            //close connection or does it damdam daaaa
             connection.Close();
         }
         //----------------Edit things in the SQL server----------//
         //----------------Get from steam If name allready exist--//
         public void ChecksSteamAndDatabase(Game_S game)
         {
+            //do i need to explain this again i have already said it like 12 times
             using SqlConnection connection = new SqlConnection(connectionstring);
             connection.Open();
 
+            //gives id and gamehours from the use of Name
             string selectQuery = "SELECT ID, GHours FROM Games WHERE GName = @gameName";
 
             using SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
@@ -94,6 +113,7 @@ namespace Library_For_Games
 
             if (reader.Read())
             {
+                //
                 int gameId = reader.GetInt32(0); 
 
                 reader.Close();

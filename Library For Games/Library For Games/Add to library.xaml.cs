@@ -25,12 +25,13 @@ namespace Library_For_Games
         public Add_to_library(int Edit,int ID,Game_S game,Library library)
         {
             InitializeComponent();
-
+            //if its the edit button then edit will be 1 instead of 0
             if (Edit > 0) 
             {
                 int gID = ID;
                 if (gID > 0)
                 {
+                    //gives all game data to the textboxes and show ID in a read only textbox
                     string gName = game.Name;
                     string gDescription = game.Description;
                     string gHours = game.Hours.ToString();
@@ -43,6 +44,7 @@ namespace Library_For_Games
                 int lID = ID;
                 if (lID > 0)
                 {
+                    //checks whats true and gives that a checkmark
                     if (library.Epic == true)
                     {
                         CHB_Epic.IsChecked = library.Epic;
@@ -55,18 +57,19 @@ namespace Library_For_Games
                     {
                         CHB_Other.IsChecked = library.Other;
                     }
-                    MessageBox.Show("item was succesfully loaded");
                 }
             }
         }
 
         private void BTN_Close_without_Save_Click(object sender, RoutedEventArgs e)
         {
+            //it closes the window but does it also close you chance to fix your life?
             Close();
         }
 
         private void BTN_Close_and_save_Click(object sender, RoutedEventArgs e)
         {
+            //gets the data
             bool steam = (bool)CHB_Steam.IsChecked;
             bool epic = (bool)CHB_Epic.IsChecked;
             bool other = (bool)CHB_Other.IsChecked;
@@ -74,18 +77,22 @@ namespace Library_For_Games
             string Gamename = TB_Game_Name.Text;
             string Gamedescrip = TB_DESCRIPTION.Text;
             
-            
+            //checks if there is an ID
             if (int.TryParse(TB_ID.Text,out int GameID))
             {
+                //checks if hours can be converted to int
                 if (int.TryParse(TB_Hours_Played.Text, out int Gamehours))
                 {
                     Library library = new(GameID, epic, steam, other);
                     Game_S game = new(GameID, Gamename, Gamedescrip, Gamehours, GameID);
-
+                    //sends data to the edit method in database class
                     database.Editobjectsandopdates(library, game);
 
+                    //tells you edit saved and then give true to the previous page
                     MessageBox.Show("EDIT SAVED");
                     DialogResult = true;
+                    //who knows where this takes you. "harry potter" out of this page. "some voice"
+                    //10 points to gryffendore  
                     Close();
                 }
                 else
@@ -93,11 +100,13 @@ namespace Library_For_Games
                     MessageBox.Show("please type a valid number what you typed:", Gamehours.ToString());
                 }
             }
+            //if it didnt hold an ID value higher then 0 it will go into adding said item instead
             else if(GameID <= 0)
             {
                 if (int.TryParse(TB_Hours_Played.Text, out int Gamehours))
                 {
                     int FkeyID = 0;
+                    //sends data to the add functions so they can be added to database
 
                     Library library = new(FkeyID, epic, steam, other);
                     database.LibraryADD(library);
@@ -113,9 +122,10 @@ namespace Library_For_Games
                     MessageBox.Show("please type a valid number what you typed:" + Gamehours.ToString() + "either you have writen a letter or a word");
                 }
             }
+            //error message that really shouldnt ever appere unless you leave to much null
             else
             {
-                MessageBox.Show("Something whent wrong with saving changes");
+                MessageBox.Show("Something whent wrong with saving changes all we can say is check what data you have writen there shouldnt be an instance where this shoudl show");
             }
         }
     }
