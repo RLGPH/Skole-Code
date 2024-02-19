@@ -89,8 +89,8 @@
                 <Label Content="Working on ID:" HorizontalAlignment="Left" Margin="-46,0,0,0" VerticalAlignment="Center" Foreground="White" FontFamily="Bahnschrift SemiBold" MinHeight="24" MinWidth="87"/>
             </StackPanel>
             
-            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Vertical">
-                <Border BorderBrush="White" BorderThickness="1" Margin="20,8,0,0" CornerRadius="10" RenderTransformOrigin="0.376,0.554" HorizontalAlignment="Left" MinWidth="151" MinHeight="24" VerticalAlignment="Center">
+            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Vertical">
+                <Border BorderBrush="White" BorderThickness="1" Margin="-105,8,0,0" CornerRadius="10" RenderTransformOrigin="0.376,0.554" HorizontalAlignment="Left" MinWidth="151" MinHeight="24" VerticalAlignment="Center">
                     <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="New" VerticalAlignment="Center" MinWidth="58" BorderBrush="White" IsReadOnly="True" Background="Black" Foreground="White" FontFamily="Bahnschrift SemiBold" Margin="86,0,0,0">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
