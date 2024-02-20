@@ -22,6 +22,7 @@ namespace Library_For_Games
         public Game_S game;
         public Library Library;
         public Database database = new();
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Add_to_library(int Edit,int ID,Game_S game,Library library)
         {
             InitializeComponent();
@@ -70,7 +71,9 @@ namespace Library_For_Games
         private void BTN_Close_and_save_Click(object sender, RoutedEventArgs e)
         {
             //gets the data
+#pragma warning disable CS8629 // Nullable value type may be null.
             bool steam = (bool)CHB_Steam.IsChecked;
+
             bool epic = (bool)CHB_Epic.IsChecked;
             bool other = (bool)CHB_Other.IsChecked;
 

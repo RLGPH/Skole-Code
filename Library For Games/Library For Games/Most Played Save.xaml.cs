@@ -130,7 +130,9 @@ namespace Library_For_Games
 
         private void CBB_Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+#pragma warning disable CS8604 // Possible null reference argument.
             var tag = CBB_Filter.SelectedItem != null ? int.Parse(((ComboBoxItem)CBB_Filter.SelectedItem).Tag.ToString()) : 0;
+#pragma warning restore CS8604 // Possible null reference argument.
 
             List<Combind> combinds = database.GetAndCombind();
             IEnumerable<Combind>? filterList = null;

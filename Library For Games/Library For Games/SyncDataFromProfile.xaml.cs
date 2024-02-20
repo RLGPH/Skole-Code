@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,7 +12,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class SyncDataFromProfile : Window
     {
-        Database database;
+        readonly Database database;
         public SyncDataFromProfile()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace Library_For_Games
             string url = $"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={apiKey}&steamid={UserID}&format=json";
 
             //recives http response
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = new())
             {
                 try
                 {
@@ -35,52 +36,64 @@ namespace Library_For_Games
 
                     if (response.IsSuccessStatusCode)
                     {
+                        //
                         string responseBody = await response.Content.ReadAsStringAsync();
 
                         JObject json = JObject.Parse(responseBody);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                         JArray gamesArray = (JArray)json["response"]["games"];
 
-                        SteamApiClient steamApiClient = new SteamApiClient();
 
-                        string message = "Games and Playtime:\n\n";
-                        foreach (JObject game in gamesArray)
+
+                        SteamApiClient steamApiClient = new();
+
+#pragma warning disable CS8604 // Possible null reference argument.
+                        foreach (JObject game in gamesArray.Cast<JObject>())
                         {
+                            //holds appid
                             int appId = game["appid"].ToObject<int>();
+                            //converts playtime from minuts to hours
                             int playtimeMinutes = game["playtime_forever"].ToObject<int>();
                             int playtimeHours = playtimeMinutes / 60;
 
+                            //uses appid to get gamename and a semi description
                             string gameName = await steamApiClient.GetGameNameAsync(appId);
                             string gameDescription = await steamApiClient.GetGameDescriptionAsync(appId);
 
                             if (gameName != null)
                             {
+                                //sends every thing to the database class to send it to the SQL database
+                                //also if it couldnt get a description it will just say None
                                 Game_S games = new(1, gameName, gameDescription ?? "None", playtimeHours, 1);
                                 database.ChecksSteamAndDatabase(games);
                             }
                         }
-
+                              //tells you its done
                         MessageBox.Show("Sync complete");
                     }
                 }
                 catch (HttpRequestException ex)
                 {
+                    //if an error were to occoure it would give the last message
                     MessageBox.Show($"HTTP error: {ex.Message}", "Error");
                 }
             }
+            // it does what its name states
             Close(); 
         }
     }
     public class SteamApiClient
     {
-        private HttpClient _httpClient;
-
+        private readonly HttpClient _httpClient;
+        
         public SteamApiClient()
         {
             _httpClient = new HttpClient();
         }
 
-        public async Task<string> GetGameDescriptionAsync(int appId)
+        public async Task<string?> GetGameDescriptionAsync(int appId)
         {
+            //url for steam store page to get info from it usin AppID
             string url = $"https://store.steampowered.com/api/appdetails?appids={appId}";
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 
@@ -93,24 +106,26 @@ namespace Library_For_Games
                 
                 if (jsonResponse != null && jsonResponse[appId.ToString()] != null && jsonResponse[appId.ToString()]["data"] != null && jsonResponse[appId.ToString()]["data"]["genres"] != null)
                 {
+                    //gets some info from the store page that could be fx action or MMO or some russian text that means the same as the engilsh version 
                     string gameGenre = jsonResponse[appId.ToString()]["data"]["genres"][0]["description"];
                     return gameGenre;
                 }
                 else
-                {
-                    Console.WriteLine($"Unable to retrieve game genre for appId: {appId}");
+                { 
+                    //if it fails
                     return null;
                 }
             }
             else
             {
-                Console.WriteLine($"Failed to fetch game details for appId: {appId}. Status code: {response.StatusCode}");
+                MessageBox.Show($"Failed to fetch game details for appId: {appId}. Status code: {response.StatusCode}");
                 return null;
             }
         }
 
-        public async Task<string> GetGameNameAsync(int appId)
+        public async Task<string?> GetGameNameAsync(int appId)
         {
+            //once again the URL to the steam store but to get the Game name this time
             string url = $"https://store.steampowered.com/api/appdetails?appids={appId}";
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 
@@ -122,13 +137,16 @@ namespace Library_For_Games
 
                 if (jsonResponse != null && jsonResponse[appId.ToString()] != null && jsonResponse[appId.ToString()]["data"] != null && jsonResponse[appId.ToString()]["data"]["name"] != null)
                 {
+                    //gets game name and returns it to the rest of the code
                     string gameName = jsonResponse[appId.ToString()]["data"]["name"];
                     return gameName;
                 }
                 else
                 {
-                    Console.WriteLine($"Unable to retrieve game name for appId: {appId}");
-                    return null;
+                    //if it couldnt get a the gamename using appID and writs none instead
+                    MessageBox.Show($"will write gamename as NONE, it couldnt find {appId}");
+                    string gamename = "NONE"; 
+                    return gamename;
                 }
             }
             else

@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
 
             <ScrollViewer Grid.Column="1"  Grid.ColumnSpan="3" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <DataGrid x:Name="DTG_Games" AutoGenerateColumns="False" SelectionChanged="DTG_Games_SelectionChanged" Background="Black" Height="auto" MinHeight="280">
+                <DataGrid x:Name="DTG_Games" AutoGenerateColumns="False" SelectionChanged="DTG_Games_SelectionChanged" Background="Black" Height="auto" MinHeight="280" Width="auto">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>

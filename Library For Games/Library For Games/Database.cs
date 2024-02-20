@@ -101,13 +101,13 @@ namespace Library_For_Games
         public void ChecksSteamAndDatabase(Game_S game)
         {
             //do i need to explain this again i have already said it like 12 times
-            using SqlConnection connection = new SqlConnection(connectionstring);
+            using SqlConnection connection = new(connectionstring);
             connection.Open();
 
             //gives id and gamehours from the use of Name
             string selectQuery = "SELECT ID, GHours FROM Games WHERE GName = @gameName";
 
-            using SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+            using SqlCommand selectCommand = new(selectQuery, connection);
             selectCommand.Parameters.AddWithValue("@gameName", game.Name);
             using SqlDataReader reader = selectCommand.ExecuteReader();
 
@@ -119,13 +119,11 @@ namespace Library_For_Games
                 reader.Close();
                 //opens to update relavent Data
                 string updateQuery = "UPDATE Games SET GHours = @updatedHours, GDescription = @GDescription WHERE ID = @gameId";
-                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
-                {
-                    updateCommand.Parameters.AddWithValue("@updatedHours", game.Hours);
-                    updateCommand.Parameters.AddWithValue("@GDescription", game.Description);
-                    updateCommand.Parameters.AddWithValue("@gameId", gameId);
-                    updateCommand.ExecuteNonQuery();
-                }
+                using SqlCommand updateCommand = new(updateQuery, connection);
+                updateCommand.Parameters.AddWithValue("@updatedHours", game.Hours);
+                updateCommand.Parameters.AddWithValue("@GDescription", game.Description);
+                updateCommand.Parameters.AddWithValue("@gameId", gameId);
+                updateCommand.ExecuteNonQuery();
             }
             else
             {
@@ -220,4 +218,4 @@ namespace Library_For_Games
 
 
 
-//why are you still here there is nothing more go home go to sleep and for you jhony go away you shouldnt have access to this
+//why are you still here there is nothing more go home go to sleep.
