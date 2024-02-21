@@ -1,0 +1,22 @@
+﻿<Window x:Class="Library_For_Games.Admin_Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_For_Games"
+        mc:Ignorable="d"
+        Title="Admin_Login" Height="305" Width="305" MinHeight="305" MinWidth="305" Background="Black">
+    <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
+        <Grid>
+            <Label Content="Admin User :" Foreground="White" Margin="60,55,155,194"/>
+            <TextBox x:Name="TB_Admin_User" HorizontalAlignment="Left" Margin="138,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="TB_Admin_Password_1" HorizontalAlignment="Left" Margin="138,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <Label Content="First Password:" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Second Password:" HorizontalAlignment="Left" Margin="33,109,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <TextBox x:Name="TB_Password_2" HorizontalAlignment="Left" Margin="138,113,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="BTN_Admin_Login" Content="Login" HorizontalAlignment="Left" Margin="60,179,0,0" VerticalAlignment="Top" Click="BTN_Admin_Login_Click"/>
+            <Button x:Name="BTN_Back" Content="Back" HorizontalAlignment="Left" Margin="198,179,0,0" VerticalAlignment="Top" Click="BTN_Back_Click"/>
+
+        </Grid>
+    </Border>
+</Window>
