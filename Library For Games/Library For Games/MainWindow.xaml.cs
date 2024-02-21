@@ -21,6 +21,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class MainWindow : Window
     {
+        Database database;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,6 +29,12 @@ namespace Library_For_Games
 
         private void BTN_Login_Click(object sender, RoutedEventArgs e)
         {
+            string User = "Phoenix";
+            string Password = "Pass123";
+            string password = TB_Password.Text;
+            string user = TB_User.Text;
+            database.Logintestrn(User, Password, password, user);
+
             Main_Menu mainMenu = new Main_Menu();
             mainMenu.Show();
             Close();

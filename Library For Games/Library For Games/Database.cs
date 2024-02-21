@@ -250,8 +250,14 @@ namespace Library_For_Games
             connection.Close();
             //returns data
             return combind;
-        }   
+        }
         //----------------gets the games----------------//
+        //----------------Login related database accesse-------------//
+        public void Logintestrn (string username, string password, string Password, string Username)
+        {
+
+        }
+        //----------------Login related database accesse-------------//
     }
 }
 
