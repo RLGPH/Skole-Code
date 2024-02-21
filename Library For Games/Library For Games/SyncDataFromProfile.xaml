@@ -5,21 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="SyncDataFromProfile" Height="228" Width="264" Background="Black">
+        Title="SyncDataFromProfile" Height="240" Width="300" MinHeight="240" MinWidth="300" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
-            <Button x:Name="BTN_Updated_steam" Content="Sync Steam Data" Click="BTN_Updated_steam_Click" HorizontalAlignment="Left" FontSize="12 px" Margin="10,143,0,0" Width="104" Height="35" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10" />
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Label Content="UserID :" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label Content="API-Key :" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <TextBox x:Name="TB_UserID" HorizontalAlignment="Left" Margin="70,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-            <TextBox x:Name="TB_API_KEY" HorizontalAlignment="Left" Margin="70,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
-            <Border BorderBrush="White" BorderThickness="3" Margin="0,10,0,0" CornerRadius="10" HorizontalAlignment="Center" Width="232" Height="117" VerticalAlignment="Top"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*" MinWidth="10"/>
+                <ColumnDefinition Width="110*" MinWidth="110"/>
+                <ColumnDefinition Width="110*" MinWidth="110"/>
+                <ColumnDefinition Width="10*" MinWidth="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" MinHeight="10"/>
+                <RowDefinition Height="100*" MinHeight="100"/>
+                <RowDefinition Height="50*" MinHeight="50"/>
+                <RowDefinition Height="50*" MinHeight="50"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BTN_Updated_steam" Content="Sync Steam Data" Click="BTN_Updated_steam_Click" HorizontalAlignment="Left" FontSize="12 px" Margin="0,0,0,0" Width="104" Height="35" Background="#FF5261EB" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" Grid.Row="3" Grid.Column="1">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border BorderBrush="White" BorderThickness="3" CornerRadius="10" HorizontalAlignment="Center" Width="232" Height="090" VerticalAlignment="Center">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="UserID :" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Foreground="White"/>
+                            <TextBox x:Name="TB_UserID" HorizontalAlignment="Left" Margin="6,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="API-Key :" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White"/>
+                            <TextBox x:Name="TB_API_KEY" HorizontalAlignment="Left" Margin="0,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

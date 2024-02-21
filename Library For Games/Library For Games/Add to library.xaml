@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="Add_to_library" Height="300" Width="350" Background="Black">
+        Title="Add_to_library" Height="350" Width="370" MinHeight="350" MinWidth="370" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25*"/>
-                <ColumnDefinition Width="113*"/>
-                <ColumnDefinition Width="50*"/>
-                <ColumnDefinition Width="113*"/>
-                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="25*" MinWidth="25"/>
+                <ColumnDefinition Width="115*" MinWidth="115"/>
+                <ColumnDefinition Width="50*" MinWidth="50"/>
+                <ColumnDefinition Width="115*" MinWidth="115"/>
+                <ColumnDefinition Width="25*" MinWidth="25"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="36*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="55*"/>
-                <RowDefinition Height="40*"/>
-                <RowDefinition Height="80*"/>
-                <RowDefinition Height="20*"/>
+                <RowDefinition Height="36*" MinHeight="36"/>
+                <RowDefinition Height="35*" MinHeight="35"/>
+                <RowDefinition Height="55*" MinHeight="55"/>
+                <RowDefinition Height="40*" MinHeight="40"/>
+                <RowDefinition Height="80*" MinHeight="80"/>
+                <RowDefinition Height="20*" MinHeight="20"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,4,20,0">
                 <Button x:Name="BTN_Close_without_Save" Content="Close without save" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" MinHeight="30" MinWidth="110" Click="BTN_Close_without_Save_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold" Grid.Row="4" Grid.Column="1">
                     <Button.Resources>
                         <Style TargetType="Border">
