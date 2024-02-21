@@ -12,6 +12,52 @@ namespace Library_For_Games
 
         List<Combind> combind = new();
 
+        //----------------If allready in SQL Database------------//
+        public void IfGameIsInDatabase(Game_S game, Library library)
+        {
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
+            string GetGname = "SELECT ID, GHours FROM Games WHERE GName = @gameName";
+
+            using SqlCommand selectCommand = new(GetGname, connection);
+            selectCommand.Parameters.AddWithValue("@gameName", game.Name);
+            using SqlDataReader reader = selectCommand.ExecuteReader();
+
+            if (reader.Read())
+            {
+                //gets gameID using gamename
+                int gameId = reader.GetInt32(0);
+
+                reader.Close();
+                //opens to update relavent Data
+                string sqlGame = "UPDATE Games SET GDescription = @GDescription, GHours = @GHours WHERE ID = @ID";
+                string sqlLibrary = "UPDATE GLibrary SET Steam = @Steam, Epic = @Epic, Other = @Other WHERE LibraryID = @LibraryID";
+
+                using SqlCommand updateGame = new(sqlGame, connection);
+                using SqlCommand updateLibrary = new(sqlLibrary, connection);
+
+                updateGame.Parameters.AddWithValue("@GHours", game.Hours);
+                updateGame.Parameters.AddWithValue("@GDescription", game.Description);
+                updateGame.Parameters.AddWithValue("@ID", gameId);
+                updateGame.ExecuteNonQuery();
+
+                updateLibrary.Parameters.AddWithValue("@Steam", library.Steam);
+                updateLibrary.Parameters.AddWithValue("@Epic", library.Epic);
+                updateLibrary.Parameters.AddWithValue("@Other", library.Other);
+                updateLibrary.Parameters.AddWithValue("@LibraryID", gameId);
+                updateLibrary.ExecuteNonQuery();
+            }
+            else
+            {
+                //incase reader is on shut it off
+                reader.Close();
+                //sends data to be added to database if it didnt already exist in the SQL database
+                LibraryADD(library);
+                GameAddlist(game);
+            }
+        }
+        //----------------If allready in SQL Database------------//
         //----------------ADD'S to the SQL Server----------------//
         public void GameAddlist(Game_S game)
         {

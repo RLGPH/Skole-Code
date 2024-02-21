@@ -94,8 +94,7 @@ namespace Library_For_Games
                     //tells you edit saved and then give true to the previous page
                     MessageBox.Show("EDIT SAVED");
                     DialogResult = true;
-                    //who knows where this takes you. "harry potter" out of this page. "some voice"
-                    //10 points to gryffendore  
+                    //it does what its name states close aka close the window  
                     Close();
                 }
                 else
@@ -112,12 +111,13 @@ namespace Library_For_Games
                     //sends data to the add functions so they can be added to database
 
                     Library library = new(FkeyID, epic, steam, other);
-                    database.LibraryADD(library);
 
                     Game_S games = new(GameID, Gamename, Gamedescrip, Gamehours, FkeyID);
-                    database.GameAddlist(games);
-                    MessageBox.Show("GAME ADDED");
-                   
+                    database.IfGameIsInDatabase(games, library);
+
+                    MessageBox.Show("GAME ADDED/EDITED");
+
+                    DialogResult = true;
                     Close();
                 }
                 else

@@ -47,7 +47,14 @@ namespace Library_For_Games
 
             //opens window with dumby info
             Add_to_library add_to_library = new(0, 0, game, library);
-            add_to_library.Show();
+            bool? resault = add_to_library.ShowDialog();
+            if (resault == true)
+            {
+                //if true then give updated data to database and reload datagrid
+                List<Combind> combinds = database.GetAndCombind();
+                DTG_Games.ItemsSource = null;
+                DTG_Games.ItemsSource = combinds;
+            }
         }
 
         private void BTN_EDIT_Click(object sender, RoutedEventArgs e)
