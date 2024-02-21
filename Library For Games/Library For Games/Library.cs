@@ -8,7 +8,10 @@ namespace Library_For_Games
 {
     public class Library
     {
+        //not used for a lot
         public int ID { get; set; }
+
+        //everything from here is used a lot more
         public bool Epic {  get; set; }
         public bool Steam { get; set; }
         public bool Other {  get; set; }

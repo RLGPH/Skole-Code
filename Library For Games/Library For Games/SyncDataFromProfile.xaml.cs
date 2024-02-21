@@ -64,7 +64,7 @@ namespace Library_For_Games
                             {
                                 //sends every thing to the database class to send it to the SQL database
                                 //also if it couldnt get a description it will just say None
-                                Game_S games = new(1, gameName, gameDescription ?? "None", playtimeHours, 1);
+                                Game_S games = new(1, gameName, gameDescription ?? "Test game?", playtimeHours, 1);
                                 database.ChecksSteamAndDatabase(games);
                             }
                         }
@@ -144,8 +144,8 @@ namespace Library_For_Games
                 else
                 {
                     //if it couldnt get a the gamename using appID and writs none instead
-                    MessageBox.Show($"will write gamename as NONE, it couldnt find {appId}");
-                    string gamename = "NONE"; 
+                    MessageBox.Show($"will write gamename as {appId} and description as Test game?, it couldnt find {appId}");
+                    string gamename = $"{appId}"; 
                     return gamename;
                 }
             }

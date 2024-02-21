@@ -107,6 +107,7 @@ namespace Library_For_Games
             //gives id and gamehours from the use of Name
             string selectQuery = "SELECT ID, GHours FROM Games WHERE GName = @gameName";
 
+            //reads the gamename to see if there is one of the exact same
             using SqlCommand selectCommand = new(selectQuery, connection);
             selectCommand.Parameters.AddWithValue("@gameName", game.Name);
             using SqlDataReader reader = selectCommand.ExecuteReader();
@@ -129,7 +130,7 @@ namespace Library_For_Games
             {
                 //incase reader is on shut it off
                 reader.Close();
-                //sends data to be added to database if it didnt already exist
+                //sends data to be added to database if it didnt already exist in the SQL database
                 Library library = new(1, false, true, false);
                 LibraryADD(library);
                 GameAddlist(game);   

@@ -9,22 +9,22 @@
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid Margin="3,0,-3,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" MinHeight="50"/>
-                <RowDefinition Height="*" MinHeight="280"/>
-                <RowDefinition Height="auto" MinHeight="50"/>
-                <RowDefinition Height="auto" MinHeight="50"/>
-                <RowDefinition Height="auto" MinHeight="50"/>
+                <RowDefinition Height="50*" MinHeight="50"/>
+                <RowDefinition Height="280*" MinHeight="280"/>
+                <RowDefinition Height="80*" MinHeight="80"/>
+                <RowDefinition Height="80*" MinHeight="80"/>
+                <RowDefinition Height="50*" MinHeight="50"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MinWidth="30"/>
-                <ColumnDefinition Width="auto" MinWidth="30"/>
-                <ColumnDefinition Width="auto" MinWidth="300"/>
-                <ColumnDefinition Width="auto" MinWidth="20"/>
-                <ColumnDefinition Width="*" MinWidth="30"/>
+                <ColumnDefinition Width="5*" MinWidth="5"/>
+                <ColumnDefinition Width="20*" MinWidth="20"/>
+                <ColumnDefinition Width="20*"  MinWidth="20"/>
+                <ColumnDefinition Width="2*" MinWidth="2"/>
+                <ColumnDefinition Width="5*" MinWidth="5"/>
             </Grid.ColumnDefinitions>
 
             <ScrollViewer Grid.Column="1"  Grid.ColumnSpan="3" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <DataGrid x:Name="DTG_Games" AutoGenerateColumns="False" SelectionChanged="DTG_Games_SelectionChanged" Background="Black" Height="auto" MinHeight="280" Width="auto">
+                <DataGrid x:Name="DTG_Games" AutoGenerateColumns="False" SelectionChanged="DTG_Games_SelectionChanged" Background="Black" Height="auto" MinHeight="280" Width="auto" >
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -42,33 +42,33 @@
                 </DataGrid>
             </ScrollViewer>
 
-            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="0,8,0,0" MinWidth="248">
-                <Border x:Name="B_Filter" BorderBrush="White" BorderThickness="2" CornerRadius="7" MinWidth="248" MinHeight="34" Grid.Column="1"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="0,8,0,0" MinWidth="248" Width="248">
+                <Border x:Name="B_Filter" BorderBrush="White" BorderThickness="2" CornerRadius="7" MinWidth="248" MinHeight="34" Grid.Column="1">
+                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" MinWidth="240" Width="240">
+                        <Label Content="Select Filter option" MinWidth="120" MinHeight="25" Foreground="White" FontFamily="Bahnschrift SemiBold" Margin="0,0,0,0"/>
+                        <ComboBox x:Name="CBB_Filter" MinWidth="120" MinHeight="22" SelectionChanged="CBB_Filter_SelectionChanged" FontFamily="Bahnschrift SemiBold" Height="22" Width="88">
+                            <ComboBoxItem Content="All" Tag="0"/>
+                            <ComboBoxItem Content="Steam" Tag="1"/>
+                            <ComboBoxItem Content="Epic" Tag="2"/>
+                            <ComboBoxItem Content="Other" Tag="3"/>
+                            <ComboBoxItem Content="H-L Hours" Tag="4" />
+                            <ComboBoxItem Content="L-H Hours" Tag="5"/>
+                            <ComboBoxItem Content="A-Z" Tag="6"/>
+                            <ComboBoxItem Content="Z-A" Tag="7"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
             </StackPanel>
 
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" MinWidth="240">
-                <Label Content="Select Filter option" MinWidth="120" MinHeight="26" Foreground="White" FontFamily="Bahnschrift SemiBold" Margin="0,13,0,0"/>
-                <ComboBox x:Name="CBB_Filter" MinWidth="120" MinHeight="22" SelectionChanged="CBB_Filter_SelectionChanged" FontFamily="Bahnschrift SemiBold" Height="22" Width="88">
-                    <ComboBoxItem Content="All" Tag="0"/>
-                    <ComboBoxItem Content="Steam" Tag="1"/>
-                    <ComboBoxItem Content="Epic" Tag="2"/>
-                    <ComboBoxItem Content="Other" Tag="3"/>
-                    <ComboBoxItem Content="H-L Hours" Tag="4" />
-                    <ComboBoxItem Content="L-H Hours" Tag="5"/>
-                    <ComboBoxItem Content="A-Z" Tag="6"/>
-                    <ComboBoxItem Content="Z-A" Tag="7"/>
-                </ComboBox>
-            </StackPanel>
-
-            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="43,5,0,1" MinWidth="255">
-                <Button x:Name="BTN_REMOVE" Content="REMOVE" MinHeight="34" MinWidth="116" Background="#FFFF0404" Foreground="Black" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="43,5,0,10" MinWidth="255" Width="255">
+                <Button x:Name="BTN_REMOVE" Content="REMOVE" MinHeight="25" MinWidth="115" Background="#FFFF0404" Foreground="Black" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button x:Name="BTN_ADD" Content="ADD" MinHeight="34" MinWidth="116" Click="BTN_ADD_Click" Background="#FF1CF600" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
+                <Button x:Name="BTN_ADD" Content="ADD" MinHeight="25" MinWidth="115" Click="BTN_ADD_Click" Background="#FF1CF600" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />
@@ -77,7 +77,7 @@
                 </Button>
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="43,5,0,0" MinWidth="254">
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="43,5,0,10" MinWidth="254" Width="254">
                 <Button x:Name="BTN_CLOSE" Content="CLOSE" MinHeight="34" MinWidth="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
@@ -94,34 +94,36 @@
                 </Button>
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
-                <Label Content="Select game Using ID" HorizontalAlignment="Left" Margin="5,12,0,0" VerticalAlignment="Top" MinWidth="198" MinHeight="34" FontSize="18" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
-                <TextBox x:Name="TB_ID_SELECT" HorizontalAlignment="Left" Margin="3,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" MinWidth="84" MinHeight="26" FontSize="18" BorderBrush="#FF696A6C" FontFamily="Bahnschrift SemiBold">
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="6"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </StackPanel>
 
-            <StackPanel Grid.Row="2" Grid.Column="2">
-                <Border x:Name="B_ID" BorderBrush="White" BorderThickness="2" Margin="0,10,0,0" CornerRadius="7" MinHeight="34" VerticalAlignment="Top" HorizontalAlignment="Center" MinWidth="290" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"/>
-            </StackPanel>
 
-            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label Content="Search" HorizontalAlignment="Left" Margin="25,14,0,0" RenderTransformOrigin="0.552,0.514" Foreground="White" FontFamily="Bahnschrift SemiBold" MinWidth="48" MinHeight="34"/>
-                <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="0,18,5,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged" FontFamily="Bahnschrift SemiBold" MinHeight="16">
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="8"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+            <StackPanel Grid.Row="2" Grid.Column="2" Margin="0,16,0,0">
+                <Border x:Name="B_ID" BorderBrush="White" BorderThickness="2" Margin="0,0,0,0" CornerRadius="7" MinHeight="10" VerticalAlignment="Top" HorizontalAlignment="Center" MinWidth="290" Height="48">
+                    <StackPanel Orientation="Horizontal" Margin="0,-2,0,0">
+                        <Label Content="Select game Using ID" Margin="10,8,0,0" MinWidth="198" MinHeight="34" FontSize="18" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+                        <TextBox x:Name="TB_ID_SELECT" Margin="0,10,10,10" TextWrapping="Wrap" Text="" MinWidth="84" MinHeight="25" FontSize="18" BorderBrush="#FF696A6C" FontFamily="Bahnschrift SemiBold">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="6"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                </Border>
             </StackPanel>
 
             <StackPanel Grid.Row="0" Grid.Column="2">
-                <Border BorderBrush="White" BorderThickness="2" Margin="18,14,0,0" CornerRadius="7" HorizontalAlignment="Left" MinWidth="192" MinHeight="24" VerticalAlignment="Top" Grid.Column="2"/>
+                <Border BorderBrush="White" BorderThickness="2" Margin="18,5,0,0" CornerRadius="7" HorizontalAlignment="Left" MinWidth="100" MinHeight="5" VerticalAlignment="Top" Grid.Column="2" Height="30" Width="180">
+                    <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" Width="200" Margin="0,-4,0,0">
+                        <Label Content="Search" HorizontalAlignment="Left" Margin="5,4,0,0" Foreground="White" FontFamily="Bahnschrift SemiBold" MinWidth="48" MinHeight="34"/>
+                        <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="0,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="120" Foreground="Black" Background="White" TextChanged="TB_Search_TextChanged" FontFamily="Bahnschrift SemiBold" MinHeight="16">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="8"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                    </StackPanel>
+                </Border>
             </StackPanel>
         </Grid>
     </Border>
