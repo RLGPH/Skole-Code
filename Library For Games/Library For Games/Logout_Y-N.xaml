@@ -1,0 +1,16 @@
+﻿<Window x:Class="Library_For_Games.Logout_Y_N"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_For_Games"
+        mc:Ignorable="d"
+        Title="Logout_Y_N" Height="305" Width="305" MinHeight="305" MinWidth="305" Background="Black">
+    <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
+        <Grid>
+            <Button x:Name="BTN_Logout" Content="Logout" HorizontalAlignment="Left" Margin="170,139,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Logout_Click"/>
+            <Button x:Name="BTN_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="27,139,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Cancel_Click"/>
+
+        </Grid>
+    </Border>
+</Window>

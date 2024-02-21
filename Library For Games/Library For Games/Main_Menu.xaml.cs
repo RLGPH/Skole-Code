@@ -29,6 +29,7 @@ namespace Library_For_Games
             //opens the window use to show whats saved in SQL database
             Most_Played_Save most_Played_Save = new();
             most_Played_Save.Show();
+            Close();
         }
 
         private void BTN_ADD_TO_Click(object sender, RoutedEventArgs e)
@@ -47,6 +48,18 @@ namespace Library_For_Games
             //opens sync windows 
             SyncDataFromProfile syncDataFromProfile = new();
             syncDataFromProfile.Show();
+        }
+
+        private void BTN_Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Logout_Y_N logout = new Logout_Y_N();
+            bool? resault = logout.ShowDialog();
+            if (resault == true)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+                Close();
+            }
         }
     }
 }

@@ -78,7 +78,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="43,5,0,10" MinWidth="254" Width="254">
-                <Button x:Name="BTN_CLOSE" Content="CLOSE" MinHeight="34" MinWidth="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
+                <Button x:Name="BTN_CLOSE" Content="Back" MinHeight="34" MinWidth="116" Click="BTN_CLOSE_Click" Background="Red" Foreground="Black" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />

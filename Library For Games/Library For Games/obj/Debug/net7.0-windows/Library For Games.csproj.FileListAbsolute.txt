@@ -40,3 +40,5 @@ C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For 
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Main_Menu.g.cs
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Admin Login.baml
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Main_Menu.baml
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Logout_Y-N.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Logout_Y-N.baml

@@ -16,6 +16,9 @@
     <Compile Update="get all steam confirm.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Logout_Y-N.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Main_Menu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="get all steam confirm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Logout_Y-N.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

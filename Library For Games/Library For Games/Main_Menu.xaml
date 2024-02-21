@@ -57,7 +57,7 @@
                 </Button>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="Logout" FontFamily="Bahnschrift SemiBold" MinWidth="180" FontSize="20" MinHeight="45" Background="#FF5261EB">
+                <Button x:Name="BTN_Logout" Content="Logout" FontFamily="Bahnschrift SemiBold" MinWidth="180" FontSize="20" MinHeight="45" Background="#FF5261EB" Click="BTN_Logout_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5" />

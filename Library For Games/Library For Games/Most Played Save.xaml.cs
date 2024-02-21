@@ -34,6 +34,8 @@ namespace Library_For_Games
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
         {
+            Main_Menu mainMenu = new();
+            mainMenu.Show();
             //just close nothing else totaly wont
             //show you eldricth horro images
             Close();
