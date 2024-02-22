@@ -13,7 +13,7 @@ namespace Library_For_Games
         public string Name { get; set; }
         public string Description { get; set; }
         public int Hours { get; set; }
-        //not really used for any more then comparing
+        //not really used for anything
         public int ForignkeyID { get; set; }
         public Game_S(int id,string name,string description,int hours,int Fkey) 
         {

@@ -253,9 +253,14 @@ namespace Library_For_Games
         }
         //----------------gets the games----------------//
         //----------------Login related database accesse-------------//
-        public void Logintestrn (string username, string password, string Password, string Username)
+        public void Logintest (string username, string password, string Password, string Username)
         {
+            using SqlConnection SQLconnection = new(connectionstring);
+            SQLconnection.Open();
 
+            password.CompareTo(Password);
+
+            SQLconnection.Close();
         }
         //----------------Login related database accesse-------------//
     }
