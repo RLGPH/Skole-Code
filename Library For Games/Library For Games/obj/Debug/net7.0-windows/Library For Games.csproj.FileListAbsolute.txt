@@ -42,3 +42,7 @@ C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For 
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Main_Menu.baml
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Logout_Y-N.g.cs
 C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\Logout_Y-N.baml
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\AddAndEditUser.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\User List.g.cs
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\AddAndEditUser.baml
+C:\Users\Casper s. jensen\source\repos\Skole-Code\Library For Games\Library For Games\obj\Debug\net7.0-windows\User List.baml

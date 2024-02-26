@@ -12,13 +12,15 @@ namespace Library_For_Games
         public int ID {  get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+        public string APassword { get; set; }
         public string UserRank {  get; set; }
         
-        public User(int id, string name, string password, string userrank)
+        public User(int id, string name, string password, string Apassword, string userrank)
         {
             ID = id;
             Name = name;
             Password = password;
+            APassword = Apassword;
             UserRank = userrank;
         }
     }

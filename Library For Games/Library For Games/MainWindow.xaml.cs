@@ -29,11 +29,10 @@ namespace Library_For_Games
 
         private void BTN_Login_Click(object sender, RoutedEventArgs e)
         {
-            string User = "Phoenix";
-            string Password = "Pass123";
+            string seclevel = "User";
             string password = TB_Password.Text;
             string user = TB_User.Text;
-            bool Pass = database.Logintest(User, Password, password, user);
+            bool Pass = database.Logintest(password, user, seclevel);
             if(Pass == true)
             {
                 Main_Menu mainMenu = new Main_Menu();

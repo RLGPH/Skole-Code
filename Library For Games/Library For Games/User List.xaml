@@ -8,6 +8,8 @@
         Title="User_List" MinHeight="500" MinWidth="900" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
+            <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="192,378,0,0" VerticalAlignment="Top" Height="61" Width="120" Click="BTN_ADD_Click"/>
+            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="192,308,0,0" VerticalAlignment="Top" Height="60" Width="120" Click="BTN_CLOSE_Click"/>
 
         </Grid>
     </Border>

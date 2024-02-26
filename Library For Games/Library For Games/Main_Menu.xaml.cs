@@ -61,5 +61,12 @@ namespace Library_For_Games
                 Close();
             }
         }
+
+        private void BTN_Users_Click(object sender, RoutedEventArgs e)
+        {
+            User_List userlist = new User_List();
+            userlist.Show();
+            Close();
+        }
     }
 }

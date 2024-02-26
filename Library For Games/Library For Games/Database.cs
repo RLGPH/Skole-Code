@@ -255,46 +255,73 @@ namespace Library_For_Games
         }
         //----------------gets the games----------------//
         //----------------Login related database accesse-------------//
-        public bool Logintest(string username, string password, string Password, string Username)
+        public bool Logintest(string Password, string Username, string seclevel)
         {
-            bool User = username == Username;
-            bool TrueOrFalse = false;
+            using SqlConnection sqlConnection = new(connectionstring);
+            sqlConnection.Open();
 
-            if (User == true)
+            string SQL = "SELECT UserName, UserPassWord, AdminPassWord, ProfileRank FROM UsersAndAdmins WHERE UserName = @UserName";
+
+            using SqlCommand cmd = new(SQL, sqlConnection);
+            cmd.Parameters.AddWithValue("@UserName", Username);
+
+            using SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
             {
-                bool Pass = password == Password;
-                if (Pass == true)
+                string username = reader["UserName"].ToString();
+                string UserPassword = reader["UserPassWord"].ToString();
+                string AdminPassword = reader["AdminPassWord"].ToString();
+                string UserRank = reader["ProfileRank"].ToString();
+                if (seclevel == "User")
                 {
-                    TrueOrFalse = true;
+                    if (Username == username && Password == UserPassword)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password is Wrong");
+                        return false;
+                    }
                 }
-                else
+                else if (seclevel == "Admin")
                 {
-                    MessageBox.Show("Password is Wrong");
+                    if (Username == username && Password == AdminPassword)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password is Wrong");
+                        return false;
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("UserName is Wrong");
+                return false;
             }
-
-            return TrueOrFalse;
         }
+
+
         public void AddUser(User user)
         {
             using SqlConnection sqlConnection = new(connectionstring);
             sqlConnection.Open();
 
-            string SQL = "INSERT INTO WorksAndAdmins (UserName,UserPassWord,ProfileRank)" +
-                         "VALUES(@UserName,@UserPassWord,@ProfileRank)" +
+            string SQL = "INSERT INTO UsersAndAdmins (UserName,UserPassWord, AdminPassWord, ProfileRank)" +
+                         "VALUES(@UserName,@UserPassWord, @AdminPassWord, @ProfileRank)" +
                          "SELECT SCOPE_IDENTITY()";
 
             using SqlCommand cmd = new(SQL, sqlConnection);
             cmd.Parameters.AddWithValue("@UserName", user.Name);
             cmd.Parameters.AddWithValue("@UserPassWord", user.Password);
+            cmd.Parameters.AddWithValue("@AdminPassWord", user.APassword);
             cmd.Parameters.AddWithValue("@ProfileRank", user.UserRank);
 
-            int id = Convert.ToInt32(cmd.ExecuteScalar());
-            user.ID = id;
+            int Id = Convert.ToInt32(cmd.ExecuteScalar());
+            user.ID = Id;
 
             sqlConnection.Close();
         }

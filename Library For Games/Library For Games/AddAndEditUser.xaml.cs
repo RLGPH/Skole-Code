@@ -19,9 +19,43 @@ namespace Library_For_Games
     /// </summary>
     public partial class AddAndEditUser : Window
     {
+        Database database;
         public AddAndEditUser()
         {
             InitializeComponent();
+            database = new();
+        }
+
+        private void BTN_Save_ADD_Click(object sender, RoutedEventArgs e)
+        {
+            bool AdminOrUser = (bool)CHB_ADMIN.IsChecked;
+            if (AdminOrUser == true)
+            {
+                int ID = 1;
+                string User = TB_User.Text;
+                string password = TB_Password.Text;
+                string AdminPass = TB_APassword.Text;
+                string Rank = "Admin";
+                User user = new(ID, User, password, AdminPass,Rank);
+                database.AddUser(user);
+                Close();
+            }
+            else
+            {
+                int ID = 1;
+                string User = TB_User.Text;
+                string password = TB_Password.Text;
+                string AdminPass = TB_APassword.Text;
+                string Rank = "User";
+                User user = new(ID, User, password, AdminPass,Rank);
+                database.AddUser(user);
+                Close();
+            }
+        }
+
+        private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
