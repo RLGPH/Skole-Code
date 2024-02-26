@@ -255,7 +255,7 @@ namespace Library_For_Games
         }
         //----------------gets the games----------------//
         //----------------Login related database accesse-------------//
-        public bool Logintest(string Password, string Username, string seclevel)
+        public bool Logintest(string Password, string Username, string seclevel, string APassword)
         {
             using SqlConnection sqlConnection = new(connectionstring);
             sqlConnection.Open();
@@ -272,29 +272,28 @@ namespace Library_For_Games
                 string UserPassword = reader["UserPassWord"].ToString();
                 string AdminPassword = reader["AdminPassWord"].ToString();
                 string UserRank = reader["ProfileRank"].ToString();
-                if (seclevel == "User")
+                if (Username == username && Password == UserPassword && seclevel == "User")
                 {
-                    if (Username == username && Password == UserPassword)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Password is Wrong");
-                        return false;
-                    }
+                    return true;
                 }
-                else if (seclevel == "Admin")
+                else if (Username == username && Password != UserPassword)
                 {
-                    if (Username == username && Password == AdminPassword)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Password is Wrong");
-                        return false;
-                    }
+                    MessageBox.Show("Password is Wrong");
+                    return false;
+                }
+
+                if (Username == username && APassword == AdminPassword && Password == UserPassword && seclevel == "Admin" && UserRank == "Admin")
+                {
+                    return true;
+                }
+                else if (Username == username && APassword != AdminPassword || Password != UserPassword)
+                {
+                    MessageBox.Show("Password is Wrong");
+                    return false;
+                }
+                else
+                {
+                    return false;
                 }
             }
             else
