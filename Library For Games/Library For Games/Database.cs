@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
-using System.Xml.Linq;
 
 namespace Library_For_Games
 {
@@ -302,8 +301,6 @@ namespace Library_For_Games
                 return false;
             }
         }
-
-
         public void AddUser(User user)
         {
             using SqlConnection sqlConnection = new(connectionstring);
@@ -327,6 +324,8 @@ namespace Library_For_Games
         //----------------Login related database accesse-------------//
     }
 }
+
+
 
 
 
