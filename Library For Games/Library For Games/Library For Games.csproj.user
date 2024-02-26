@@ -10,6 +10,9 @@
     <Compile Update="Add to library.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AddAndEditUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Admin Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,9 +31,15 @@
     <Compile Update="SyncDataFromProfile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="User List.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Add to library.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddAndEditUser.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin Login.xaml">
@@ -52,6 +61,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SyncDataFromProfile.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="User List.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

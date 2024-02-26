@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Windows;
+using System.Xml.Linq;
 
 namespace Library_For_Games
 {
@@ -253,14 +255,48 @@ namespace Library_For_Games
         }
         //----------------gets the games----------------//
         //----------------Login related database accesse-------------//
-        public void Logintest (string username, string password, string Password, string Username)
+        public bool Logintest(string username, string password, string Password, string Username)
         {
-            using SqlConnection SQLconnection = new(connectionstring);
-            SQLconnection.Open();
+            bool User = username == Username;
+            bool TrueOrFalse = false;
 
-            password.CompareTo(Password);
+            if (User == true)
+            {
+                bool Pass = password == Password;
+                if (Pass == true)
+                {
+                    TrueOrFalse = true;
+                }
+                else
+                {
+                    MessageBox.Show("Password is Wrong");
+                }
+            }
+            else
+            {
+                MessageBox.Show("UserName is Wrong");
+            }
 
-            SQLconnection.Close();
+            return TrueOrFalse;
+        }
+        public void AddUser(User user)
+        {
+            using SqlConnection sqlConnection = new(connectionstring);
+            sqlConnection.Open();
+
+            string SQL = "INSERT INTO WorksAndAdmins (UserName,UserPassWord,ProfileRank)" +
+                         "VALUES(@UserName,@UserPassWord,@ProfileRank)" +
+                         "SELECT SCOPE_IDENTITY()";
+
+            using SqlCommand cmd = new(SQL, sqlConnection);
+            cmd.Parameters.AddWithValue("@UserName", user.Name);
+            cmd.Parameters.AddWithValue("@UserPassWord", user.Password);
+            cmd.Parameters.AddWithValue("@ProfileRank", user.UserRank);
+
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            user.ID = id;
+
+            sqlConnection.Close();
         }
         //----------------Login related database accesse-------------//
     }

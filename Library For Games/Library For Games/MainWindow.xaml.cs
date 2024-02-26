@@ -33,11 +33,13 @@ namespace Library_For_Games
             string Password = "Pass123";
             string password = TB_Password.Text;
             string user = TB_User.Text;
-            database.Logintest(User, Password, password, user);
-
-            Main_Menu mainMenu = new Main_Menu();
-            mainMenu.Show();
-            
+            bool Pass = database.Logintest(User, Password, password, user);
+            if(Pass == true)
+            {
+                Main_Menu mainMenu = new Main_Menu();
+                mainMenu.Show();
+                Close();
+            }
         }
 
         private void BTN_Admin_Login_Click(object sender, RoutedEventArgs e)
