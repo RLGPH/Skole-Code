@@ -5,18 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="MainWindow" Height="305" Width="305" MinHeight="305" MinWidth="305" Background="Black">
+        Title="MainWindow" Height="405" Width="405" MinHeight="305" MinWidth="305" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
-            <TextBox x:Name="TB_User" HorizontalAlignment="Left" Margin="104,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <Label Content="User :" Foreground="White" Margin="60,36,194,213" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
             
-            <TextBox x:Name="TB_Password" HorizontalAlignment="Left" Margin="104,79,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <Label Content="Password :" Foreground="White" Margin="35,72,194,173"/>
-            <Button x:Name="BTN_Login" Content="Login" HorizontalAlignment="Left" Margin="51,169,0,0" VerticalAlignment="Top" Click="BTN_Login_Click"/>
-            <Button x:Name="BTN_Close" Content="Close" HorizontalAlignment="Left" Margin="146,179,0,0" VerticalAlignment="Top" Click="BTN_Close_Click"/>
-            <Button x:Name="BTN_Admin_Login" Content="ADMIN Login" HorizontalAlignment="Left" Margin="51,218,0,0" VerticalAlignment="Top" Click="BTN_Admin_Login_Click"/>
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Label Content="User :" Foreground="White" Margin="0,0,0,0"/>
+                <TextBox x:Name="TB_User" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Row="1" Height="18" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White" Background="Black"/>
+            </StackPanel>
 
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Password :" Foreground="White" Margin="0,0,0,0"/>
+                <TextBox x:Name="TB_Password" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Row="2" Height="18" Grid.Column="1" Grid.ColumnSpan="2" Background="Black" Foreground="White"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+                <Button x:Name="BTN_Login" Content="Login" Click="BTN_Login_Click" Height="35" Width="90" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+                <Button x:Name="BTN_Close" Content="Close" Click="BTN_Close_Click" Height="35" Width="90" Margin="20,0,0,0" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,60,0">
+                <Button x:Name="BTN_Admin_Login" Content="ADMIN Login" Click="BTN_Admin_Login_Click" Height="35" Width="140" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

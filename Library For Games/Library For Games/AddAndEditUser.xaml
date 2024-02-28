@@ -13,7 +13,7 @@
             <CheckBox x:Name="CHB_ADMIN" Content="Admin" HorizontalAlignment="Left" Margin="206,112,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Button x:Name="BTN_CLOSE" Content="CLOSE WINDOW" HorizontalAlignment="Left" Margin="71,171,0,0" VerticalAlignment="Top" Width="108" Click="BTN_CLOSE_Click"/>
             <Button x:Name="BTN_Save_ADD" Content="SAVE AND ADD" HorizontalAlignment="Left" Margin="71,205,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="108" Click="BTN_Save_ADD_Click"/>
-            <TextBox x:Name="TB_APassword" TextWrapping="Wrap" Text="" Width="120" Margin="206,143,32,180" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox x:Name="TB_APassword" TextWrapping="Wrap" Text="stay" Width="120" Margin="206,143,32,180" RenderTransformOrigin="0.5,0.5"/>
 
         </Grid>
     </Border>

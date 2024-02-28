@@ -19,16 +19,26 @@ namespace Library_For_Games
     /// </summary>
     public partial class Admin_Login : Window
     {
+        Database database;
         public Admin_Login()
         {
             InitializeComponent();
+            database = new();
         }
 
         private void BTN_Admin_Login_Click(object sender, RoutedEventArgs e)
         {
-            Main_Menu mainMenu = new Main_Menu();
-            mainMenu.Show();
-            Close();
+            string Username = TB_Admin_User.Text;
+            string Password1 = TB_Admin_Password_1.Text;
+            string Password2 = TB_Password_2.Text;
+            string seclevel = "Admin";
+            bool Pass = database.Logintest(Password1, Username, Password2, seclevel);
+            if (Pass)
+            {
+                Main_Menu mainMenu = new Main_Menu();
+                mainMenu.Show();
+                Close();
+            }
         }
 
         private void BTN_Back_Click(object sender, RoutedEventArgs e)

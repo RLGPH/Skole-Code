@@ -285,7 +285,12 @@ namespace Library_For_Games
                 {
                     return true;
                 }
-                else if (Username == username && APassword != AdminPassword || Password != UserPassword)
+                else if (UserRank != "Admin")
+                {
+                    MessageBox.Show("what did you thing would happen when your account is User rank");
+                    return false;
+                }
+                else if (Username == username && APassword != AdminPassword || Password != UserPassword )
                 {
                     MessageBox.Show("Password is Wrong");
                     return false;
