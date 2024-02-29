@@ -12,6 +12,7 @@ namespace Library_For_Games
         public string connectionstring = "Data Source=LAPTOP-BOMR24KV;Initial Catalog = Library For Video games; Integrated Security = True";
 
         List<Combind> combind = new();
+        List<User> users = new();
 
         //----------------If allready in SQL Database------------//
         public void IfGameIsInDatabase(Game_S game, Library library)
@@ -325,6 +326,20 @@ namespace Library_For_Games
             user.ID = Id;
 
             sqlConnection.Close();
+        }
+        public List<User> UpdateUser()
+        {
+            if (users == null)
+            {
+                users = new List<User>();
+            }
+            else
+            {
+                users.Clear();
+            }
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
         }
         //----------------Login related database accesse-------------//
     }

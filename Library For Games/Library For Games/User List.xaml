@@ -8,9 +8,38 @@
         Title="User_List" MinHeight="500" MinWidth="900" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
-            <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="192,378,0,0" VerticalAlignment="Top" Height="61" Width="120" Click="BTN_ADD_Click"/>
-            <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="192,308,0,0" VerticalAlignment="Top" Height="60" Width="120" Click="BTN_CLOSE_Click"/>
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="350*"/>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="300*"/>
+                <ColumnDefinition Width="480*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_CLOSE_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2"/>
+                <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_ADD_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2"/>
+            </StackPanel>
+            <ScrollViewer Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <DataGrid x:Name="DTG_Users" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="#FF838383" AutoGenerateColumns="False" Background="Black" Height="auto" MinHeight="280" Width="auto" BorderThickness="4">
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="User" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                            <DataGridTextColumn Header="Admin Password" Binding="{Binding APassword}"/>
+                        <DataGridTextColumn Header="User Rank" Binding="{Binding UserRank}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
         </Grid>
     </Border>
 </Window>

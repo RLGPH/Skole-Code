@@ -22,6 +22,7 @@ namespace Library_For_Games
         public User_List()
         {
             InitializeComponent();
+            List<User> list = new();
         }
 
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)
