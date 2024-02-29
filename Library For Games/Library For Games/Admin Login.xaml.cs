@@ -35,7 +35,7 @@ namespace Library_For_Games
             bool Pass = database.Logintest(Password1, Username, Password2, seclevel);
             if (Pass)
             {
-                Main_Menu mainMenu = new Main_Menu();
+                Main_Menu mainMenu = new Main_Menu(seclevel);
                 mainMenu.Show();
                 Close();
             }

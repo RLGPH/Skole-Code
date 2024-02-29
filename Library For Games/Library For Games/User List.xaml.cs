@@ -32,7 +32,8 @@ namespace Library_For_Games
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
         {
-            Main_Menu mainMenu = new();
+            string seclevel = "Admin";
+            Main_Menu mainMenu = new(seclevel);
             mainMenu.Show();
             Close();
         }

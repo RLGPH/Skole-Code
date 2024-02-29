@@ -19,15 +19,27 @@ namespace Library_For_Games
     /// </summary>
     public partial class Main_Menu : Window
     {
-        public Main_Menu()
+        private string userRank;
+        public Main_Menu(String rank)
         {
             InitializeComponent();
+            userRank = rank;
+            if (rank == "User")
+            {
+                int row = Grid.GetRow(SP_BTN_Users);
+                int column = Grid.GetColumn(SP_BTN_Users);
+
+                Grid.SetRow(SP_BTN_Logout, row);
+                Grid.SetColumn(SP_BTN_Logout, column);
+
+                BTN_Users.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void BTN_LIBRARY_Click(object sender, RoutedEventArgs e)
         {
-            //opens the window use to show whats saved in SQL database
-            Most_Played_Save most_Played_Save = new();
+
+            Most_Played_Save most_Played_Save = new(userRank);
             most_Played_Save.Show();
             Close();
         }

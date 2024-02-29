@@ -22,19 +22,26 @@ namespace Library_For_Games
     public partial class Most_Played_Save : Window
     {
         readonly Database database = new();
-        public Most_Played_Save()
+
+        private string userRank;
+
+        public Most_Played_Save(string UserRank)
         {
             InitializeComponent();
+            
+            userRank = UserRank;
+
             //initiates the database and saves data that has been gotten from the database
             List<Combind> combinds = database.GetAndCombind();
 
             //adds said data to datagrid
             DTG_Games.ItemsSource = combinds;
+            
         }
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
         {
-            Main_Menu mainMenu = new();
+            Main_Menu mainMenu = new(userRank);
             mainMenu.Show();
             //just close nothing else totaly wont
             //show you eldricth horro images

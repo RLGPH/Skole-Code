@@ -5,17 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_For_Games"
         mc:Ignorable="d"
-        Title="Admin_Login" Height="305" Width="305" MinHeight="305" MinWidth="305" Background="Black">
+        Title="Admin_Login" Height="350" Width="350" MinHeight="350" MinWidth="350" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
-            <Label Content="Admin User :" Foreground="White" Margin="60,55,155,194"/>
-            <TextBox x:Name="TB_Admin_User" HorizontalAlignment="Left" Margin="138,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="TB_Admin_Password_1" HorizontalAlignment="Left" Margin="138,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <Label Content="First Password:" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label Content="Second Password:" HorizontalAlignment="Left" Margin="33,109,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <TextBox x:Name="TB_Password_2" HorizontalAlignment="Left" Margin="138,113,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-            <Button x:Name="BTN_Admin_Login" Content="Login" HorizontalAlignment="Left" Margin="60,179,0,0" VerticalAlignment="Top" Click="BTN_Admin_Login_Click"/>
-            <Button x:Name="BTN_Back" Content="Back" HorizontalAlignment="Left" Margin="198,179,0,0" VerticalAlignment="Top" Click="BTN_Back_Click"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3">
+                <Border BorderBrush="White" BorderThickness="2" CornerRadius="7" Margin="0,0,0,0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="28,4,0,0">
+                            <Label Content="Admin User :" Foreground="White" Margin="0,0,0,0"/>
+                            <TextBox x:Name="TB_Admin_User" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="1"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="18,0,0,0">
+                            <Label Content="First Password:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White"/>
+                            <TextBox x:Name="TB_Admin_Password_1" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,4">
+                            <Label Content="Second Password:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White"/>
+                            <TextBox x:Name="TB_Password_2" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,4,0,0">
+                <Button x:Name="BTN_Admin_Login" Content="Login" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Click="BTN_Admin_Login_Click" Height="35" Width="90" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+                <Button x:Name="BTN_Back" Content="Back" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Click="BTN_Back_Click" Height="35" Width="90" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>
