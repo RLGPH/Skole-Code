@@ -40,6 +40,10 @@ namespace Library_For_Games
                 mainMenu.Show();
                 Close();
             }
+            if (Pass == false)
+            {
+                MessageBox.Show("Using the Admin login menu theres a \"Backdoor\" because security is not top priority when testing");
+            }
         }
 
         private void BTN_Admin_Login_Click(object sender, RoutedEventArgs e)

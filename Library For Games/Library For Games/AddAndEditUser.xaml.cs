@@ -24,6 +24,8 @@ namespace Library_For_Games
         {
             InitializeComponent();
             database = new();
+
+            SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
         }
 
         private void BTN_Save_ADD_Click(object sender, RoutedEventArgs e)
@@ -56,6 +58,21 @@ namespace Library_For_Games
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void CHB_ADMIN_Click(object sender, RoutedEventArgs e)
+        {
+            bool AdminYesNo = (bool)CHB_ADMIN.IsChecked;
+            if (AdminYesNo == true)
+            {
+                SP_TB_AdminPassWord.Visibility = Visibility.Visible;
+                TB_APassword.Text = null;
+            }
+            else
+            {
+                SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
+                TB_APassword.Text = null;
+            }
         }
     }
 }

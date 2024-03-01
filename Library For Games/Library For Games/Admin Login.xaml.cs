@@ -33,11 +33,24 @@ namespace Library_For_Games
             string Password2 = TB_Password_2.Text;
             string seclevel = "Admin";
             bool Pass = database.Logintest(Password1, Username, Password2, seclevel);
-            if (Pass)
+            if (Pass == true)
             {
                 Main_Menu mainMenu = new Main_Menu(seclevel);
                 mainMenu.Show();
                 Close();
+            }
+            else if (Pass == false)
+            {
+                MessageBox.Show("The current back door code is (User: Admin) (FirstPassword: Admin)  (SecondPassword: Admin)" +
+                                "\n if you type that in and then press login again you will get this text again just click OK");
+                string BackDoor = "Admin";
+                if (Username == BackDoor && Password1 == BackDoor && Password2 == BackDoor)
+                {
+                    MessageBox.Show(" this BackDoor will be removed when im completly done with the SQL Quory");
+                    Main_Menu mainMenu = new Main_Menu(seclevel);
+                    mainMenu.Show();
+                    Close();
+                }
             }
         }
 

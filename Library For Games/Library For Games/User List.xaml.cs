@@ -19,10 +19,14 @@ namespace Library_For_Games
     /// </summary>
     public partial class User_List : Window
     {
+        Database database = new();
         public User_List()
         {
             InitializeComponent();
-            List<User> list = new();
+            List<User> list = database.GetUser();
+
+            DTG_Users.ItemsSource = list;
+            
         }
 
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)

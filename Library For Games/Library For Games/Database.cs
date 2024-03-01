@@ -327,7 +327,7 @@ namespace Library_For_Games
 
             sqlConnection.Close();
         }
-        public List<User> UpdateUser()
+        public List<User> GetUser()
         {
             if (users == null)
             {
@@ -340,6 +340,26 @@ namespace Library_For_Games
             using SqlConnection connection = new(connectionstring);
             connection.Open();
 
+            string SQL = "SELECT * FROM UsersAndAdmins";
+
+            using SqlCommand cmd = new(SQL, connection);
+            using SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int ID = Convert.ToInt32(reader["UserID"]);
+                string Name = Convert.ToString(reader["UserName"]);
+                string Password = Convert.ToString(reader["UserPassWord"]);
+                string AdminPassword = Convert.ToString(reader["AdminPassWord"]);
+                string UserRank = Convert.ToString(reader["ProfileRank"]);
+
+                User user = new(ID, Name, Password, AdminPassword, UserRank);
+
+                users.Add(user);
+            }
+            connection.Close();
+
+            return users;
         }
         //----------------Login related database accesse-------------//
     }
