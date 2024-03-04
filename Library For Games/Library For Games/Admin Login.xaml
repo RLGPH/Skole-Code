@@ -28,15 +28,15 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="28,4,0,0">
                             <Label Content="Admin User :" Foreground="White" Margin="0,0,0,0"/>
-                            <TextBox x:Name="TB_Admin_User" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="1"/>
+                            <TextBox x:Name="TB_Admin_User" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="1"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="18,0,0,0">
                             <Label Content="First Password:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White"/>
-                            <TextBox x:Name="TB_Admin_Password_1" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
+                            <TextBox x:Name="TB_Admin_Password_1" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,4">
                             <Label Content="Second Password:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White"/>
-                            <TextBox x:Name="TB_Password_2" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="TB_Password_2" HorizontalAlignment="Left" Margin="0,4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
