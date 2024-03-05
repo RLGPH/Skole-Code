@@ -42,5 +42,20 @@ namespace Library_For_Games
             mainMenu.Show();
             Close();
         }
+
+        private void TB_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<User> users = database.GetUser();
+            string search = TB_Search.Text.ToLower();
+
+            var resaults = users.Where(u => u.Name.ToLower().StartsWith(search));
+            DTG_Users.ItemsSource = null;
+            DTG_Users.ItemsSource = resaults;
+            if(search == null || search == "")
+            {
+                DTG_Users.ItemsSource = null;
+                DTG_Users.ItemsSource = users; 
+            }
+        }
     }
 }
