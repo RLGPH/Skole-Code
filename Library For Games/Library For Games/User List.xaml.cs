@@ -31,7 +31,8 @@ namespace Library_For_Games
 
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)
         {
-            AddAndEditUser addAndEditUser = new();
+            User user = new(0, "", "", "", "");
+            AddAndEditUser addAndEditUser = new(0,user);
             addAndEditUser.Show();
         }
 
@@ -55,6 +56,32 @@ namespace Library_For_Games
             {
                 DTG_Users.ItemsSource = null;
                 DTG_Users.ItemsSource = users; 
+            }
+        }
+
+        private void DTG_Users_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DTG_Users.ItemsSource != null)
+            {
+                //changes selected item to combind object instead
+                User users = (User)DTG_Users.SelectedItem;
+
+                //gets the ID and displays it in the text box
+                int ID = users.ID;
+                TB_ID_SELECT.Text = ID.ToString();
+            }
+        }
+
+        private void BTN_EDIT_Click(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(TB_ID_SELECT.Text,out int ID))
+            {
+                DTG_Users.SelectedItem = ID;
+                
+                User user = (User)DTG_Users.SelectedItem;
+
+                AddAndEditUser addAndEditUser = new(1,user);
+                addAndEditUser.Show();
             }
         }
     }

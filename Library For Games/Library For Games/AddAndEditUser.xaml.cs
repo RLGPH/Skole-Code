@@ -20,12 +20,28 @@ namespace Library_For_Games
     public partial class AddAndEditUser : Window
     {
         Database database;
-        public AddAndEditUser()
+        public AddAndEditUser(int ID, User user)
         {
             InitializeComponent();
             database = new();
 
-            SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
+            if(ID == 1) 
+            {
+                string URank = user.UserRank;
+                if (URank == "Admin")
+                {
+                    CHB_ADMIN.IsChecked = true;
+                }
+                else
+                {
+                    SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
+            }
+            
         }
 
         private void BTN_Save_ADD_Click(object sender, RoutedEventArgs e)

@@ -25,10 +25,10 @@
                 <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_CLOSE_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2"/>
                 <Button x:Name="BTN_REMOVE" Content="REMOVE" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,0,20,0" Height="60" Width="120"/>
                 <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_ADD_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2"/>
-                <Button x:Name="BTN_EDIT" Content="EDIT" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="20,0,0,0" Height="60" Width="120"/>
+                <Button x:Name="BTN_EDIT" Content="EDIT" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="20,0,0,0" Height="60" Width="120" Click="BTN_EDIT_Click"/>
             </StackPanel>
             <ScrollViewer Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,0,0">
-                <DataGrid x:Name="DTG_Users" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="#FF838383" AutoGenerateColumns="False" Background="Black" Height="auto" MinHeight="280" Width="auto" BorderThickness="4" FontSize="15" FontFamily="Bahnschrift SemiBold">
+                <DataGrid x:Name="DTG_Users" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="#FF838383" AutoGenerateColumns="False" Background="Black" Height="auto" MinHeight="280" Width="auto" BorderThickness="4" FontSize="15" FontFamily="Bahnschrift SemiBold" SelectionChanged="DTG_Users_SelectionChanged">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
@@ -48,6 +48,20 @@
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Search :" Foreground="White" FontSize="20" FontFamily="Bahnschrift SemiBold"/>
                         <TextBox x:Name="TB_Search" HorizontalAlignment="Left" Margin="5,5,10,5" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="20" FontFamily="Bahnschrift SemiBold" TextChanged="TB_Search_TextChanged"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Grid.Column="2" Margin="0,16,0,0">
+                <Border x:Name="B_ID" BorderBrush="White" BorderThickness="2" Margin="0,0,0,0" CornerRadius="7" MinHeight="10" VerticalAlignment="Top" HorizontalAlignment="Center" MinWidth="290" Height="48">
+                    <StackPanel Orientation="Horizontal" Margin="0,-2,0,0">
+                        <Label Content="Select game Using ID" Margin="10,8,0,0" MinWidth="198" MinHeight="34" FontSize="18" Foreground="White" FontFamily="Bahnschrift SemiBold"/>
+                        <TextBox x:Name="TB_ID_SELECT" Margin="0,10,10,10" TextWrapping="Wrap" Text="" MinWidth="84" MinHeight="25" FontSize="18" BorderBrush="#FF696A6C" FontFamily="Bahnschrift SemiBold">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="6"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
                     </StackPanel>
                 </Border>
             </StackPanel>
