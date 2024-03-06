@@ -190,28 +190,26 @@ namespace Library_For_Games
         //----------------Deletes the things in the SQL SERVER----------------//
         public void DeleteObjects(int ID)
         {
-            using (SqlConnection connection = new SqlConnection(connectionstring))
+            using SqlConnection connection = new(connectionstring);
+            connection.Open();
+
+            // Delete from Games table
+            string gamesDeleteQuery = "DELETE FROM Games WHERE ID = @ID";
+            using (SqlCommand gamesDeleteCmd = new(gamesDeleteQuery, connection))
             {
-                connection.Open();
-
-                // Delete from Games table
-                string gamesDeleteQuery = "DELETE FROM Games WHERE ID = @ID";
-                using (SqlCommand gamesDeleteCmd = new SqlCommand(gamesDeleteQuery, connection))
-                {
-                    gamesDeleteCmd.Parameters.AddWithValue("@ID", ID);
-                    gamesDeleteCmd.ExecuteNonQuery();
-                }
-
-                // Delete from GLibrary table
-                string libraryDeleteQuery = "DELETE FROM GLibrary WHERE LibraryID = @LibraryID";
-                using (SqlCommand libraryDeleteCmd = new SqlCommand(libraryDeleteQuery, connection))
-                {
-                    libraryDeleteCmd.Parameters.AddWithValue("@LibraryID", ID);
-                    libraryDeleteCmd.ExecuteNonQuery();
-                }
-
-                connection.Close();
+                gamesDeleteCmd.Parameters.AddWithValue("@ID", ID);
+                gamesDeleteCmd.ExecuteNonQuery();
             }
+
+            // Delete from GLibrary table
+            string libraryDeleteQuery = "DELETE FROM GLibrary WHERE LibraryID = @LibraryID";
+            using (SqlCommand libraryDeleteCmd = new(libraryDeleteQuery, connection))
+            {
+                libraryDeleteCmd.Parameters.AddWithValue("@LibraryID", ID);
+                libraryDeleteCmd.ExecuteNonQuery();
+            }
+
+            connection.Close();
         }
         //----------------Deletes the things in the SQL SERVER----------------//
 
@@ -317,54 +315,48 @@ namespace Library_For_Games
         }
         public void AddUser(User user)
         {
-            using (SqlConnection sqlConnection = new SqlConnection(connectionstring))
+            using SqlConnection sqlConnection = new(connectionstring);
+            sqlConnection.Open();
+
+            // Check if the username already exists
+            string checkIfExistsQuery = "SELECT COUNT(*) FROM UsersAndAdmins WHERE UserName = @UserName";
+            using (SqlCommand checkIfExistsCmd = new(checkIfExistsQuery, sqlConnection))
             {
-                sqlConnection.Open();
+                checkIfExistsCmd.Parameters.AddWithValue("@UserName", user.Name);
+                int count = (int)checkIfExistsCmd.ExecuteScalar();
 
-                // Check if the username already exists
-                string checkIfExistsQuery = "SELECT COUNT(*) FROM UsersAndAdmins WHERE UserName = @UserName";
-                using (SqlCommand checkIfExistsCmd = new SqlCommand(checkIfExistsQuery, sqlConnection))
+                if (count > 0)
                 {
-                    checkIfExistsCmd.Parameters.AddWithValue("@UserName", user.Name);
-                    int count = (int)checkIfExistsCmd.ExecuteScalar();
-
-                    if (count > 0)
+                    MessageBoxResult result = MessageBox.Show($"This user name allready exist {user.Name} If you are fine with editing the user just press OK unless Cancel", "Edit?", MessageBoxButton.OKCancel);
+                    if (result == MessageBoxResult.OK)
                     {
-                        MessageBoxResult result = MessageBox.Show($"This user name allready exist {user.Name} If you are fine with editing the user just press OK unless Cancel", "Edit?", MessageBoxButton.OKCancel);
-                        if (result == MessageBoxResult.OK)
-                        {
-                            // Username exists, so update the existing record
-                            string updateQuery = "UPDATE UsersAndAdmins SET UserPassWord = @UserPassWord, " +
-                                             "AdminPassWord = @AdminPassWord, ProfileRank = @ProfileRank " +
-                                             "WHERE UserName = @UserName";
-                            using (SqlCommand updateCmd = new SqlCommand(updateQuery, sqlConnection))
-                            {
-                                updateCmd.Parameters.AddWithValue("@UserName", user.Name);
-                                updateCmd.Parameters.AddWithValue("@UserPassWord", user.Password);
-                                updateCmd.Parameters.AddWithValue("@AdminPassWord", user.APassword);
-                                updateCmd.Parameters.AddWithValue("@ProfileRank", user.UserRank);
-                                updateCmd.ExecuteNonQuery();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        // Username does not exist, so insert a new record
-                        string insertQuery = "INSERT INTO UsersAndAdmins (UserName, UserPassWord, AdminPassWord, ProfileRank) " +
-                                             "VALUES (@UserName, @UserPassWord, @AdminPassWord, @ProfileRank)";
-                        using (SqlCommand insertCmd = new SqlCommand(insertQuery, sqlConnection))
-                        {
-                            insertCmd.Parameters.AddWithValue("@UserName", user.Name);
-                            insertCmd.Parameters.AddWithValue("@UserPassWord", user.Password);
-                            insertCmd.Parameters.AddWithValue("@AdminPassWord", user.APassword);
-                            insertCmd.Parameters.AddWithValue("@ProfileRank", user.UserRank);
-                            insertCmd.ExecuteNonQuery();
-                        }
+                        // Username exists, so update the existing record
+                        string updateQuery = "UPDATE UsersAndAdmins SET UserPassWord = @UserPassWord, " +
+                                         "AdminPassWord = @AdminPassWord, ProfileRank = @ProfileRank " +
+                                         "WHERE UserName = @UserName";
+                        using SqlCommand updateCmd = new(updateQuery, sqlConnection);
+                        updateCmd.Parameters.AddWithValue("@UserName", user.Name);
+                        updateCmd.Parameters.AddWithValue("@UserPassWord", user.Password);
+                        updateCmd.Parameters.AddWithValue("@AdminPassWord", user.APassword);
+                        updateCmd.Parameters.AddWithValue("@ProfileRank", user.UserRank);
+                        updateCmd.ExecuteNonQuery();
                     }
                 }
-
-                sqlConnection.Close();
+                else
+                {
+                    // Username does not exist, so insert a new record
+                    string insertQuery = "INSERT INTO UsersAndAdmins (UserName, UserPassWord, AdminPassWord, ProfileRank) " +
+                                         "VALUES (@UserName, @UserPassWord, @AdminPassWord, @ProfileRank)";
+                    using SqlCommand insertCmd = new(insertQuery, sqlConnection);
+                    insertCmd.Parameters.AddWithValue("@UserName", user.Name);
+                    insertCmd.Parameters.AddWithValue("@UserPassWord", user.Password);
+                    insertCmd.Parameters.AddWithValue("@AdminPassWord", user.APassword);
+                    insertCmd.Parameters.AddWithValue("@ProfileRank", user.UserRank);
+                    insertCmd.ExecuteNonQuery();
+                }
             }
+
+            sqlConnection.Close();
         }
         public List<User> GetUser()
         {
@@ -392,7 +384,9 @@ namespace Library_For_Games
                 string AdminPassword = Convert.ToString(reader["AdminPassWord"]);
                 string UserRank = Convert.ToString(reader["ProfileRank"]);
 
+#pragma warning disable CS8604 // Possible null reference argument.
                 User user = new(ID, Name, Password, AdminPassword, UserRank);
+
 
                 users.Add(user);
             }
@@ -402,7 +396,7 @@ namespace Library_For_Games
         }
         public void DeleteUser(int ID)
         {
-            using SqlConnection sqlConnection = new SqlConnection(connectionstring);
+            using SqlConnection sqlConnection = new(connectionstring);
             sqlConnection.Open();
 
             string deleteUser = "DELETE FROM UsersAndAdmins WHERE UserID = @ID";

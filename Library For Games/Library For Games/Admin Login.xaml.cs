@@ -19,7 +19,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class Admin_Login : Window
     {
-        Database database;
+        readonly Database database;
         public Admin_Login()
         {
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace Library_For_Games
             bool Pass = database.Login(Password1, Username, Password2, seclevel);
             if (Pass == true)
             {
-                Main_Menu mainMenu = new Main_Menu(seclevel);
+                Main_Menu mainMenu = new(seclevel);
                 mainMenu.Show();
                 Close();
             }
@@ -47,7 +47,7 @@ namespace Library_For_Games
                 if (Username == BackDoor && Password1 == BackDoor && Password2 == BackDoor)
                 {
                     MessageBox.Show(" this BackDoor will be removed when im completly done with the SQL Quory");
-                    Main_Menu mainMenu = new Main_Menu(seclevel);
+                    Main_Menu mainMenu = new(seclevel);
                     mainMenu.Show();
                     Close();
                 }
@@ -56,7 +56,7 @@ namespace Library_For_Games
 
         private void BTN_Back_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+            MainWindow main = new();
             main.Show();
             Close();
         }

@@ -21,7 +21,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class MainWindow : Window
     {
-        Database database = new();
+        readonly Database database = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace Library_For_Games
             bool Pass = database.Login(password, user, seclevel, APassword);
             if(Pass == true)
             {
-                Main_Menu mainMenu = new Main_Menu(seclevel);
+                Main_Menu mainMenu = new(seclevel);
                 mainMenu.Show();
                 Close();
             }
@@ -48,7 +48,7 @@ namespace Library_For_Games
 
         private void BTN_Admin_Login_Click(object sender, RoutedEventArgs e)
         {
-            Admin_Login admin = new Admin_Login();
+            Admin_Login admin = new();
             admin.Show();
             Close();
         }

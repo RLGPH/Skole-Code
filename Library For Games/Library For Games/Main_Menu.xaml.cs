@@ -19,7 +19,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class Main_Menu : Window
     {
-        private string userRank;
+        private readonly string userRank;
         public Main_Menu(String rank)
         {
             InitializeComponent();
@@ -64,11 +64,11 @@ namespace Library_For_Games
 
         private void BTN_Logout_Click(object sender, RoutedEventArgs e)
         {
-            Logout_Y_N logout = new Logout_Y_N();
+            Logout_Y_N logout = new();
             bool? resault = logout.ShowDialog();
             if (resault == true)
             {
-                MainWindow main = new MainWindow();
+                MainWindow main = new();
                 main.Show();
                 Close();
             }
@@ -76,7 +76,7 @@ namespace Library_For_Games
 
         private void BTN_Users_Click(object sender, RoutedEventArgs e)
         {
-            User_List userlist = new User_List();
+            User_List userlist = new();
             userlist.Show();
             Close();
         }

@@ -19,7 +19,7 @@ namespace Library_For_Games
     /// </summary>
     public partial class User_List : Window
     {
-        Database database = new();
+        readonly Database database = new();
         public User_List()
         {
             InitializeComponent();

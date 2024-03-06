@@ -19,9 +19,11 @@ namespace Library_For_Games
     /// </summary>
     public partial class AddAndEditUser : Window
     {
-        Database database;
+        readonly Database database;
 
-        private int id;
+#pragma warning disable IDE0052 // Remove unread private members
+        private readonly int id;
+#pragma warning restore IDE0052 // Remove unread private members
         public AddAndEditUser(int ID, User user)
         {
             InitializeComponent();
@@ -53,7 +55,9 @@ namespace Library_For_Games
 
         private void BTN_Save_ADD_Click(object sender, RoutedEventArgs e)
         {
+#pragma warning disable CS8629 // Nullable value type may be null.
             bool AdminOrUser = (bool)CHB_ADMIN.IsChecked;
+
             if (AdminOrUser == true)
             {
                 int ID = 1;

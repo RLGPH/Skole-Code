@@ -8,9 +8,23 @@
         Title="Logout_Y_N" Height="305" Width="305" MinHeight="305" MinWidth="305" Background="Black">
     <Border CornerRadius="8" BorderThickness="6" BorderBrush="#FF585858" Background="Black">
         <Grid>
-            <Button x:Name="BTN_Logout" Content="Logout" HorizontalAlignment="Left" Margin="170,139,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Logout_Click"/>
-            <Button x:Name="BTN_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="27,139,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Cancel_Click"/>
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="134*"/>
+                <ColumnDefinition Width="133*"/>
+                <ColumnDefinition Width="11*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38*"/>
+                <RowDefinition Height="216*"/>
+                <RowDefinition Height="23*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Grid.Column="2">
+                <Button x:Name="BTN_Logout" Content="Logout" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Logout_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BTN_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Cancel_Click"/>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>

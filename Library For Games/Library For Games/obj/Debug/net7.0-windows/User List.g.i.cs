@@ -117,7 +117,7 @@ namespace Library_For_Games {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library For Games;component/user%20list.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library For Games;V1.0.0.0;component/user%20list.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\User List.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

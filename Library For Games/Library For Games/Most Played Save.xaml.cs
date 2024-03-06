@@ -23,7 +23,7 @@ namespace Library_For_Games
     {
         readonly Database database = new();
 
-        private string userRank;
+        private readonly string userRank;
 
         public Most_Played_Save(string UserRank)
         {
