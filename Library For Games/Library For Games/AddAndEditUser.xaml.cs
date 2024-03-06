@@ -20,17 +20,24 @@ namespace Library_For_Games
     public partial class AddAndEditUser : Window
     {
         Database database;
+
+        private int id;
         public AddAndEditUser(int ID, User user)
         {
             InitializeComponent();
             database = new();
 
+            id = ID;
             if(ID == 1) 
             {
+                TB_User.Text = user.Name;
+                TB_Password.Text = user.Password;
+
                 string URank = user.UserRank;
                 if (URank == "Admin")
                 {
                     CHB_ADMIN.IsChecked = true;
+                    TB_APassword.Text = user.APassword;
                 }
                 else
                 {
@@ -56,6 +63,8 @@ namespace Library_For_Games
                 string Rank = "Admin";
                 User user = new(ID, User, password, AdminPass,Rank);
                 database.AddUser(user);
+
+                DialogResult = true;
                 Close();
             }
             else
@@ -67,6 +76,8 @@ namespace Library_For_Games
                 string Rank = "User";
                 User user = new(ID, User, password, AdminPass,Rank);
                 database.AddUser(user);
+
+                DialogResult = true;
                 Close();
             }
         }

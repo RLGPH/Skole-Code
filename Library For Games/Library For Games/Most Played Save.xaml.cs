@@ -186,8 +186,29 @@ namespace Library_For_Games
             DTG_Games.ItemsSource = null;
             DTG_Games.ItemsSource = filterList;
         }
+
+        private void BTN_REMOVE_Click(object sender, RoutedEventArgs e)
+        {
+            if(int.TryParse(TB_ID_SELECT.Text,out int ID) && ID >= 1)
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete ID {ID}?", "Delete Confirmation", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
+                {
+                    database.DeleteObjects(ID);
+                
+                    List<Combind> combinds = database.GetAndCombind();
+
+                    DTG_Games.ItemsSource = null;
+                    DTG_Games.ItemsSource = combinds;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No valid ID has been chosen or no ID has been chosen");
+            }
+        }
     }
-    
+
     public class Combind
     {
         public int MasterID { get; set; }

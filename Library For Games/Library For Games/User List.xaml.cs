@@ -33,7 +33,14 @@ namespace Library_For_Games
         {
             User user = new(0, "", "", "", "");
             AddAndEditUser addAndEditUser = new(0,user);
-            addAndEditUser.Show();
+            bool? resaults = addAndEditUser.ShowDialog();
+            if (resaults == true) 
+            {
+                List<User> list = database.GetUser();
+
+                DTG_Users.ItemsSource = null;
+                DTG_Users.ItemsSource = list;
+            }
         }
 
         private void BTN_CLOSE_Click(object sender, RoutedEventArgs e)
@@ -81,7 +88,34 @@ namespace Library_For_Games
                 User user = (User)DTG_Users.SelectedItem;
 
                 AddAndEditUser addAndEditUser = new(1,user);
-                addAndEditUser.Show();
+                bool? resaults = addAndEditUser.ShowDialog();
+                if(resaults == true)
+                {
+                    List<User> list = database.GetUser();
+
+                    DTG_Users.ItemsSource = null;
+                    DTG_Users.ItemsSource = list;
+                }
+            }
+        }
+
+        private void BTN_REMOVE_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(TB_ID_SELECT.Text, out int ID) && ID >= 1)
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete ID {ID}?", "Delete Confirmation", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
+                {
+                    database.DeleteUser(ID);
+                    List<User> list = database.GetUser();
+
+                    DTG_Users.ItemsSource = null;
+                    DTG_Users.ItemsSource = list;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No valid ID has been chosen or no ID has been chosen");
             }
         }
     }

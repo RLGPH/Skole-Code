@@ -61,7 +61,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="43,5,0,10" MinWidth="255" Width="255">
-                <Button x:Name="BTN_REMOVE" Content="REMOVE" MinHeight="25" MinWidth="115" Background="#FFFF0404" Foreground="Black" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0">
+                <Button x:Name="BTN_REMOVE" Content="REMOVE" MinHeight="25" MinWidth="115" Background="#FFFF0404" Foreground="Black" FontFamily="Bahnschrift SemiBold" Margin="5,0,5,0" Click="BTN_REMOVE_Click">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="5" />

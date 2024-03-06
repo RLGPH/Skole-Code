@@ -109,7 +109,7 @@ namespace Library_For_Games {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library For Games;V1.0.0.0;component/main_menu.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library For Games;component/main_menu.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Main_Menu.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
