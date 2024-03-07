@@ -22,10 +22,10 @@
                 <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_CLOSE_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2"/>
-                <Button x:Name="BTN_REMOVE" Content="REMOVE" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,0,20,0" Height="60" Width="120" Click="BTN_REMOVE_Click"/>
-                <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_ADD_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2"/>
-                <Button x:Name="BTN_EDIT" Content="EDIT" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="20,0,0,0" Height="60" Width="120" Click="BTN_EDIT_Click"/>
+                <Button x:Name="BTN_CLOSE" Content="CLOSE" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_CLOSE_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2" Background="#FFFF0404"/>
+                <Button x:Name="BTN_REMOVE" Content="REMOVE" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,0,20,0" Height="60" Width="120" Click="BTN_REMOVE_Click" Background="#FFFF0404"/>
+                <Button x:Name="BTN_ADD" Content="ADD" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Height="60" Width="120" Click="BTN_ADD_Click" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Grid.Row="2" Background="#FF1CF600"/>
+                <Button x:Name="BTN_EDIT" Content="EDIT" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="20,0,0,0" Height="60" Width="120" Click="BTN_EDIT_Click" Background="#FF1CF600"/>
             </StackPanel>
             <ScrollViewer Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,0,0">
                 <DataGrid x:Name="DTG_Users" d:ItemsSource="{d:SampleData ItemCount=5}" BorderBrush="#FF838383" AutoGenerateColumns="False" Background="Black" Height="auto" MinHeight="280" Width="auto" BorderThickness="4" FontSize="15" FontFamily="Bahnschrift SemiBold" SelectionChanged="DTG_Users_SelectionChanged">

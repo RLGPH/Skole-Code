@@ -23,28 +23,28 @@
                 <ColumnDefinition Width="30*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="User Name :" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
-                <TextBox x:Name="TB_User" Margin="0,0,0,0" TextWrapping="Wrap" Text="" Width="120"/>
+                <Label Content="User Name :" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
+                <TextBox x:Name="TB_User" Margin="0,0,0,0" TextWrapping="Wrap" Text="" Width="120" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,18,0">
-                <Label Content="UserPassWord :" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Center" Foreground="White"/>
-                <TextBox x:Name="TB_Password" Margin="0,0,0,0" TextWrapping="Wrap" Text="" Width="120"/>
+                <Label Content="UserPassWord :" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Center" Foreground="White" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
+                <TextBox x:Name="TB_Password" Margin="0,0,0,0" TextWrapping="Wrap" Text="" Width="120" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Label Content="Give Admin?" Margin="0,0,0,0" Foreground="White"/>
-                <CheckBox x:Name="CHB_ADMIN" Content="Admin" Margin="0,6,0,0" Foreground="White" Click="CHB_ADMIN_Click"/>
+                <Label Content="Give Admin?" Margin="0,0,0,0" Foreground="White" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
+                <CheckBox x:Name="CHB_ADMIN" Content="Admin" Margin="0,6,0,0" Foreground="White" Click="CHB_ADMIN_Click" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="BTN_CLOSE" Content="CLOSE WINDOW" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="110" Click="BTN_CLOSE_Click" Grid.Column="1" Grid.Row="4"/>
-                <Button x:Name="BTN_Save_ADD" Content="SAVE AND ADD" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="110" Click="BTN_Save_ADD_Click"/>
+                <Button x:Name="BTN_CLOSE" Content="CLOSE WINDOW" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" MinWidth="150" Click="BTN_CLOSE_Click" Grid.Column="1" Grid.Row="4" Background="#FFFF0404" FontSize="15" FontFamily="Bahnschrift SemiBold" MinHeight="30"/>
+                <Button x:Name="BTN_Save_ADD" Content="SAVE AND ADD" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" MinWidth="150" Click="BTN_Save_ADD_Click" Background="#FF1CF600" FontSize="15" FontFamily="Bahnschrift SemiBold" MinHeight="30"/>
             </StackPanel>
 
             <StackPanel x:Name="SP_TB_AdminPassWord" Grid.Column="1" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0">
-                <Label x:Name="LB_Admin" Content="AdminPassWord :" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White"/>
-                <TextBox x:Name="TB_APassword" TextWrapping="Wrap" Text="" Width="120" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2"/>
+                <Label x:Name="LB_Admin" Content="AdminPassWord :" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Foreground="White" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
+                <TextBox x:Name="TB_APassword" TextWrapping="Wrap" Text="" Width="120" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" FontSize="15" FontFamily="Bahnschrift SemiBold"/>
             </StackPanel>
         </Grid>
     </Border>
