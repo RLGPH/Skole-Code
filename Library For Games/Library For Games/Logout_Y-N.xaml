@@ -20,7 +20,7 @@
                 <RowDefinition Height="40*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button x:Name="BTN_Logout" Content="Logout" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Logout_Click" Background="#FF1CF600" FontSize="20" FontFamily="Bahnschrift SemiBold">
+                <Button x:Name="BTN_Logout" Content="Logout" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Logout_Click" Background="#FF5261EB" FontSize="20" FontFamily="Bahnschrift SemiBold">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10" />
@@ -29,7 +29,7 @@
                 </Button>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button x:Name="BTN_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Cancel_Click" Background="#FFFF0404" FontSize="20" FontFamily="Bahnschrift SemiBold">
+                <Button x:Name="BTN_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Click="BTN_Cancel_Click" Background="#FF5261EB" FontSize="20" FontFamily="Bahnschrift SemiBold">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10" />
