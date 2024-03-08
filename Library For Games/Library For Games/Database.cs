@@ -261,7 +261,7 @@ namespace Library_For_Games
         }
         //----------------gets the games----------------//
         //----------------Login related database accesse-------------//
-        public bool Login(string Password, string Username, string seclevel, string APassword)
+        public bool Login(string Password, string Username, string APassword, string seclevel)
         {
             using SqlConnection sqlConnection = new(connectionstring);
             sqlConnection.Open();

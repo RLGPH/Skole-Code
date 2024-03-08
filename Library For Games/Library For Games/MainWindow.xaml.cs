@@ -33,7 +33,7 @@ namespace Library_For_Games
             string seclevel = "User";
             string password = TB_Password.Text;
             string user = TB_User.Text;
-            bool Pass = database.Login(password, user, seclevel, APassword);
+            bool Pass = database.Login(password, user, APassword, seclevel);
             if(Pass == true)
             {
                 Main_Menu mainMenu = new(seclevel);
